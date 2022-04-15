@@ -15,7 +15,7 @@ body {
 .header {
     background-color: white;
     width: 100%;
-    padding-bottom: 2%;
+    padding-bottom: 20px;
 }
 
 #navbar {
@@ -31,12 +31,13 @@ body {
 .img_logo img:hover {
     border-right: 2px dashed #6C6C6C;
     border-bottom: 2px dashed #6C6C6C;
+    border-left: 2px dashed #6C6C6C;
 }
 
 #navbar p {
     font-size: 20px;
     margin: 0 auto;
-    margin-top: -60px;
+    margin-top: -58px;
     width: fit-content;
     border-bottom: 1px solid black;
 }
@@ -44,14 +45,14 @@ body {
 #navbar #form_chucnang {
     display: flex;
     float: right;
-    width: 38%;
+    width: 40%;
     /* border: 1px solid black; */
-    margin-top: -35px;
+    margin-top: -30px;
     padding-left: 10px;
 }
 
 #navbar input[type="search"] {
-    width: 50%;
+    width: 42%;
 }
 
 #navbar button[type="submit"]:hover {
@@ -99,7 +100,7 @@ body {
 #slider,
 #frm-list-sp {
     margin: 0 auto;
-    width: 94%;
+    /* width: 94%; */
     background-color: white;
     border: 2px solid #e5e5e57e;
 }
@@ -191,7 +192,7 @@ body {
     height: 42px;
     position: fixed;
     bottom: 15px;
-    right: -2px;
+    right: 20px;
     cursor: pointer;
     background-color: #EDEDED;
     line-height: 39px;
@@ -232,8 +233,13 @@ body {
     background-color: lightgray;
 }
 
+#user,
+#cart {
+    margin-left: 7%;
+}
+
+#btnUser button,
 #btnUser img {
-    margin-left: 31%;
     width: 34px;
     height: 30px;
     cursor: pointer;
@@ -241,7 +247,6 @@ body {
 
 #btnCart img {
     margin-top: 4px;
-    margin-left: 100%;
     width: 25px;
     height: 25px;
 }
