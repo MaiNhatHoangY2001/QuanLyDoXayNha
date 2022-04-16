@@ -61,7 +61,7 @@ const app = {
 		},
 	],
 	render: function () {
-		var htmls = this.products.map((product) => {
+		var html = this.products.map((product) => {
 			return `<div class="list-product-item flex-fill mt-3">
             <a class="text-center text-decoration-none" href="#">
                 <div>
@@ -77,7 +77,7 @@ const app = {
         </div>`;
 		});
 
-        htmlListProduct.innerHTML = htmls.join("");
+        htmlListProduct.innerHTML = html.join("");
 	},
 	start: function () {
         this.render();
