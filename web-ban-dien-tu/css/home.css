@@ -6,6 +6,7 @@
 
 html {
     font-size: 15px;
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 body {
@@ -133,7 +134,7 @@ body {
 }
 
 #slider {
-    padding: 2% 5% 2% 5%;
+    padding: 2% 0 2% 0;
     /* border: 1px solid black; */
 }
 
@@ -152,6 +153,11 @@ body {
     border-right: 1px solid #C4C4C4;
     padding: 0 5% 0 5%;
     box-shadow: 0px 7px 5px -2px #BFBFBF;
+    /* border: 1px solid black; */
+}
+
+.owl-carousel img:hover {
+    box-shadow: 0px 0px 10px 5px lightgray;
 }
 
 .owl-prev,
@@ -181,6 +187,10 @@ body {
     margin-top: 3%;
     border: none;
     cursor: pointer;
+}
+
+.img-thumbnail:hover {
+    box-shadow: 0px 0px 25px 5px lightgray;
 }
 
 #frm-list-sp {
@@ -236,10 +246,13 @@ body {
 #user,
 #cart {
     margin-left: 7%;
+    width: 12%;
+    /* border: 1px solid black; */
 }
 
-#btnUser button,
+#btnUser img,
 #btnUser img {
+    margin: 0 auto;
     width: 34px;
     height: 30px;
     cursor: pointer;
@@ -251,7 +264,15 @@ body {
     height: 25px;
 }
 
-#btnUser img:hover,
-#btnCart img:hover {
+#soluong {
+    background-color: red;
+    padding: 0 2px 1px 1px;
+    margin-left: -5px;
+    margin-top: -5%;
+    font-size: 13px;
+}
+
+#btnUser :hover,
+#btnCart :hover {
     background-color: lightgray;
 }
