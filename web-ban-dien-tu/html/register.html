@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng kí </title>
+    
+    <!--bootstrap5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&display=swap" rel="stylesheet">
+
+    <!--slideshow-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery.min.js@3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+
+    <!--icon font awesome-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <div class="container">
+        <!--header-->
+        <div class="header">
+            <div id="navbar" class="row">
+                <div>
+                    <div class="img_logo">
+                        <a href="./home_after_signup_signin.html"><img style="width: 20%;" src="../img/logo_size_1-removebg-preview.png" alt="logo"></a>
+                    </div>
+
+                    <p>Sản phẩm</p>
+
+                    <div id="form_chucnang">
+                        <!--thanh tìm kiếm-->
+                        <input type="search" class="form-control" id="txtTim" placeholder="Tìm kiếm">
+                        <button type="submit"><img src="../img/icon_kinhlup.png" alt=""></button>
+
+                        <!--user-->
+                        <div id="user">
+                            <!-- <i class="fa-solid fa-user fa-xl"></i> -->
+                            <button id="btnUser"><img src="../img/icon_user.png" alt="icon_user"></button>
+                        </div>
+
+                        <!--cart:giỏ hàng-->
+                        <div id="cart">
+                            <button id="btnCart"><img src="../img/icon_giohang.png" alt="icon_cart"></button>
+                            <span id="soluong" class="text-white">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-white">
+            <div class="row">
+                <div class="col-7">
+                    <div class="row">
+                        <img src="../img/image 2.png" class="float-start">
+                    </div>
+                    <div class="row">
+                        <img src="../img/image 7.png" class="float-start">
+                    </div>
+                </div>
+                <div id="form_dangnhap" class="col-5">
+                    <form>
+                        <div class="header mt-3 text-center">
+                            <h2>Đăng kí</h2>
+                        </div>
+                        <div>
+                            <!--Tên tài khoản-->
+                            <div class="row">
+                                <div class="col-4 mt-2">
+                                    <label for="tenTaiKhoan" class="form-label"><strong>Tên tài khoản</strong></label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" id="tenDangNhap" placeholder="Tên đăng nhập">
+                                </div>
+                            </div>
+                            <!--Họ và tên-->
+                            <div class="row mt-4">
+                                <div class="col-4 mt-2">
+                                    <label for="hoTen" class="form-label"><strong>Họ và tên</strong></label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" id="hoTen" placeholder="Tên của bạn">
+                                </div>
+                            </div>
+                             <!--Email-->
+                             <div class="row mt-4">
+                                <div class="col-4 mt-2">
+                                    <label for="email" class="form-label"><strong>Email</strong></label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                            </div>
+                             <!--Điện thoại-->
+                             <div class="row mt-4">
+                                <div class="col-4 mt-2">
+                                    <label for="dienThoai" class="form-label"><strong>Số điện thoại</strong></label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="tel" class="form-control" id="dienThoai" placeholder="Số điện thoại">
+                                </div>
+                            </div>
+                            <!--Mật khẩu-->
+                            <div class="row mt-4">
+                                <div class="col-4 mt-2">
+                                    <label for="matKhau" class="form-label"><strong>Mật khẩu</strong></label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="password" class="form-control" id="matKhau" placeholder="Vui lòng nhập mật khẩu">
+                                </div>
+                            </div>
+                            <!--Xác nhận mật khẩu-->
+                            <div class="row mt-4">
+                                <div class="col-4  mt-2">
+                                    <label for="reMatKhau" class="form-label"><strong>Nhập lại mật khẩu</strong></label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="password" class="form-control" id="reMatKhau" placeholder="Xác nhận mật khẩu">
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-4 mt-2">
+                                    <label for="gioiTinh" class="form-label"><strong>Giới tính</strong></label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="radio" class="form-check-input" id="gioiTinh1" name="gioiTinh">
+                                    <label class="form-check-label" for="gioiTinh1"><strong>Nam       </strong></label>
+                                    <input type="radio" class="form-check-input" id="gioiTinh2"name="gioiTinh">
+                                    <label class="form-check-label" for="gioiTinh2"><strong>Nữ</strong></label>
+                                </div>
+                            </div>
+                            <div class="row m-4 mx-auto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="security">
+                                    <label class="form-check-label" for="security">Tôi đồng ý với các điều kiện, điều khoản và chính sách bảo mật.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="news">
+                                    <label class="form-check-label" for="news">Tôi muốn nhận bản tin/ thông báo mới nhất.</label>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-4 mt-2">
+                                </div>
+                                <div class="col-8">                      
+                                    <label for="quenMatKhau" class="float-end"><a class="text-dark" style="text-decoration: none" href="login.html"><strong>Đã có tài khoản? Đăng nhập ngay!</strong></a></label>
+                                </div>
+                            </div>
+                            <div class="row m-4">
+                                <button type="button" class="btn btn-info btn-lg text-white"><strong>Đăng kí</strong></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
