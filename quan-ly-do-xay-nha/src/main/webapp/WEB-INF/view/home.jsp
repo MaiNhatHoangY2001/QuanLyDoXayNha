@@ -184,7 +184,8 @@
 				<div>
 					<div class="img_logo">
 						// <a href="./home_after_signup_signin.html"><img
-							style="width: 20%;" src="${pageContext.request.contextPath}/image/logo_size_1-removebg-preview.png"
+							style="width: 20%;"
+							src="${pageContext.request.contextPath}/resources/image/logo_size_1-removebg-preview.png"
 							alt="logo"></a>
 					</div>
 
