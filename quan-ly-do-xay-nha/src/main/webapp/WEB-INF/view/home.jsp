@@ -79,7 +79,7 @@
 
         //list sp bán chạy
         let sp1 = {
-            hinh: ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
+            hinh: "resources/image/demo-sp.png",
             tesp: "Viborg VB 401",
             gia: "190.000đ"
         };
@@ -184,7 +184,7 @@
 				<div>
 					<div class="img_logo">
 						// <a href="./home_after_signup_signin.html"><img
-							style="width: 20%;" src="../img/logo_size_1-removebg-preview.png"
+							style="width: 20%;" src="${pageContext.request.contextPath}/image/logo_size_1-removebg-preview.png"
 							alt="logo"></a>
 					</div>
 
