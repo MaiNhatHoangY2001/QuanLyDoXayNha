@@ -8,25 +8,30 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="customer")
+@Table(name = "customers")
 public class Customer {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
 
-    @Column(name="first_name")
-    private String firstName;
+	@Column(name = "ten")
+	private String ten;
 
-    @Column(name="last_name")
-    private String lastName;
+	@Column(name = "sdt")
+	private String sdt;
 
-    @Column(name="email")
-    private String email;
-	
-	public Customer() {
-		
-	}
+	@Column(name = "gioi_tinh")
+	private String gioiTinh;
+
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "mat_khau")
+	private String matKhau;
+
+	@Column(name = "ten_tk")
+	private String tenTK;
 
 	public int getId() {
 		return id;
@@ -36,20 +41,28 @@ public class Customer {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getTen() {
+		return ten;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setTen(String ten) {
+		this.ten = ten;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getSdt() {
+		return sdt;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setSdt(String sdt) {
+		this.sdt = sdt;
+	}
+
+	public String getGioiTinh() {
+		return gioiTinh;
+	}
+
+	public void setGioiTinh(String gioiTinh) {
+		this.gioiTinh = gioiTinh;
 	}
 
 	public String getEmail() {
@@ -60,14 +73,33 @@ public class Customer {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+	public String getMatKhau() {
+		return matKhau;
 	}
-		
+
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
+	}
+
+	public String getTenTK() {
+		return tenTK;
+	}
+
+	public void setTenTK(String tenTK) {
+		this.tenTK = tenTK;
+	}
+
+	public Customer() {
+	}
+
+	public Customer(String ten, String sdt, String gioiTinh, String email, String matKhau, String tenTK) {
+		super();
+		this.ten = ten;
+		this.sdt = sdt;
+		this.gioiTinh = gioiTinh;
+		this.email = email;
+		this.matKhau = matKhau;
+		this.tenTK = tenTK;
+	}
+
 }
-
-
-
-
-
