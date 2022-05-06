@@ -26,6 +26,6 @@ function refreshClock() {
     if (h < 10) { h = "0" + h }
 
     document.getElementById('clock').innerHTML = days[day] + ", " +
-        date + "/" + months[month] + "/" + year + ", " + h + ":" + m + ":" + s + " " + am_pm + " | " + "GMT+7";
+        date + "/" + months[month] + "/" + year + ", " + h + ":" + m + ":" + s + " " + am_pm //+ " | " + "GMT+7";
     setTimeout("refreshClock()", 1000);
 }

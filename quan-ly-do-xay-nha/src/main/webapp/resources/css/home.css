@@ -99,7 +99,10 @@ body {
 
 #title,
 #slider,
-#frm-list-sp {
+#frm-list-sp,
+#footer,
+#top_footer,
+#bottom_footer {
     margin: 0 auto;
     /* width: 94%; */
     background-color: white;
@@ -275,4 +278,29 @@ body {
 #btnUser :hover,
 #btnCart :hover {
     background-color: lightgray;
+}
+
+#top_footer {
+    padding-bottom: 20px;
+}
+
+#top_footer a {
+    padding-top: 10px;
+    /* border: 1px solid black; */
+}
+
+#top_footer p {
+    padding-top: 30px;
+    margin-left: 20px;
+    /* border: 1px solid black; */
+}
+
+#bottom_footer {
+    margin-top: -17px;
+    background-color: white;
+}
+
+#clock {
+    padding-top: 30px;
+    /* border: 1px solid black; */
 }
