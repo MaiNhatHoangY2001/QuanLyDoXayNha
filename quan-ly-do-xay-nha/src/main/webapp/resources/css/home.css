@@ -112,7 +112,6 @@ body {
 #title {
     display: flex;
     align-items: center;
-    margin-top: 18px;
     height: 50px;
 }
 
@@ -303,4 +302,8 @@ body {
 #clock {
     padding-top: 30px;
     /* border: 1px solid black; */
+}
+
+#footer{
+	    margin-top: 18px;
 }

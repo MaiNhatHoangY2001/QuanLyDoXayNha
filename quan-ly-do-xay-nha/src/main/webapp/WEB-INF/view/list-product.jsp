@@ -33,7 +33,8 @@
 <!-- css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/list_products.css" />
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/home.css">
 
 <script>
 	$(document).ready(function() {
@@ -61,7 +62,7 @@
 <body>
 	<div class="container">
 		<!--header-->
-		<div class="header" style="width: 1130px;">
+		<div class="header" style="margin: 0 auto;">
 			<div id="navbar" class="row">
 				<div>
 					<div class="img_logo" style="margin-top: 15px;">
@@ -115,7 +116,7 @@
 		</nav>
 
 		<!-- content -->
-		<div class="content row gap-1">
+		<div class="content row">
 			<!-- left-navbar -->
 			<div class="left-navbar col-md-3 d-flex flex-column gap-2">
 				<div class="left-navbar-item">
@@ -215,7 +216,7 @@
 		</div>
 		<!--footer-->
 		<div id="footer">
-			<div id="title" style="margin-top: 4%;">
+			<div id="title">
 				<div id="line-left"></div>
 				<h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
 				<div id="line-right"></div>

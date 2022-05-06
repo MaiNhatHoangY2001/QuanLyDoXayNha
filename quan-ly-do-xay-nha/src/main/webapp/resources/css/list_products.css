@@ -25,3 +25,12 @@ body {
 .list-product-item :hover {
 	background-color: #E5E5E5;
 }
+
+.img_logo img:hover {
+	border: 2px dashed #6C6C6C;
+}
+
+#footer {
+	margin: 0 auto;
+}
+
