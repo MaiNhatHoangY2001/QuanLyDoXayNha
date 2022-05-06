@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib  uri="http://www.springframework.org/tags/form"  prefix="form"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html >
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng kí </title>
-    
+    <title>Đăng ký</title>
+    <link type="text/css"
+              rel="stylesheet"
+              href="${pageContext.request.contextPath}/resources/css/style.css">
+              <link type="text/css"
+              rel="stylesheet"
+              href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
     <!--bootstrap5-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -24,7 +28,7 @@
     <!--icon font awesome-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
 </head>
 <body>
     <div class="container">
@@ -33,7 +37,7 @@
             <div id="navbar" class="row">
                 <div>
                     <div class="img_logo">
-                        <a href="./home_after_signup_signin.html"><img style="width: 20%;" src="../img/logo_size_1-removebg-preview.png" alt="logo"></a>
+                        <a href="./home_after_signup_signin.html"><img style="width: 20%;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
                     </div>
 
                     <p>Sản phẩm</p>
@@ -41,11 +45,11 @@
                     <div id="form_chucnang">
                         <!--thanh tìm kiếm-->
                         <input type="search" class="form-control" id="txtTim" placeholder="Tìm kiếm">
-                        <button type="submit"><img src="../img/icon_kinhlup.png" alt=""></button>
+                        <button type="submit"><img src="/quan-ly-do-xay-nha/resources/image/icon_kinhlup.png" alt=""></button>
 
                         <!--cart:giỏ hàng-->
                         <div id="cart">
-                            <button id="btnCart"><img src="../img/icon_giohang.png" alt="icon_cart"></button>
+                            <button id="btnCart"><img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png" alt="icon_cart"></button>
                             <span id="soluong" class="text-white">0</span>
                         </div>
                     </div>
@@ -56,30 +60,30 @@
             <div class="row">
                 <div class="col-7">
                     <div class="row">
-                        <img src="../img/image 2.png" class="float-start">
+                        <img src="/quan-ly-do-xay-nha/resources/image/image2.png" class="float-start">
                     </div>
                     <div class="row">
-                        <img src="../img/image 7.png" class="float-start">
+                        <img src="/quan-ly-do-xay-nha/resources/image/image7.png" class="float-start">
                     </div>
                 </div>
                 <div id="form_dangnhap" class="col-5">
                     <form>
-                        <div class="header mt-3 text-center">
+                        <div class="header mt-1 text-center">
                             <h2>Đăng kí</h2>
                         </div>
                         <div>
                             <!--Tên tài khoản-->
                             <div class="row">
-                                <div class="col-4 mt-2">
-                                    <label for="tenTaiKhoan"  class="form-label"><strong>Tên tài khoản</strong></label>
+                                <div class="col-4">
+                                    <label for="tenTaiKhoan" style="margin-left: 5%;" class="form-label"><strong>Tên tài khoản</strong></label>
                                 </div>
                                 <div class="col-8">
                                     <input type="text" class="form-control" id="tenDangNhap" placeholder="Tên đăng nhập">
                                 </div>
                             </div>
                             <!--Họ và tên-->
-                            <div class="row mt-4">
-                                <div class="col-4 mt-2">
+                            <div class="row">
+                                <div class="col-4">
                                     <label for="hoTen" class="form-label"><strong>Họ và tên</strong></label>
                                 </div>
                                 <div class="col-8">
@@ -88,7 +92,7 @@
                             </div>
                              <!--Email-->
                              <div class="row mt-4">
-                                <div class="col-4 mt-2">
+                                <div class="col-4">
                                     <label for="email" class="form-label"><strong>Email</strong></label>
                                 </div>
                                 <div class="col-8">
@@ -97,7 +101,7 @@
                             </div>
                              <!--Điện thoại-->
                              <div class="row mt-4">
-                                <div class="col-4 mt-2">
+                                <div class="col-4">
                                     <label for="dienThoai" class="form-label"><strong>Số điện thoại</strong></label>
                                 </div>
                                 <div class="col-8">
@@ -106,7 +110,7 @@
                             </div>
                             <!--Mật khẩu-->
                             <div class="row mt-4">
-                                <div class="col-4 mt-2">
+                                <div class="col-4">
                                     <label for="matKhau" class="form-label"><strong>Mật khẩu</strong></label>
                                 </div>
                                 <div class="col-8">
@@ -115,32 +119,32 @@
                             </div>
                             <!--Xác nhận mật khẩu-->
                             <div class="row mt-4">
-                                <div class="col-4  mt-2">
+                                <div class="col-4">
                                     <label for="reMatKhau" class="form-label"><strong>Nhập lại mật khẩu</strong></label>
                                 </div>
                                 <div class="col-8">
                                     <input type="password" class="form-control" id="reMatKhau" placeholder="Xác nhận mật khẩu">
                                 </div>
                             </div>
-                            <div class="row mt-4">
-                                <div class="col-4 mt-2">
+                            <div class="row">
+                                <div class="col-4">
                                     <label for="gioiTinh" class="form-label"><strong>Giới tính</strong></label>
                                 </div>
-                                <div class="col-8">
-                                    <input type="radio" class="form-check-input" id="gioiTinh1" name="gioiTinh">
-                                    <label class="form-check-label" for="gioiTinh1"><strong>Nam       </strong></label>
-                                    <input type="radio" class="form-check-input" id="gioiTinh2"name="gioiTinh">
-                                    <label class="form-check-label" for="gioiTinh2"><strong>Nữ</strong></label>
+                                <div class="col-8 mt-2">
+                                    <input type="radio" class="form-check-input" id="gioiTinh1" name="gioiTinh"><strong> Nam </strong>
+                                    
+                                    <input type="radio" class="form-check-input" id="gioiTinh2"name="gioiTinh"><strong> Nữ</strong>
+                                    
                                 </div>
                             </div>
-                            <div class="row m-4 mx-auto">
+                            <div class="row m-4">
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="security">
-                                    <label class="form-check-label" for="security">Tôi đồng ý với các điều kiện, điều khoản và chính sách bảo mật.</label>
+                                    <input type="checkbox" class="form-check-input" id="security">Tôi đồng ý với các điều kiện, điều khoản và chính sách bảo mật.
+                                   
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="news">
-                                    <label class="form-check-label" for="news">Tôi muốn nhận bản tin/ thông báo mới nhất.</label>
+                                    <input type="checkbox" class="form-check-input" id="news">Tôi muốn nhận bản tin/ thông báo mới nhất.
+                                    
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -165,7 +169,7 @@
                 </div>
     
                 <div id="top_footer" class="row">
-                    <a href="./home_before_signup_signin.html" class="col-3"><img style="width: 100%; margin-left: 15px;" src="../img/logo_size_1-removebg-preview.png" alt="logo"></a>
+                    <a href="./home_before_signup_signin.html" class="col-3"><img style="width: 100%; margin-left: 15px;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
                     <p class="col-8">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về các công cụ, vật dụng sữa chữa nhà cửa tiện tích và tuyệt vời. Tất cả đều sẵn sàng cho bạn lựa chọn!</p>
                 </div>
                 <div id="bottom_footer" class="row">
@@ -185,6 +189,17 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>  
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+

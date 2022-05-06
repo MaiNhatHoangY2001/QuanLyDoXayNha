@@ -30,7 +30,14 @@ public class CustomerController {
 //		theModel.addAttribute("customers", theCustomers);
 		return "home";
 	}
-
+//	@GetMapping("/")
+//	public String listCustomers(Model theModel) {
+//		// get customers from the service
+////		List<Customer> theCustomers = customerService.getCustomers();
+////		// add the customers to the model
+////		theModel.addAttribute("customers", theCustomers);
+//		return "customer-form-register";
+//	}
 
 
 //	@PostMapping("/saveCustomer")
