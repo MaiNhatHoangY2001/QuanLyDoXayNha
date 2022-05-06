@@ -1,20 +1,27 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Be Vietnam Pro', sans-serif;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 body {
-    background-color:#E5E5E5;
+	background-color: #E5E5E5;
 }
 
-.content > .left-navbar > .left-navbar-item {
-    padding: 1rem;
-    text-align: center;
-    background-color: white;
+.content>.left-navbar>.left-navbar-item {
+	padding: 1rem;
+	text-align: center;
+	background-color: white;
 }
 
-.list-product-item :hover{
-    background-color: #E5E5E5;
+.product-name {
+	white-space: nowrap;
+	width: 260px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.list-product-item :hover {
+	background-color: #E5E5E5;
 }

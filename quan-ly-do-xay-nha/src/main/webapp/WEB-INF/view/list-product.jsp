@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="tag" uri="/WEB-INF/taglibs/customTaglib.tld"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,18 +34,81 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/list_products.css" />
 
+
+<script>
+	$(document).ready(function() {
+		//nút trở về đầu trang
+		$(window).scroll(function() {
+			if ($(this).scrollTop()) {
+				$('#backTop').fadeIn();
+			} else {
+				$('#backTop').fadeOut();
+			}
+		});
+		$("#backTop").click(function() {
+			$('html, body').animate({
+				scrollTop : 0
+			}, 100); //100 là 0.1s
+		});
+	})
+</script>
+
 <!-- script -->
-<!-- <script
-	src="${pageContext.request.contextPath}/resources/js/list_product.js"
-	async></script> -->
+<script src="${pageContext.request.contextPath}/resources/js/home.js"
+	async></script>
 
 </head>
 <body>
 	<div class="container">
+		<!--header-->
+		<div class="header" style="width: 1130px;">
+			<div id="navbar" class="row">
+				<div>
+					<div class="img_logo" style="margin-top: 15px;">
+						<a href="./home_after_signup_signin.html"><img
+							style="width: 20%;"
+							src="${pageContext.request.contextPath}/resources/image/logo_size_1-removebg-preview.png"
+							alt="logo"></a>
+					</div>
+
+					<div id="form_chucnang" style="margin-top: -5%;">
+						<!--thanh tìm kiếm-->
+						<input type="search" class="form-control" id="txtTim"
+							placeholder="Tìm kiếm">
+						<button type="submit">
+							<img
+								src="${pageContext.request.contextPath}/resources/image/icon_kinhlup.png"
+								alt="">
+						</button>
+
+						<!--user-->
+						<div id="user">
+							<!-- <i class="fa-solid fa-user fa-xl"></i> -->
+							<button id="btnUser">
+								<img
+									src="${pageContext.request.contextPath}/resources/image/icon_user.png"
+									alt="icon_user">
+							</button>
+						</div>
+
+						<!--cart:giỏ hàng-->
+						<div id="cart">
+							<button id="btnCart">
+								<img
+									src="${pageContext.request.contextPath}/resources/image/icon_giohang.png"
+									alt="icon_cart">
+							</button>
+							<span id="soluong" class="text-white">0</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- breadcum -->
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#">Home</a></li>
+				<li class="breadcrumb-item"><a
+					href="${pageContext.request.contextPath}/">Home</a></li>
 				<li id="breadcrumb-item-active" class="breadcrumb-item active"
 					aria-current="page">Data</li>
 			</ol>
@@ -144,17 +208,51 @@
 					</c:forEach>
 				</div>
 
-				<nav>
-					<ul class="pagination justify-content-center">
-						<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
-					</ul>
-				</nav>
+				<tag:paginate max="15" offset="${offset}" count="${count}"
+					uri="${pageContext.request.contextPath}/listProduct" next="&raquo;"
+					previous="&laquo;" />
 			</div>
 		</div>
+		<!--footer-->
+		<div id="footer">
+			<div id="title" style="margin-top: 4%;">
+				<div id="line-left"></div>
+				<h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+				<div id="line-right"></div>
+			</div>
+
+			<div id="top_footer" class="row">
+				<a href="./home_before_signup_signin.html" class="col-3"><img
+					style="width: 100%; margin-left: 15px;"
+					src="${pageContext.request.contextPath}/resources/image/logo_size_1-removebg-preview.png"
+					alt="logo"></a>
+				<p class="col-8">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về
+					các công cụ, vật dụng sữa chữa nhà cửa tiện tích và tuyệt vời. Tất
+					cả đều sẵn sàng cho bạn lựa chọn!</p>
+			</div>
+			<div id="bottom_footer" class="row">
+				<div id="info" class="col-8">
+					<b>Địa chỉ: </b>12 Nguyễn Văn Bảo, P.4, Gò Vấp, TP.Hồ Chí Minh <br>
+					<b>Hotline: </b>0944302210 <br> <b>Email: </b>team13@gmail.com
+					<br>
+				</div>
+				<div id="clock" class="col-4"
+					style="color: darkorange; font-size: 18px;">
+					<script>
+						refreshClock();
+					</script>
+					<!-- ngày giờ -->
+				</div>
+			</div>
+			<div
+				style="background-color: #e3e8f8; color: darkblue; width: 926px;">
+			</div>
+		</div>
+
+		<!--nút trở về đầu trang-->
+		<!-- <div id="backTop">
+            <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
+        </div> -->
 	</div>
 </body>
 </html>
