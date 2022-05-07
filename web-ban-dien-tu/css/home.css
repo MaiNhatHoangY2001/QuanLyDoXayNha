@@ -13,6 +13,11 @@ body {
     background-color: #F8F8F8;
 }
 
+#frm-header,
+#frm-footer {
+    background-color: white;
+}
+
 .header {
     background-color: white;
     width: 100%;
@@ -20,7 +25,7 @@ body {
 }
 
 #navbar {
-    width: 100%;
+    width: 105%;
 }
 
 #nav .img_logo {
@@ -100,7 +105,6 @@ body {
 #title,
 #slider,
 #frm-list-sp,
-#footer,
 #top_footer,
 #bottom_footer {
     margin: 0 auto;
@@ -114,6 +118,10 @@ body {
     align-items: center;
     margin-top: 18px;
     height: 50px;
+    /* margin: 0 auto;
+    background-color: white;
+    border-top: 2px solid #e5e5e57e;
+    border-bottom: 2px solid #e5e5e57e; */
 }
 
 #line-left,
@@ -280,6 +288,11 @@ body {
     background-color: lightgray;
 }
 
+#footer {
+    margin-left: -13px;
+    width: 1120px;
+}
+
 #top_footer {
     padding-bottom: 20px;
 }
@@ -301,6 +314,6 @@ body {
 }
 
 #clock {
-    padding-top: 30px;
+    padding-top: 22px;
     /* border: 1px solid black; */
 }
