@@ -27,8 +27,16 @@
 
     <link rel="stylesheet" href="../css/home.css">
 
+    <script src="../js/home.js"></script>
+
     <script>
         $(document).ready(function() {
+            //load header
+            $("#frm-header").load("header.html");
+
+            //load footer
+            $("#frm-footer").load("footer.html");
+
             //slider
             $('.owl-carousel').owlCarousel({
                 loop: true,
@@ -159,35 +167,7 @@
 <body>
     <div class="container">
         <!--header-->
-        <div class="header">
-            <div id="navbar" class="row">
-                <div>
-                    <div class="img_logo">
-                        <a href="./home_after_signup_signin.html"><img style="width: 20%;" src="../img/logo_size_1-removebg-preview.png" alt="logo"></a>
-                    </div>
-
-                    <p>Sản phẩm</p>
-
-                    <div id="form_chucnang">
-                        <!--thanh tìm kiếm-->
-                        <input type="search" class="form-control" id="txtTim" placeholder="Tìm kiếm">
-                        <button type="submit"><img src="../img/icon_kinhlup.png" alt=""></button>
-
-                        <!--user-->
-                        <div id="user">
-                            <!-- <i class="fa-solid fa-user fa-xl"></i> -->
-                            <button id="btnUser"><img src="../img/icon_user.png" alt="icon_user"></button>
-                        </div>
-
-                        <!--cart:giỏ hàng-->
-                        <div id="cart">
-                            <button id="btnCart"><img src="../img/icon_giohang.png" alt="icon_cart"></button>
-                            <span id="soluong" class="text-white">0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="frm-header"></div>
 
         <!--content-->
         <div id="content">
@@ -245,12 +225,9 @@
         <div id="backTop">
             <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
         </div>
-    </div>
 
-    <!--footer-->
-    <div class="footer">
-
-    </div>
+        <!--footer-->
+        <div id="frm-footer"></div>
     </div>
 </body>
 
