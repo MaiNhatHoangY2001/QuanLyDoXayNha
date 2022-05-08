@@ -38,92 +38,18 @@
 
 
 
-
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-
-
-
-
-<script type="text/javascript">
-	$(function() {
-
-		$("#txtTim").autocomplete({
-			source : "search"
-		});
-	});
-	$(document).ready(function() {
-		//nút trở về đầu trang
-		/* $(window).scroll(function() {
-			if ($(this).scrollTop()) {
-				$('#backTop').fadeIn();
-			} else {
-				$('#backTop').fadeOut();
-			}
-		});
-		$("#backTop").click(function() {
-			$('html, body').animate({
-				scrollTop : 0
-			}, 100); //100 là 0.1s
-		}); */
-	})
-</script>
-
 <!-- script -->
 <script src="${pageContext.request.contextPath}/resources/js/home.js"
 	async></script>
+
+
 
 </head>
 <body>
 	<div class="container">
 		<!--header-->
-		<div class="header" style="margin: 0 auto;">
-			<div id="navbar" class="row">
-				<div>
-					<div class="img_logo" style="margin-top: 15px;">
-						<a href="./home_after_signup_signin.html"><img
-							style="width: 20%;"
-							src="${pageContext.request.contextPath}/resources/image/logo_size_1-removebg-preview.png"
-							alt="logo"></a>
-					</div>
-
-					<div id="form_chucnang" style="margin-top: -5%;">
-
-						<!--thanh tìm kiếm-->
-						<input type="search" class="form-control" id="txtTim"
-							placeholder="Tìm kiếm">
-
-
-						<button type="submit">
-							<img
-								src="${pageContext.request.contextPath}/resources/image/icon_kinhlup.png"
-								alt="">
-						</button>
-
-						<!--user-->
-						<div id="user">
-							<!-- <i class="fa-solid fa-user fa-xl"></i> -->
-							<button id="btnUser">
-								<img
-									src="${pageContext.request.contextPath}/resources/image/icon_user.png"
-									alt="icon_user">
-							</button>
-						</div>
-
-						<!--cart:giỏ hàng-->
-						<div id="cart">
-							<button id="btnCart">
-								<img
-									src="${pageContext.request.contextPath}/resources/image/icon_giohang.png"
-									alt="icon_cart">
-							</button>
-							<span id="soluong" class="text-white">0</span>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div id="frm-header">
+			<jsp:include page="header.jsp" />
 		</div>
 		<!-- breadcum -->
 		<nav aria-label="breadcrumb">
@@ -207,7 +133,7 @@
 			</div>
 			<!-- list product -->
 			<div class="col-md bg-white p-4">
-				<h4 class="text-center text-uppercase">Khoan</h4>
+				<h4 class="text-center text-uppercase">${title}</h4>
 				<div
 					class="list-product d-flex flex-row flex-wrap justify-content-evenly p-5 mt-3">
 					<c:forEach var="product" items="${products}">
@@ -230,8 +156,8 @@
 				</div>
 
 				<tag:paginate max="15" offset="${offset}" count="${count}"
-					uri="${pageContext.request.contextPath}/listProduct" next="&raquo;"
-					previous="&laquo;" />
+					uri="${requestScope['javax.servlet.forward.request_uri']}"
+					next="&raquo;" previous="&laquo;" />
 			</div>
 		</div>
 		<!--footer-->
@@ -275,5 +201,37 @@
 			<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
 		</div>
 	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		//nút trở về đầu trang
+		/* $(window).scroll(function() {
+			if ($(this).scrollTop()) {
+				$('#backTop').fadeIn();
+			} else {
+				$('#backTop').fadeOut();
+			}
+		});
+		$("#backTop").click(function() {
+			$('html, body').animate({
+				scrollTop : 0
+			}, 100); //100 là 0.1s
+		}); */
+	})
+		<!-- auto complete -->
+		$(function() {
+
+			$("#txtTim").autocomplete({
+				source : "search"
+			});
+		})
+	</script>
+
+
 </body>
 </html>

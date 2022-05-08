@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,23 +24,24 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	@GetMapping("/listProduct")
-	public String listProducts(Model theModel, Integer offset, Integer maxResults) {
-		List<Product> list = productService.getProductsByPage(offset, maxResults);
+	@GetMapping("/listProduct/{title}")
+	public String listProducts(@PathVariable(value = "title") String title, Model theModel, Integer offset,
+			Integer maxResults) {
+		List<Product> list = productService.getProductsByPage(offset, maxResults, title);
 		List<String> titles = new ArrayList<String>();
-		theModel.addAttribute("count", productService.count());
+		theModel.addAttribute("count", productService.count(title));
 		theModel.addAttribute("offset", offset);
 		theModel.addAttribute("products", list);
 		theModel.addAttribute("titles", titles);
+		theModel.addAttribute("title", title);
 		return "list-product";
 	}
 
-
 	@RequestMapping(value = "/search")
-    @ResponseBody
-    public List<String> autoName(@RequestParam(value = "term", required = false, defaultValue = "")String term){
-        List<String> titles = productService.search(term);
-        return titles;
-    }
+	@ResponseBody
+	public List<String> autoName(@RequestParam(value = "term", required = false, defaultValue = "") String term) {
+		List<String> titles = productService.search(term);
+		return titles;
+	}
 
 }

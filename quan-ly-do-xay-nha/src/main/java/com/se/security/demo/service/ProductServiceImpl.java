@@ -23,14 +23,14 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	@Transactional
-	public List<Product> getProductsByPage(Integer offset, Integer maxResults){
-		return productDAO.getProductsByPage(offset, maxResults);
+	public List<Product> getProductsByPage(Integer offset, Integer maxResults, String title){
+		return productDAO.getProductsByPage(offset, maxResults, title);
 	}
 
 	@Override
 	@Transactional
-	public Long count() {
-		return productDAO.count();
+	public Long count(String title) {
+		return productDAO.count(title);
 	}
 
 	@Override

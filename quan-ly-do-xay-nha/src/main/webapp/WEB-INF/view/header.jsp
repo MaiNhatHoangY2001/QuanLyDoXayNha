@@ -38,7 +38,7 @@
 
 <!-- Auto complete  -->
 <link rel="stylesheet"
-href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 
 
 
@@ -61,12 +61,15 @@ href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 
 					<div id="form_chucnang">
 						<!--thanh tìm kiếm-->
-						<input type="search" class="form-control" id="txtTim"
-							placeholder="Tìm kiếm">
-						<button type="submit">
-							<img src="/quan-ly-do-xay-nha/resources/image/icon_kinhlup.png"
-								alt="">
-						</button>
+						<form id="form_search" method="get" class="d-flex">
+							<input type="search" class="form-control" id="txtTim"
+								placeholder="Tìm kiếm">
+							<button type="submit" onclick="handleSearchProduct()">
+								<img src="/quan-ly-do-xay-nha/resources/image/icon_kinhlup.png"
+									alt="">
+							</button>
+						</form>
+
 
 						<!--user-->
 						<div id="user">
@@ -90,6 +93,15 @@ href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function handleSearchProduct() {
+			var action_src = "${pageContext.request.contextPath}/listProduct/"
+					+ document.getElementById("txtTim").value;
+			var your_form = document.getElementById('form_search');
+			your_form.action = action_src;
+		}
+	</script>
+
 </body>
 
 </html>

@@ -25,6 +25,7 @@
 		</plugins>
 	</build>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>5.2.16.RELEASE</springframework.version>
 		<springsecurity.version>5.3.11.RELEASE</springsecurity.version>
 		<maven.compiler.source>11</maven.compiler.source>
