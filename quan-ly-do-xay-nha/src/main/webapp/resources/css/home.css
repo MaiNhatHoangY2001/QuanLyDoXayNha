@@ -13,6 +13,11 @@ body {
     background-color: #F8F8F8;
 }
 
+#frm-header,
+#frm-footer {
+    background-color: white;
+}
+
 .header {
     background-color: white;
     width: 100%;
@@ -50,10 +55,6 @@ body {
     /* border: 1px solid black; */
     margin-top: -30px;
     padding-left: 10px;
-}
-
-#navbar input[type="search"] {
-    width: 42%;
 }
 
 #navbar button[type="submit"]:hover {
@@ -112,7 +113,6 @@ body {
 #title {
     display: flex;
     align-items: center;
-    margin-top: 18px;
     height: 50px;
 }
 
@@ -280,6 +280,11 @@ body {
     background-color: lightgray;
 }
 
+#footer {
+    margin-left: -13px;
+    width: 1120px;
+}
+
 #top_footer {
     padding-bottom: 20px;
 }
@@ -304,3 +309,8 @@ body {
     padding-top: 30px;
     /* border: 1px solid black; */
 }
+
+#footer{
+	    margin-top: 18px;
+}
+.ui-autocomplete { height: 200px; overflow-y: scroll; overflow-x: hidden;}

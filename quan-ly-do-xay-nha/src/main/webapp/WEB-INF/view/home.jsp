@@ -35,195 +35,33 @@
 	href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css">
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery.min.js@3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+
+
 
 <!--icon font awesome-->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/home.css">
+<link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
 
-<script>
-        $(document).ready(function() {
-            //slider
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 3,
-                autoWidth: true,
-                nav: true,
-                shadow: true,
-                items: 6
-            });
+<script src="/quan-ly-do-xay-nha/resources/js/home.js"></script>
 
-            //sp bán chạy
-            listsp.forEach(displaySP);
 
-            //nút trở về đầu trang
-            $(window).scroll(function() {
-                if ($(this).scrollTop()) {
-                    $('#backTop').fadeIn();
-                } else {
-                    $('#backTop').fadeOut();
-                }
-            });
-            $("#backTop").click(function() {
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 100); //100 là 0.1s
-            });
-        })
-
-        //list sp bán chạy
-        let sp1 = {
-            hinh: "resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp2 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp3 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp4 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp5 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp6 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp7 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp8 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp9 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp10 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp11 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp12 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp13 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp14 = {
-        		hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp15 = {
-            hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-        let sp16 = {
-            hinh:  ${pageContext.request.contextPath} + "/resources/image/demo-sp.png",
-            tesp: "Viborg VB 401",
-            gia: "190.000đ"
-        };
-
-        let listsp = [sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12, sp13, sp14, sp15, sp16];
-
-        function displaySP(sp) {
-            let row = "<figure align='center' class='img-thumbnail'>" +
-                "<img class='rounded w-100' height='250' src='" + sp.hinh + "' alt='picmcs'>" +
-                "<figcaption>" +
-                "<h6 class='text-justify' style='font-weight: bold; margin-top: 20px'" +
-                "<p>" + sp.tesp + "</p>" +
-                "<p style='color: red'>" + sp.gia + "</p>" +
-                "</h6>" +
-                "</figcaption>" +
-                "</figure>";
-            $('#list-sp-ban-chay').append(row);
-        }
-    </script>
 </head>
 
 <body>
 	<div class="container">
 		<!--header-->
-		<div class="header">
-			<div id="navbar" class="row">
-				<div>
-					<div class="img_logo">
-						<a href="./home_after_signup_signin.html"><img
-							style="width: 20%;"
-							src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
-							alt="logo"></a>
-					</div>
-
-					<p>Sản phẩm</p>
-
-					<div id="form_chucnang">
-						<!--thanh tìm kiếm-->
-						<input type="search" class="form-control" id="txtTim"
-							placeholder="Tìm kiếm">
-						<button type="submit">
-							<img src="../img/icon_kinhlup.png" alt="">
-						</button>
-
-						<!--user-->
-						<div id="user">
-							<!-- <i class="fa-solid fa-user fa-xl"></i> -->
-							<button id="btnUser">
-								<img src="../img/icon_user.png" alt="icon_user">
-							</button>
-						</div>
-
-						<!--cart:giỏ hàng-->
-						<div id="cart">
-							<button id="btnCart">
-								<img src="../img/icon_giohang.png" alt="icon_cart">
-							</button>
-							<span id="soluong" class="text-white">0</span>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div id="frm-header">
+			<jsp:include page="header.jsp" />
 		</div>
 
 		<!--content-->
 		<div id="content">
 			<!--imgtop-->
 			<div id="imgTop">
-				<img src="../img/image 8.png" alt="img_header">
+				<img src="/quan-ly-do-xay-nha/resources/image/image 8.png"
+					alt="img_header">
 			</div>
 
 			<!--slider-->
@@ -234,22 +72,29 @@
 			</div>
 			<div id="slider" class="owl-carousel owl-theme">
 				<div>
-					<a href="#"><img src="../img/bodungcu.jpg" alt=""></a>
+					<a href="#"><img
+						src="/quan-ly-do-xay-nha/resources/image/bodungcu.jpg" alt=""></a>
 				</div>
 				<div>
-					<a href="#"><img src="../img/mk.jpg" alt=""></a>
+					<a href="#"><img
+						src="/quan-ly-do-xay-nha/resources/image/mk.jpg" alt=""></a>
 				</div>
 				<div>
-					<a href="#"><img src="../img/van-khoa-ong-nuoc.png" alt=""></a>
+					<a href="#"><img
+						src="/quan-ly-do-xay-nha/resources/image/van-khoa-ong-nuoc.png"
+						alt=""></a>
 				</div>
 				<div>
-					<a href="#"><img src="../img/keo-apollo.png" alt=""></a>
+					<a href="#"><img
+						src="/quan-ly-do-xay-nha/resources/image/keo-apollo.png" alt=""></a>
 				</div>
 				<div>
-					<a href="#"><img src="../img/son-xit-atm.png" alt=""></a>
+					<a href="#"><img
+						src="/quan-ly-do-xay-nha/resources/image/son-xit-atm.png" alt=""></a>
 				</div>
 				<div>
-					<a href="#"><img src="../img/bang-keo-dien.png" alt=""></a>
+					<a href="#"><img
+						src="/quan-ly-do-xay-nha/resources/image/bang-keo-dien.png" alt=""></a>
 				</div>
 				<a href="#slider" style="width: 75px;"></a>
 			</div>
@@ -273,7 +118,8 @@
 
 			<!--imgbottom-->
 			<div id="imgBottom">
-				<img src="../img/image 34.png" alt="img_header">
+				<img src="/quan-ly-do-xay-nha/resources/image/image 34.png"
+					alt="img_header">
 			</div>
 		</div>
 
@@ -281,11 +127,158 @@
 		<div id="backTop">
 			<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
 		</div>
-	</div>
 
-	<!--footer-->
-	<div class="footer"></div>
+		<!--footer-->
+		<div id="frm-footer">
+			<jsp:include page="footer.jsp" />
+		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//load header
+			//$("#frm-header").load("/quan-ly-do-xay-nha/WEB-INF/view/header.jsp");
+
+			//load footer
+			//$("#frm-footer").load("/quan-ly-do-xay-nha/WEB-INF/view/footer.jsp");
+
+			//slider
+			$('.owl-carousel').owlCarousel({
+				loop : true,
+				margin : 3,
+				autoWidth : true,
+				nav : true,
+				shadow : true,
+				items : 6
+			});
+
+			//sp bán chạy
+			listsp.forEach(displaySP);
+
+			//nút trở về đầu trang
+			$(window).scroll(function() {
+				if ($(this).scrollTop()) {
+					$('#backTop').fadeIn();
+				} else {
+					$('#backTop').fadeOut();
+				}
+			});
+			$("#backTop").click(function() {
+				$('html, body').animate({
+					scrollTop : 0
+				}, 100); //100 là 0.1s
+			});
+		})
+
+		//list sp bán chạy
+		let sp1 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp2 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp3 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp4 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp5 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp6 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp7 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp8 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp9 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp10 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp11 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp12 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp13 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp14 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp15 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+		let sp16 = {
+			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
+			tesp : "Viborg VB 401",
+			gia : "190.000đ"
+		};
+
+		let listsp = [ sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11,
+				sp12, sp13, sp14, sp15, sp16 ];
+
+		function displaySP(sp) {
+			let row = "<figure align='center' class='img-thumbnail'>"
+					+ "<img class='rounded w-100' height='250' src='" + sp.hinh + "' alt='picmcs'>"
+					+ "<figcaption>"
+					+ "<h6 class='text-justify' style='font-weight: bold; margin-top: 20px'"
+					+ "<p>" + sp.tesp + "</p>" + "<p style='color: red'>"
+					+ sp.gia + "</p>" + "</h6>" + "</figcaption>" + "</figure>";
+			$('#list-sp-ban-chay').append(row);
+		}
+	</script>
+
+	<!-- auto complete -->
+	<script type="text/javascript">
+		$(function() {
+
+			$("#txtTim").autocomplete({
+				source : "${pageContext.request.contextPath}/search"
+			});
+		})
+	</script>
 </body>
 
 </html>

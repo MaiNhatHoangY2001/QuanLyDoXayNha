@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="tag" uri="/WEB-INF/taglibs/customTaglib.tld"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>danh sách sản phẩm</title>
 <!--bootstrap5-->
@@ -32,26 +33,36 @@
 <!-- css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/list_products.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/home.css">
+
+
 
 <!-- script -->
-<!-- <script
-	src="${pageContext.request.contextPath}/resources/js/list_product.js"
-	async></script> -->
+<script src="${pageContext.request.contextPath}/resources/js/home.js"
+	async></script>
+
+
 
 </head>
 <body>
 	<div class="container">
+		<!--header-->
+		<div id="frm-header">
+			<jsp:include page="header.jsp" />
+		</div>
 		<!-- breadcum -->
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#">Home</a></li>
+				<li class="breadcrumb-item"><a
+					href="${pageContext.request.contextPath}/">Home</a></li>
 				<li id="breadcrumb-item-active" class="breadcrumb-item active"
 					aria-current="page">Data</li>
 			</ol>
 		</nav>
 
 		<!-- content -->
-		<div class="content row gap-1">
+		<div class="content row">
 			<!-- left-navbar -->
 			<div class="left-navbar col-md-3 d-flex flex-column gap-2">
 				<div class="left-navbar-item">
@@ -122,12 +133,13 @@
 			</div>
 			<!-- list product -->
 			<div class="col-md bg-white p-4">
-				<h4 class="text-center text-uppercase">Khoan</h4>
+				<h4 class="text-center text-uppercase">${title}</h4>
 				<div
 					class="list-product d-flex flex-row flex-wrap justify-content-evenly p-5 mt-3">
 					<c:forEach var="product" items="${products}">
 						<div class="list-product-item flex-fill mt-3">
-							<a class="text-center text-decoration-none" href="#">
+							<a class="text-center text-decoration-none"
+								href="${pageContext.request.contextPath}/listProduct/info/${product.id}">
 								<div>
 									<div class="thumbnail pt-4">
 										<img
@@ -144,17 +156,83 @@
 					</c:forEach>
 				</div>
 
-				<nav>
-					<ul class="pagination justify-content-center">
-						<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
-					</ul>
-				</nav>
+				<tag:paginate max="15" offset="${offset}" count="${count}"
+					uri="${requestScope['javax.servlet.forward.request_uri']}"
+					next="&raquo;" previous="&laquo;" />
 			</div>
 		</div>
+		<!--footer-->
+		<div id="footer">
+			<div id="title">
+				<div id="line-left"></div>
+				<h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+				<div id="line-right"></div>
+			</div>
+
+			<div id="top_footer" class="row">
+				<a href="./home_before_signup_signin.html" class="col-3"><img
+					style="width: 100%; margin-left: 15px;"
+					src="${pageContext.request.contextPath}/resources/image/logo_size_1-removebg-preview.png"
+					alt="logo"></a>
+				<p class="col-8">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về
+					các công cụ, vật dụng sữa chữa nhà cửa tiện tích và tuyệt vời. Tất
+					cả đều sẵn sàng cho bạn lựa chọn!</p>
+			</div>
+			<div id="bottom_footer" class="row">
+				<div id="info" class="col-8">
+					<b>Địa chỉ: </b>12 Nguyễn Văn Bảo, P.4, Gò Vấp, TP.Hồ Chí Minh <br>
+					<b>Hotline: </b>0944302210 <br> <b>Email: </b>team13@gmail.com
+					<br>
+				</div>
+				<div id="clock" class="col-4"
+					style="color: darkorange; font-size: 18px;">
+					<script>
+						refreshClock();
+					</script>
+					<!-- ngày giờ -->
+				</div>
+			</div>
+			<div
+				style="background-color: #e3e8f8; color: darkblue; width: 926px;">
+			</div>
+		</div>
+
+		<!--nút trở về đầu trang-->
+		<div id="backTop">
+			<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
+		</div>
 	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		//nút trở về đầu trang
+		/* $(window).scroll(function() {
+			if ($(this).scrollTop()) {
+				$('#backTop').fadeIn();
+			} else {
+				$('#backTop').fadeOut();
+			}
+		});
+		$("#backTop").click(function() {
+			$('html, body').animate({
+				scrollTop : 0
+			}, 100); //100 là 0.1s
+		}); */
+	})
+		<!-- auto complete -->
+		$(function() {
+
+			$("#txtTim").autocomplete({
+				source : "${pageContext.request.contextPath}/search"
+			});
+		})
+	</script>
+
+
 </body>
 </html>

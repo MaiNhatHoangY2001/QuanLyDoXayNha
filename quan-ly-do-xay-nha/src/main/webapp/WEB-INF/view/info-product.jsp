@@ -51,45 +51,8 @@
 <body>
 	<div class="container">
 		<!--header-->
-		<div class="header" style="width: 1140px; margin-left: -10px;">
-			<div id="navbar" class="row">
-				<div>
-					<div class="img_logo" style="margin-top: 1%;">
-						<a href="./home_after_signup_signin.html"><img
-							style="width: 20%;"
-							src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
-							alt="logo"></a>
-					</div>
-
-					<div id="form_chucnang" style="margin-top: -5%;">
-						<!--thanh tìm kiếm-->
-						<input type="search" class="form-control" id="txtTim"
-							placeholder="Tìm kiếm">
-						<button type="submit">
-							<img src="/quan-ly-do-xay-nha/resources/image/icon_kinhlup.png"
-								alt="">
-						</button>
-
-						<!--user-->
-						<div id="user">
-							<!-- <i class="fa-solid fa-user fa-xl"></i> -->
-							<button id="btnUser">
-								<img src="/quan-ly-do-xay-nha/resources/image/icon_user.png"
-									alt="icon_user">
-							</button>
-						</div>
-
-						<!--cart:giỏ hàng-->
-						<div id="cart">
-							<button id="btnCart">
-								<img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png"
-									alt="icon_cart">
-							</button>
-							<span id="soluong" class="text-white">0</span>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div id="frm-header">
+			<jsp:include page="header.jsp" />
 		</div>
 
 		<!-- breadcum -->
@@ -104,60 +67,22 @@
 		<div class="content row bg-white">
 			<div class="col-sm-6 text-center p-4">
 				<img src="${pageContext.request.contextPath}/resources/${theProduct.link}" alt=""
-					style="width: 100%;">
+					style="width: 50%;">
 			</div>
 			<div class="col-sm-6 p-4">
 				<h1 class="mb-4">${theProduct.title}</h1>
-				<div class="row text-center" style="cursor: pointer;">
-					<div class="border col-sm-4 m-2 me-3 p-3 fw-bold text-danger text-decoration-line-through">${theProduct.price}</div>
+				<div class="row text-center">
 					<div class="border col-sm-4 m-2 ms-3 p-3 fw-bold text-danger">${theProduct.price}</div>
 				</div>
-				<table class="col-sm-6 able table-borderless mt-4 mb-4">
-					<tr>
-						<td style="color: #AAA3A3;">Chất liệu</td>
-						<td>ABC</td>
-					</tr>
-					<tr>
-						<td style="color: #AAA3A3;">Thương hiệu</td>
-						<td>ABC</td>
-					</tr>
-				</table>
 				<div class="row text-center" style="cursor: pointer;">
-					<div class="border col-sm-4 m-2 me-3 p-3 text-danger">Thêm
+					<div class="border col-sm-4 m-2 me-3 p-3 fw-bold text-danger">Thêm
 						vào giỏ</div>
-					<div class="border col-sm-4 m-2 ms-3 p-3 bg-danger text-white">Mua
+					<div class="border col-sm-4 m-2 ms-3 p-3 fw-bold bg-danger text-white">Mua
 						ngay</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="content row bg-white mt-3">
-			<h3 class="p-4 pb-0">Thông tin chi tiết</h3>
-			<div class="p-4 pt-2">
-				<table
-					class="table table-striped table-bordered border-black-50 table-hover">
-					<tbody>
-						<tr>
-							<td class="text-center">Chất liệu</td>
-							<td>Không có gì ở đây cả, chả có gì ở đây</td>
-						</tr>
-						<tr>
-							<td class="text-center">Xuất xứ</td>
-							<td>Không có gì ở đây cả, chả có gì ở đây</td>
-						</tr>
-						<tr>
-							<td class="text-center">Xuất xứ thường hiệu</td>
-							<td>Không có gì ở đây cả, chả có gì ở đây</td>
-						</tr>
-						<tr>
-							<td class="text-center">Thương hiệu</td>
-							<td>Không có gì ở đây cả, chả có gì ở đây</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
+		
 		<div class="content row bg-white mt-3">
 			<h3 class="p-4 pb-0">Mô tả sản phẩm</h3>
 			<div class="p-4 pt-2 pb-0 text-center">
@@ -189,12 +114,12 @@
 				
 				<div class="col row row-cols-4">
 					<c:forEach var="product" items="${products}">
-						<div class="col">
+						<div class="col ">
 							<div class="card">
 								<img src="${pageContext.request.contextPath}/resources/${product.link}"
 									class="card-img-top" alt="...">
 								<div class="card-body">
-									<h5 class="card-title text-center">${product.title}</h5>
+									<h5 class="card-title text-center product-name">${product.title}</h5>
 									<p class="card-text text-center text-danger">${product.price}</p>
 								</div>
 							</div>
@@ -241,11 +166,42 @@
 				style="background-color: #e3e8f8; color: darkblue; width: 926px;">
 			</div>
 		</div>
+		
+		
 
 		<!--nút trở về đầu trang-->
 		<!-- <div id="backTop">
             <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
         </div> -->
 	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		//nút trở về đầu trang
+		/* $(window).scroll(function() {
+			if ($(this).scrollTop()) {
+				$('#backTop').fadeIn();
+			} else {
+				$('#backTop').fadeOut();
+			}
+		});
+		$("#backTop").click(function() {
+			$('html, body').animate({
+				scrollTop : 0
+			}, 100); //100 là 0.1s
+		}); */
+	})
+		<!-- auto complete -->
+		$(function() {
+
+			$("#txtTim").autocomplete({
+				source : "${pageContext.request.contextPath}/search"
+			});
+		})
+	</script>
 </body>
 </html>
