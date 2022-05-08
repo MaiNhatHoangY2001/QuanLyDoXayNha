@@ -138,7 +138,8 @@
 					class="list-product d-flex flex-row flex-wrap justify-content-evenly p-5 mt-3">
 					<c:forEach var="product" items="${products}">
 						<div class="list-product-item flex-fill mt-3">
-							<a class="text-center text-decoration-none" href="#">
+							<a class="text-center text-decoration-none"
+								href="${pageContext.request.contextPath}/listProduct/${product.id}">
 								<div>
 									<div class="thumbnail pt-4">
 										<img
