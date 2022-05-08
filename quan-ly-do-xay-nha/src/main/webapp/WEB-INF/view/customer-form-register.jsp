@@ -58,15 +58,15 @@
         </div>
         <div class="container-fluid bg-white">
             <div class="row">
-                <div class="col-7">
+                <div class="col-8">
                     <div class="row">
-                        <img src="/quan-ly-do-xay-nha/resources/image/image2.png" class="float-start">
+                        <img src="/quan-ly-do-xay-nha/resources/image/image 2.png" >
                     </div>
                     <div class="row">
-                        <img src="/quan-ly-do-xay-nha/resources/image/image7.png" class="float-start">
+                        <img src="/quan-ly-do-xay-nha/resources/image/image 7.png" >
                     </div>
                 </div>
-                <div id="form_dangnhap" class="col-5">
+                <div id="form_dangki" class="col-4">
                     <form>
                         <div class="header mt-1 text-center">
                             <h2>Đăng kí</h2>
@@ -75,10 +75,10 @@
                             <!--Tên tài khoản-->
                             <div class="row">
                                 <div class="col-4">
-                                    <label for="tenTaiKhoan" style="margin-left: 5%;" class="form-label"><strong>Tên tài khoản</strong></label>
+                                    <label for="tenTaiKhoan" class="form-label"><strong>Tên tài khoản</strong></label>
                                 </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-control" id="tenDangNhap" placeholder="Tên đăng nhập">
+                                <div class="col-8 mb-2">
+                                    <input type="text" class="form-control" id="tenTaiKhoan" placeholder="Tên đăng nhập">
                                 </div>
                             </div>
                             <!--Họ và tên-->
@@ -119,8 +119,8 @@
                             </div>
                             <!--Xác nhận mật khẩu-->
                             <div class="row mt-4">
-                                <div class="col-4">
-                                    <label for="reMatKhau" class="form-label"><strong>Nhập lại mật khẩu</strong></label>
+                                <div class="col-4 mt-2">
+                                    <label for="reMatKhau" style="margin-left: -15% class="form-label"><strong>Nhập lại mật khẩu</strong></label>
                                 </div>
                                 <div class="col-8">
                                     <input type="password" class="form-control" id="reMatKhau" placeholder="Xác nhận mật khẩu">
@@ -137,12 +137,12 @@
                                     
                                 </div>
                             </div>
-                            <div class="row m-4">
+                            <div class="row mt-4">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="security">Tôi đồng ý với các điều kiện, điều khoản và chính sách bảo mật.
                                    
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check mt-2">
                                     <input type="checkbox" class="form-check-input" id="news">Tôi muốn nhận bản tin/ thông báo mới nhất.
                                     
                                 </div>
@@ -151,7 +151,7 @@
                                 <div class="col-4 mt-2">
                                 </div>
                                 <div class="col-8">                      
-                                    <label for="quenMatKhau" class="float-end"><a class="text-dark" style="text-decoration: none" href="login.html"><strong>Đã có tài khoản? Đăng nhập ngay!</strong></a></label>
+                                    <label for="quenMatKhau" class="float-end"><a class="text-dark" style="text-decoration: none" href="/quan-ly-do-xay-nha/WEB-INF/view/login.jsp"><strong>Đã có tài khoản? Đăng nhập ngay!</strong></a></label>
                                 </div>
                             </div>
                             <div class="row m-4">

@@ -16,32 +16,18 @@ public class CustomerController {
 	// need to inject our customer service
 	private CustomerService customerService;
 	
-//	@GetMapping("/")
-//	public String listCustomers(Model theModel) {
-//		// get customers from the service
-////		List<Customer> theCustomers = customerService.getCustomers();
-////		// add the customers to the model
-////		theModel.addAttribute("customers", theCustomers);
-//		return "home";
-//	}
-
 	@GetMapping("/")
 	public String listCustomers(Model theModel) {
 		// get customers from the service
 //		List<Customer> theCustomers = customerService.getCustomers();
 //		// add the customers to the model
 //		theModel.addAttribute("customers", theCustomers);
-		return "customer-form-register";
+		return "home";
 	}
 	
-//	@GetMapping("/")
-//	public String listCustomers(Model theModel) {
-//		// get customers from the service
-////		List<Customer> theCustomers = customerService.getCustomers();
-////		// add the customers to the model
-////		theModel.addAttribute("customers", theCustomers);
-//		return "fancy-login";
-//	}
+
+
+
 
 //	@PostMapping("/saveCustomer")
 //	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
