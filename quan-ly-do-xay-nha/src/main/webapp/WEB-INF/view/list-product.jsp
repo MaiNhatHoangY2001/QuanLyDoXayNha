@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>danh sách sản phẩm</title>
 <!--bootstrap5-->
@@ -35,26 +35,26 @@
 	href="${pageContext.request.contextPath}/resources/css/list_products.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/home.css">
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/easy-autocomplete.min.css"
-	rel="stylesheet" type="text/css">
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/jquery.easy-autocomplete.min.js"
-	type="text/javascript"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		var options = {
-                url: "${pageContext.request.contextPath }/search",
-                getValue: "keyword",
-                list: {
-                        match: {
-                                enabled: true
-                        }
-                }
-        };
-        $("#txtTim").easyAutocomplete(options);
 
+
+
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
+
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#txtTim").autocomplete({
+			source : "search"
+		});
+	});
+	$(document).ready(function() {
 		//nút trở về đầu trang
 		/* $(window).scroll(function() {
 			if ($(this).scrollTop()) {
@@ -90,9 +90,12 @@
 					</div>
 
 					<div id="form_chucnang" style="margin-top: -5%;">
+
 						<!--thanh tìm kiếm-->
 						<input type="search" class="form-control" id="txtTim"
 							placeholder="Tìm kiếm">
+
+
 						<button type="submit">
 							<img
 								src="${pageContext.request.contextPath}/resources/image/icon_kinhlup.png"

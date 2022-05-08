@@ -33,3 +33,4 @@ body {
 #footer {
 	margin: 0 auto;
 }
+.ui-autocomplete { height: 200px; overflow-y: scroll; overflow-x: hidden;}
