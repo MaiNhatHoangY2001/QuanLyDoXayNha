@@ -275,7 +275,7 @@
 		$(function() {
 
 			$("#txtTim").autocomplete({
-				source : "search"
+				source : "${pageContext.request.contextPath}/search"
 			});
 		})
 	</script>
