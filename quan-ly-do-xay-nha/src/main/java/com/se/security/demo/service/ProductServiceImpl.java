@@ -16,21 +16,25 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDAO productDAO;
 
 	@Override
+	public Product getProductById(int id) {
+		return productDAO.getProductById(id);
+	}
+
 	@Transactional
-	public List<Product> getProducts() {
-		return productDAO.getProducts();
+	public List<Product> getProductsByPage(Integer offset, Integer maxResults, String title) {
+		return productDAO.getProductsByPage(offset, maxResults, title);
 	}
 
 	@Override
 	@Transactional
-	public List<Product> getProductsByPage(Integer offset, Integer maxResults){
-		return productDAO.getProductsByPage(offset, maxResults);
+	public Long count(String title) {
+		return productDAO.count(title);
 	}
 
 	@Override
 	@Transactional
-	public Long count() {
-		return productDAO.count();
+	public List<String> search(String keyword) {
+		return productDAO.search(keyword);
 	}
 
 }

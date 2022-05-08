@@ -1,16 +1,14 @@
 package com.se.security.demo.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Projections;
 import org.hibernate.query.Query;
+import org.hibernate.type.StringNVarcharType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.se.security.demo.entity.Product;
@@ -19,33 +17,51 @@ import com.se.security.demo.entity.Product;
 public class ProductDAOImpl implements ProductDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
-
+	
 	@Override
-	public List<Product> getProducts() {
-		// get the current hibernate session
-		Session currentSession = sessionFactory.getCurrentSession();
-		// create a query ... sort by last name
-		Query<Product> theQuery = currentSession.createQuery("from Product", Product.class);
-		// execute query and get result list
-		List<Product> products = theQuery.getResultList();
-		// return the results
-		return products;
+	public Product getProductById(int id) {
+		Session session;
+
+		try {
+		    session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+		    session = sessionFactory.openSession();
+		}
+		Product product = session.get(Product.class, id);
+		return product;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> getProductsByPage(Integer offset, Integer maxResults) {
-		return sessionFactory.openSession()
-                .createCriteria(Product.class)
-                .setFirstResult(offset!=null?offset:0)
-                .setMaxResults(maxResults!=null?maxResults:15)
-                .list();
+	public List<Product> getProductsByPage(Integer offset, Integer maxResults, String title) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<Product> theQuery = currentSession
+				.createQuery("from Product as prd where prd.title like :title", Product.class)
+				.setParameter( "title", "%" + title + "%", StringNVarcharType.INSTANCE )
+				.setFirstResult(offset!=null?offset:0)
+				.setMaxResults(maxResults!=null?maxResults:15);
+		List<Product> products = theQuery.getResultList();
+		return products;
 	}
 
 
 	@Override
-	public Long count() {
-		return (Long) sessionFactory.openSession().createCriteria(Product.class).setProjection(Projections.rowCount())
-				.uniqueResult();
+	public Long count(String title) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		Query<Long> query = currentSession.createQuery(
+		        "select count(*) from Product as prd where prd.title  like :title")
+				.setParameter( "title", "%" + title + "%", StringNVarcharType.INSTANCE );
+		Long count = (Long)query.uniqueResult();
+		return count;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> search(String keyword) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<String> theQuery = currentSession.createQuery("SELECT prd.title from Product as prd where prd.title like '%"+keyword+"%'");
+		List<String> titles =(List<String>) theQuery.list();
+		return titles;
 	}
 }
