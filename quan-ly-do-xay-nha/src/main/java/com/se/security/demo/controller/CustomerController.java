@@ -24,10 +24,6 @@ public class CustomerController {
 //		theModel.addAttribute("customers", theCustomers);
 		return "home";
 	}
-	
-
-
-
 
 //	@PostMapping("/saveCustomer")
 //	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
