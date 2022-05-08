@@ -36,7 +36,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                 //* matches zero or more characters
                 .antMatchers("/resources/css/**").permitAll()
                 .antMatchers("/resources/bootstrap/**").permitAll()
-               .antMatchers("/resources/jquery/**").permitAll()
+              // .antMatchers("/resources/jquery/**").permitAll()
                 .antMatchers("/resources/fonts/**").permitAll()
                 .antMatchers("/customer/list*").hasAnyRole("MANAGER", "ADMIN")
                 .antMatchers("/customer/save*").hasAnyRole("MANAGER", "ADMIN")
