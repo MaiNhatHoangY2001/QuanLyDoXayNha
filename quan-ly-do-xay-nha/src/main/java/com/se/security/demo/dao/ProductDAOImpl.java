@@ -22,24 +22,22 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<Product> getProducts() {
-		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		// create a query ... sort by last name
 		Query<Product> theQuery = currentSession.createQuery("from Product", Product.class);
-		// execute query and get result list
 		List<Product> products = theQuery.getResultList();
-		// return the results
 		return products;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> getProductsByPage(Integer offset, Integer maxResults) {
-		return sessionFactory.openSession()
-                .createCriteria(Product.class)
-                .setFirstResult(offset!=null?offset:0)
-                .setMaxResults(maxResults!=null?maxResults:15)
-                .list();
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<Product> theQuery = currentSession
+				.createQuery("from Product", Product.class)
+				.setFirstResult(offset!=null?offset:0)
+				.setMaxResults(maxResults!=null?maxResults:15);
+		List<Product> products = theQuery.getResultList();
+		return products;
 	}
 
 
@@ -47,5 +45,14 @@ public class ProductDAOImpl implements ProductDAO {
 	public Long count() {
 		return (Long) sessionFactory.openSession().createCriteria(Product.class).setProjection(Projections.rowCount())
 				.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> search(String keyword) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<String> theQuery = currentSession.createQuery("SELECT prd.title from Product as prd where prd.title like '%"+keyword+"%'");
+		List<String> titles =(List<String>) theQuery.list();
+		return titles;
 	}
 }

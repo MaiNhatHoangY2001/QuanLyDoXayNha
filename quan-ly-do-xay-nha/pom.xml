@@ -52,7 +52,7 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -96,7 +96,7 @@
 			<version>1.2</version>
 		</dependency>
 
-	
+
 		<!-- Add MySQL and C3P0 support -->
 		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
 		<dependency>
@@ -110,12 +110,12 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.5.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.4.1.Final</version>
 		</dependency>
-
+		
 	</dependencies>
 </project>

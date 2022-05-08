@@ -8,4 +8,5 @@ public interface ProductService {
 	public List<Product> getProducts();
 	public List<Product> getProductsByPage(Integer offset, Integer maxResults);
 	public Long count();
+	public List<String> search(String keyword);
 }
