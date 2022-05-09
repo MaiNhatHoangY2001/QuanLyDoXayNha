@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,15 +106,28 @@
 				<h4>SẢN PHẨM BÁN CHẠY</h4>
 				<div id="line-right"></div>
 			</div>
-			<div id="frm-list-sp">
-				<div id="list-sp-ban-chay" class="row"></div>
-
+			<div id="frm-list-sp" class="row">
+				<c:forEach var="product" items="${products}">
+					<!-- <div id="list-sp-ban-chay" class="row">
+					</div> -->
+					
+					<figure align="center" class="img-thumbnail col-4">
+						<img class="rounded w-100" height="250" src="${pageContext.request.contextPath}/resources/${product.link}" alt="picmcs">
+						<figcaption>
+							<h6 class="text-justify" style="font-weight: bold; margin-top: 20px">
+								<p>${product.title}</p>
+								<p style="color: red">${product.price}</p>
+							</h6>
+						</figcaption>
+					</figure>
+				</c:forEach> 
+				
 				<!--nút mở rộng-->
-				<div id="morong" class="row">
+				<!-- <div id="morong" class="row">
 					<button id="btnMoRong">
 						<h4>MỞ RỘNG</h4>
 					</button>
-				</div>
+				</div> -->
 			</div>
 
 			<!--imgbottom-->
@@ -140,12 +154,6 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			//load header
-			//$("#frm-header").load("/quan-ly-do-xay-nha/WEB-INF/view/header.jsp");
-
-			//load footer
-			//$("#frm-footer").load("/quan-ly-do-xay-nha/WEB-INF/view/footer.jsp");
-
 			//slider
 			$('.owl-carousel').owlCarousel({
 				loop : true,
@@ -155,9 +163,6 @@
 				shadow : true,
 				items : 6
 			});
-
-			//sp bán chạy
-			listsp.forEach(displaySP);
 
 			//nút trở về đầu trang
 			$(window).scroll(function() {
@@ -173,101 +178,6 @@
 				}, 100); //100 là 0.1s
 			});
 		})
-
-		//list sp bán chạy
-		let sp1 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp2 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp3 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp4 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp5 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp6 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp7 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp8 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp9 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp10 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp11 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp12 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp13 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp14 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp15 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp16 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-
-		let listsp = [ sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11,
-				sp12, sp13, sp14, sp15, sp16 ];
-
-		function displaySP(sp) {
-			let row = "<figure align='center' class='img-thumbnail'>"
-					+ "<img class='rounded w-100' height='250' src='" + sp.hinh + "' alt='picmcs'>"
-					+ "<figcaption>"
-					+ "<h6 class='text-justify' style='font-weight: bold; margin-top: 20px'"
-					+ "<p>" + sp.tesp + "</p>" + "<p style='color: red'>"
-					+ sp.gia + "</p>" + "</h6>" + "</figcaption>" + "</figure>";
-			$('#list-sp-ban-chay').append(row);
-		}
 	</script>
 
 	<!-- auto complete -->
