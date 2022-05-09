@@ -46,6 +46,8 @@
 	href="${pageContext.request.contextPath}/resources/css/home.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/list_products.css" />
+<style type="text/css">
+</style>
 
 </head>
 <body>
@@ -66,38 +68,45 @@
 
 		<div class="content row bg-white">
 			<div class="col-sm-6 text-center p-4">
-				<img src="${pageContext.request.contextPath}/resources/${theProduct.link}" alt=""
-					style="width: 50%;">
+				<img
+					src="${pageContext.request.contextPath}/resources/${theProduct.link}"
+					alt="" style="width: 50%;">
 			</div>
 			<div class="col-sm-6 p-4">
 				<h1 class="mb-4">${theProduct.title}</h1>
 				<div class="row text-center">
-					<div class="border col-sm-4 m-2 ms-3 p-3 fw-bold text-danger">${theProduct.price}</div>
+					<div class="border col-sm-4 m-2 ms-3 p-3 fs-4 fw-bold text-danger">${theProduct.price}</div>
 				</div>
-				<div class="row text-center" style="cursor: pointer;">
-					<div class="border col-sm-4 m-2 me-3 p-3 fw-bold text-danger">Thêm
-						vào giỏ</div>
-					<div class="border col-sm-4 m-2 ms-3 p-3 fw-bold bg-danger text-white">Mua
-						ngay</div>
-				</div>
+
+				<form action="" class="row" style="margin-top: 16px;">
+					<div class="col-6">
+						<button type="button"
+							class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
+							vào giỏ</button>
+					</div>
+					<div class="col-6">
+						<button type="button" class="btn btn-danger btn-lg fw-bold fs-4">Mua
+							ngay</button>
+					</div>
+				</form>
 			</div>
 		</div>
-		
+
 		<div class="content row bg-white mt-3">
 			<h3 class="p-4 pb-0">Mô tả sản phẩm</h3>
 			<div class="p-4 pt-2 pb-0 text-center">
-				<img src="${pageContext.request.contextPath}/resources/${theProduct.link}"
-					class="p-4 pt-2 pb-0" width="50%" alt="">
+				<img
+					src="${pageContext.request.contextPath}/resources/${theProduct.link}"
+					class="p-4 pt-2 pb-0" width="30%" alt="">
 			</div>
 			<p class="p-4 pb-0">
-				${theProduct.description}
-				<br>
+				${theProduct.description} <br>
 			</p>
 
-			<div class="d-flex justify-content-evenly mb-4">
-				<div class="col-sm-3 border border-black-50 text-center p-2"
-					style="cursor: pointer;">Thu gọn nội dung</div>
-			</div>
+			<form action="" class="d-flex justify-content-evenly mb-4">
+				<button type="button" class="btn btn-light">Thu gọn nội
+					dung</button>
+			</form>
 		</div>
 
 		<div class="content row bg-white mt-3">
@@ -108,26 +117,27 @@
 			</div>
 			<hr size="5">
 
-			<div class="row" style="margin-left: 10px">
-				<!-- <button type="button" class="col-1 btn ms-4 mt-8"
-					style="background-color: #E6E6E6; height: 50px; margin-top: 150px;">abc</button> -->
-				
+			<div class="row" style="margin-left: 10px; margin-bottom: 16px;">
 				<div class="col row row-cols-4">
 					<c:forEach var="product" items="${products}">
-						<div class="col ">
-							<div class="card">
-								<img src="${pageContext.request.contextPath}/resources/${product.link}"
-									class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title text-center product-name">${product.title}</h5>
-									<p class="card-text text-center text-danger">${product.price}</p>
-								</div>
-							</div>
-						</div>
+						<figure align="center" class="img-thumbnail border">
+							<a href="${pageContext.request.contextPath}/listProduct/info/${product.id}"
+								style="text-decoration: none;">
+								<img class="rounded w-100" height="250"
+									src="${pageContext.request.contextPath}/resources/${product.link}"
+									alt="picmcs">
+								<figcaption>
+									<h6 class="text-justify"
+										style="font-weight: bold; margin-top: 20px">
+										<p>${product.title}</p>
+										<br>
+										<p style="color: red">${product.price}</p>
+									</h6>
+								</figcaption>
+							</a>
+						</figure>	
 					</c:forEach>
 				</div>
-				<!-- <button type="button" class="col-1 btn mt-8"
-					style="background-color: #E6E6E6; height: 50px; margin-top: 150px;">abc</button> -->
 			</div>
 		</div>
 
@@ -166,19 +176,19 @@
 				style="background-color: #e3e8f8; color: darkblue; width: 926px;">
 			</div>
 		</div>
-		
-		
+
+
 
 		<!--nút trở về đầu trang-->
 		<!-- <div id="backTop">
             <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
         </div> -->
 	</div>
-	
+
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-	
+
 	<script type="text/javascript">
 	$(document).ready(function() {
 		//nút trở về đầu trang
