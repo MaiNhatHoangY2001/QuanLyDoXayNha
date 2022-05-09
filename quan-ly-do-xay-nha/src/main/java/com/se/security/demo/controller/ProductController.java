@@ -64,5 +64,10 @@ public class ProductController {
 		List<String> titles = productService.search(term);
 		return titles;
 	}
+	
+	@GetMapping("/cart")
+	public String listCart() {
+		return "cart";
+	}
 
 }
