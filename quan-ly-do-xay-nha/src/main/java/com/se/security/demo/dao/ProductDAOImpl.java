@@ -64,4 +64,14 @@ public class ProductDAOImpl implements ProductDAO {
 		List<String> titles =(List<String>) theQuery.list();
 		return titles;
 	}
+
+	@Override
+	public List<Product> getProducts() {
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query<Product> theQuery = session.createQuery("from Product", Product.class);
+		
+		List<Product> products = theQuery.getResultList();
+		return products;
+	}
 }

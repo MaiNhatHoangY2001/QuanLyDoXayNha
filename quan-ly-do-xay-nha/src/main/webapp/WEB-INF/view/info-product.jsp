@@ -53,8 +53,8 @@
 <body>
 	<div class="container">
 		<!--header-->
-		<div id="frm-header">
-			<jsp:include page="header.jsp" />
+		<div id="frm-header" style="width: 1130px;">
+			<jsp:include page="header.jsp"/>
 		</div>
 
 		<!-- breadcum -->
@@ -142,47 +142,14 @@
 		</div>
 
 		<!--footer-->
-		<div id="footer">
-			<div id="title" style="margin-top: 4%;">
-				<div id="line-left"></div>
-				<h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
-				<div id="line-right"></div>
-			</div>
-
-			<div id="top_footer" class="row">
-				<a href="./home_before_signup_signin.html" class="col-3"><img
-					style="width: 100%; margin-left: 15px;"
-					src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
-					alt="logo"></a>
-				<p class="col-8">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về
-					các công cụ, vật dụng sữa chữa nhà cửa tiện tích và tuyệt vời. Tất
-					cả đều sẵn sàng cho bạn lựa chọn!</p>
-			</div>
-			<div id="bottom_footer" class="row">
-				<div id="info" class="col-8">
-					<b>Địa chỉ: </b>12 Nguyễn Văn Bảo, P.4, Gò Vấp, TP.Hồ Chí Minh <br>
-					<b>Hotline: </b>0944302210 <br> <b>Email: </b>team13@gmail.com
-					<br>
-				</div>
-				<div id="clock" class="col-4"
-					style="color: darkorange; font-size: 18px;">
-					<script>
-						refreshClock();
-					</script>
-					<!-- ngày giờ -->
-				</div>
-			</div>
-			<div
-				style="background-color: #e3e8f8; color: darkblue; width: 926px;">
-			</div>
+		<div id="frm-footer" style="width: 1130px;">
+			<jsp:include page="footer.jsp" />
 		</div>
 
-
-
 		<!--nút trở về đầu trang-->
-		<!-- <div id="backTop">
+		<div id="backTop">
             <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
-        </div> -->
+        </div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -192,7 +159,7 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 		//nút trở về đầu trang
-		/* $(window).scroll(function() {
+		$(window).scroll(function() {
 			if ($(this).scrollTop()) {
 				$('#backTop').fadeIn();
 			} else {
@@ -203,7 +170,7 @@
 			$('html, body').animate({
 				scrollTop : 0
 			}, 100); //100 là 0.1s
-		}); */
+		});
 	})
 		<!-- auto complete -->
 		$(function() {

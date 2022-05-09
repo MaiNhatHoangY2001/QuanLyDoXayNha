@@ -1,12 +1,18 @@
 package com.se.security.demo.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.se.security.demo.entity.Product;
 import com.se.security.demo.service.CustomerService;
+import com.se.security.demo.service.ProductService;
 
 @Controller
 
@@ -16,12 +22,36 @@ public class CustomerController {
 	// need to inject our customer service
 	private CustomerService customerService;
 	
+	@Autowired
+	private ProductService productService;
+	
 	@GetMapping("/")
 	public String listCustomers(Model theModel) {
 		// get customers from the service
 //		List<Customer> theCustomers = customerService.getCustomers();
 //		// add the customers to the model
 //		theModel.addAttribute("customers", theCustomers);
+		
+//		List<Product> listProduct = new ArrayList<Product>();
+//		Product temp = (Product) productService.getProducts();
+//		listProduct.add(temp);
+		List<Product> listProduct = productService.getProducts();
+		
+//		int tong = 4;
+
+//		for (int i = 1; i <= tong; i++) {
+//			int rand = ThreadLocalRandom.current().nextInt(1,101);
+//			if (i != rand) {
+//				Product temp = productService.getProductById(rand);
+//				listProduct.add(temp);
+//			} else {
+//				tong++;
+//			}
+//		}
+
+		//		theModel.addAttribute("theProduct", product);
+		theModel.addAttribute("products", listProduct);
+
 		return "home";
 	}
 
