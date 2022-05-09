@@ -30,6 +30,9 @@ public class Order {
 	@JoinColumn(name = "id_kh")
 	private Customer customer;
 
+	@Column(name = "thanh_toan")
+	private String thanhToan;
+
 	public int getId() {
 		return id;
 	}
@@ -62,19 +65,29 @@ public class Order {
 		this.customer = customer;
 	}
 
-	public Order(int id, LocalDate ngayLap, String thanhTien, Customer customer) {
+	public String getThanhToan() {
+		return thanhToan;
+	}
+
+	public void setThanhToan(String thanhToan) {
+		this.thanhToan = thanhToan;
+	}
+
+	public Order(int id, LocalDate ngayLap, String thanhTien, Customer customer, String thanhToan) {
 		super();
 		this.id = id;
 		this.ngayLap = ngayLap;
 		this.thanhTien = thanhTien;
 		this.customer = customer;
+		this.thanhToan = thanhToan;
 	}
 
-	public Order(LocalDate ngayLap, String thanhTien, Customer customer) {
+	public Order(LocalDate ngayLap, String thanhTien, Customer customer, String thanhToan) {
 		super();
 		this.ngayLap = ngayLap;
 		this.thanhTien = thanhTien;
 		this.customer = customer;
+		this.thanhToan = thanhToan;
 	}
 
 	public Order() {
