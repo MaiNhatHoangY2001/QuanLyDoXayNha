@@ -51,7 +51,7 @@
 			<div id="navbar" class="row">
 				<div>
 					<div class="img_logo">
-						<a href="/quan-ly-do-xay-nha/WEB-INF/view/home.jsp"><img
+						<a href="${pageContext.request.contextPath}/"><img
 							style="width: 20%;"
 							src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
 							alt="logo"></a>
@@ -72,22 +72,21 @@
 
 
 						<!--user-->
-						<div id="user">
+						<form id="user" method="get" class="d-flex" action="${pageContext.request.contextPath}/login">
 							<!-- <i class="fa-solid fa-user fa-xl"></i> -->
 							<button id="btnUser">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_user.png"
 									alt="icon_user">
 							</button>
-						</div>
+						</form>
 
 						<!--cart:giỏ hàng-->
-						<div id="cart">
+						<form id="cart" method="get" class="d-flex" action="${pageContext.request.contextPath}/cart">
 							<button id="btnCart">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png"
 									alt="icon_cart">
 							</button>
-							<span id="soluong" class="text-white">0</span>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
