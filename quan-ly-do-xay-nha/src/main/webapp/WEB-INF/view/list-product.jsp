@@ -211,7 +211,7 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 		//nút trở về đầu trang
-		/* $(window).scroll(function() {
+		 $(window).scroll(function() {
 			if ($(this).scrollTop()) {
 				$('#backTop').fadeIn();
 			} else {
@@ -222,7 +222,7 @@
 			$('html, body').animate({
 				scrollTop : 0
 			}, 100); //100 là 0.1s
-		}); */
+		}); 
 	})
 		<!-- auto complete -->
 		$(function() {

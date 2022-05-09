@@ -6,7 +6,7 @@ import java.util.Objects;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class OrderDetailPK implements Serializable {
+public class CartDetailPK implements Serializable {
 
 	/**
 	 * 
@@ -28,7 +28,7 @@ public class OrderDetailPK implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OrderDetailPK other = (OrderDetailPK) obj;
+		CartDetailPK other = (CartDetailPK) obj;
 		return order == other.order && product == other.product;
 	}
 
