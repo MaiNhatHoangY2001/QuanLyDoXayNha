@@ -3,6 +3,7 @@ package com.se.security.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.se.security.demo.entity.Cart;
 import com.se.security.demo.entity.CartDetail;
@@ -39,10 +42,21 @@ public class CartController {
 		}
 		return "cart";
 	}
-	
-	@RequestMapping(value = "saveCartAndCartDetail", method = RequestMethod.GET)
-	public void saveCartAndCartDetail(@RequestParam(value = "qty", required = true) int qty, Model model) {
-		System.out.println(qty);
+
+	@RequestMapping("/saveOrderAndOpenCart")
+	public String saveOrderAndOpenCart(@RequestParam int soLuong, @RequestParam String productId) {
+		handleSaveOrder(soLuong, productId);
+		return "redirect:/cart";
 	}
-	
+
+	@RequestMapping("/saveOrder")
+	@ResponseBody
+	public void saveOrder(@RequestParam int soLuong, @RequestParam String productId) {
+		handleSaveOrder(soLuong, productId);
+	}
+
+	public void handleSaveOrder(int soLuong, String productId) {
+		System.out.println(soLuong + " " + productId);
+	}
+
 }

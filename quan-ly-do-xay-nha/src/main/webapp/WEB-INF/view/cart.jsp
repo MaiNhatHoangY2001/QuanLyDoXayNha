@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Giỏ hàng</title>
 
@@ -41,11 +41,12 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 
-<link rel="stylesheet" href="../css/home.css">
-<link rel="stylesheet" href="../css/list_products.css">
-<link rel="stylesheet" href="../css/cart.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/home.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/list_products.css">
 
-<script src="../js/home.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -194,38 +195,25 @@
 
                         </tbody>
                     </table> -->
-<<<<<<< HEAD
-                </div>
-                <a href="${pageContext.request.contextPath}/home" class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
-                    aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
-            </div>
-            
-            <!--footer-->
-			<div id="frm-footer">
-				<jsp:include page="footer.jsp" />
-			</div>
-        </div>
-        
-        
-
-        <!--nút trở về đầu trang-->
-        <div id="backTop">
-            <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
-        </div>
-    </div>
-=======
 				</div>
 				<a href="${pageContext.request.contextPath}/home"
 					class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
 					aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
 			</div>
-		</div>
 
-		<!--nút trở về đầu trang-->
-		<div id="backTop">
-			<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
+			<!--footer-->
+			<div id="frm-footer">
+				<jsp:include page="footer.jsp" />
+			</div>
+			<!--nút trở về đầu trang-->
+			<div id="backTop">
+				<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
+			</div>
 		</div>
 	</div>
+
+
+
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
@@ -255,6 +243,5 @@
 			});
 		})
 	</script>
->>>>>>> eb8c06af827cedede4413c6cd08f066e19a88c81
 </body>
 </html>

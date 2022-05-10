@@ -4,10 +4,13 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Information Product</title>
 
 <!--bootstrap5-->
@@ -107,7 +110,7 @@ input {
 	width: 2%;
 }
 
-nput::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
@@ -145,27 +148,31 @@ input:disabled {
 				<div class="row text-center">
 					<div class="border col-sm-4 m-2 ms-3 p-3 fs-4 fw-bold text-danger">${theProduct.price}</div>
 				</div>
-				
-				<form action="${pageContext.request.contextPath}/saveCartAndCartDetail" 
-					class="row" style="margin-top: 16px;" method="GET"> 
-					
+
+				<form:form
+					action="${pageContext.request.contextPath}/saveOrderAndOpenCart"
+					name="formInput" id="formCart" class="row"
+					style="margin-top: 16px;" method="post">
+
 					<div class="qty mt-5">
-						<span class="minus bg-dark">-</span> 
-						<input type="number" class="count" name="qty" value="1"> 
-						<span class="plus bg-dark">+</span>
+						<span class="minus bg-dark">-</span> <input type="text"
+							class="count" name="soLuong" value="1" /> <span
+							class="plus bg-dark">+</span>
 					</div>
-					
-					<input type="hidden" name="productId" value="${theProduct.id}"/>
+
+					<input type="hidden" name="productId" value="${theProduct.id}" />
 					<div class="col-6">
-						<button type="submit" class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
+						<button type="button"
+							class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
 							vào giỏ</button>
 					</div>
-					
+
 					<div class="col-6">
-						<button class="btn btn-danger btn-lg fw-bold fs-4">Mua ngay</button>
+						<button type="submit" class="btn btn-danger btn-lg fw-bold fs-4">Mua
+							ngay</button>
 					</div>
-				</form>
-				
+				</form:form>
+
 			</div>
 		</div>
 
@@ -260,7 +267,7 @@ input:disabled {
 		})
 		
 		$(document).ready(function(){
-		    $('.count').prop('disabled', true);
+		  
    			$(document).on('click','.plus',function(){
 				$('.count').val(parseInt($('.count').val()) + 1 );
     		});
@@ -270,6 +277,19 @@ input:disabled {
 						$('.count').val(1);
 					}
     	    	});
+        	
+        	 var form = $('#formCart');
+
+        	  form.find('button:first').click( function() {
+        	    $.ajax( {
+        	      type: "GET",
+        	      url: "${pageContext.request.contextPath}/saveOrder",
+        	      data: form.serialize(),
+        	      success: function( response ) {
+        	    	  console.log(response)
+        	      }
+        	    } );
+        	  } ); 
  		});
 	</script>
 </body>
