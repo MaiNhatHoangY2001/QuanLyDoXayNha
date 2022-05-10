@@ -199,7 +199,14 @@
                 <a href="${pageContext.request.contextPath}/home" class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
                     aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
             </div>
+            
+            <!--footer-->
+			<div id="frm-footer">
+				<jsp:include page="footer.jsp" />
+			</div>
         </div>
+        
+        
 
         <!--nút trở về đầu trang-->
         <div id="backTop">
