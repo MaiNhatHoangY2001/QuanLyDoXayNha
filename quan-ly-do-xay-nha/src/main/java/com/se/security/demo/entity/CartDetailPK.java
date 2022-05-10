@@ -6,18 +6,18 @@ import java.util.Objects;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class OrderDetailPK implements Serializable {
+public class CartDetailPK implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4916784602683599156L;
-	private int order;
+	private int cart;
 	private int product;
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(order, product);
+		return Objects.hash(cart, product);
 	}
 
 	@Override
@@ -28,8 +28,8 @@ public class OrderDetailPK implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OrderDetailPK other = (OrderDetailPK) obj;
-		return order == other.order && product == other.product;
+		CartDetailPK other = (CartDetailPK) obj;
+		return cart == other.cart && product == other.product;
 	}
 
 }

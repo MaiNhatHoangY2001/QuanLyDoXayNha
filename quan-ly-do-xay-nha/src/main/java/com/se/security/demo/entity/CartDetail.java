@@ -9,13 +9,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@IdClass(OrderDetailPK.class)
-@Table(name = "order_detail")
-public class OrderDetail {
+@IdClass(CartDetailPK.class)
+@Table(name = "cart_detail")
+public class CartDetail {
 	@Id
 	@ManyToOne
 	@JoinColumn(name = "id_order")
-	private Order order;
+	private Cart cart;
 
 	@Id
 	@ManyToOne
@@ -28,23 +28,23 @@ public class OrderDetail {
 	@Column(name = "gia")
 	private String gia;
 
-	public OrderDetail(Order order, Product product, int soLuong, String gia) {
+	public CartDetail(Cart cart, Product product, int soLuong, String gia) {
 		super();
-		this.order = order;
+		this.cart = cart;
 		this.product = product;
 		this.soLuong = soLuong;
 		this.gia = gia;
 	}
 
-	public OrderDetail() {
+	public CartDetail() {
 	}
 
-	public Order getOrder() {
-		return order;
+	public Cart getCart() {
+		return cart;
 	}
 
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 	public Product getProduct() {

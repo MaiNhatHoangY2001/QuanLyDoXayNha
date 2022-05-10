@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,139 +46,137 @@
 <link rel="stylesheet" href="../css/cart.css">
 
 <script src="../js/home.js"></script>
-<script>
-	$(document).ready(function() {
-		//nút trở về đầu trang
-		$(window).scroll(function() {
-			if ($(this).scrollTop()) {
-				$('#backTop').fadeIn();
-			} else {
-				$('#backTop').fadeOut();
-			}
-		});
-		$("#backTop").click(function() {
-			$('html, body').animate({
-				scrollTop : 0
-			}, 100); //100 là 0.1s
-		});
-	})
-</script>
 </head>
 <body>
 	<div class="container">
-        <!--header-->
-        <div id="frm-header">
+		<!--header-->
+		<div id="frm-header">
 			<jsp:include page="header.jsp" />
 		</div>
 
-        <!-- breadcum -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="./home_before_signup_signin.html">Trang chủ</a></li>
-                <li id="breadcrumb-item-active" class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
-            </ol>
-        </nav>
+		<!-- breadcum -->
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a
+					href="./home_before_signup_signin.html">Trang chủ</a></li>
+				<li id="breadcrumb-item-active" class="breadcrumb-item active"
+					aria-current="page">Giỏ hàng</li>
+			</ol>
+		</nav>
 
-        <!-- giỏ hàng -->
-        <div id="content_cart" class="gh bg-white" style="width: 101%;">
-            <h1 class="text-center" style="padding-top: 6px;"><b>GIỎ HÀNG</b></h1>
-            <div class="row">
-                <div class="col col-md-12">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr style="text-align: center;">
-                                <th>STT</th>
-                                <th style="width: 350px;">Ảnh sản phẩm</th>
-                                <th>Tên sản phẩm</th>
-                                <th style="width: 132px;">Số lượng</th>
-                                <th>Đơn giá</th>
-                                <th>Thành tiền</th>
-                                <th>Hành động</th>
-                            </tr>
-                        </thead>
-                        <tbody id="datarow">
-                            <tr style="text-align: center;">
-                                <td>1</td>
-                                <td>
-                                    <img src="../IMG/img-khoahoc/vl1.jpg" class="hinhdaidien">
-                                </td>
-                                <td>t1</td>
-                                <td>2</td>
-                                <td>200.000 <u>đ</u></td>
-                                <td>400.000 <u>đ</u></td>
-                                <td>
-                                    <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
-                                    <a id="delete_1" data-sp-ma="2" class="btn btn-danger btn-delete-sanpham">
-                                        <i class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <td>2</td>
-                                <td>
-                                    <img src="../IMG/img-truyentranh/VN.jpg" class="hinhdaidien">
-                                </td>
-                                <td>t2</td>
-                                <td>1</td>
-                                <td>50.000 <u>đ</u></td>
-                                <td>50.000 <u>đ</u></td>
-                                <td>
-                                    <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
-                                    <a id="delete_2" data-sp-ma="6" class="btn btn-danger btn-delete-sanpham">
-                                        <i class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <td>3</td>
-                                <td>
-                                    <img src="../IMG/img-sale/MK.png" class="hinhdaidien">
-                                </td>
-                                <td>t3</td>
-                                <td>4</td>
-                                <td>150.000 <u>đ</u></td>
-                                <td>600.000 <u>đ</u></td>
-                                <td>
-                                    <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
-                                    <a id="delete_3" data-sp-ma="4" class="btn btn-danger btn-delete-sanpham">
-                                        <i class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
-                                    </a>
-                                </td>
-                            </tr>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>Tổng số lượng:</th>
-                                    <th></th>
-                                    <th>Tổng tiền:</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tr style="text-align: center;">
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>7</td>
-                                <td></td>
-                                <td>2.050.000 vnđ</td>
-                                <td>
-                                    <a id="modal" data-toggle="modal" data-target="#modalChiTiet22" class="btn btn-info "> <b>Thanh Toán</b></a>
-                                </td>
-                                <div id="modalChiTiet22" class="modal fade">
-                                    <div class="modal-dialog" style="border: 5px double greenyellow; width: 2000px;">
-                                        <div class="modal-content">
-                                            <div class="nav-item text-center" style="background-color: black;">
-                                                <h4 style="text-align: center; color: greenyellow; padding-top: 2px;">Cảm ơn bạn đã mua hàng!</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- <h4 style="text-align: center;">(Mẫu giỏ hàng)</h4>
+		<!-- giỏ hàng -->
+		<div id="content_cart" class="gh bg-white" style="width: 101%;">
+			<h1 class="text-center" style="padding-top: 6px;">
+				<b>GIỎ HÀNG</b>
+			</h1>
+			<div class="row">
+				<div class="col col-md-12">
+					<table class="table table-bordered">
+						<thead>
+							<tr style="text-align: center;">
+								<th>STT</th>
+								<th style="width: 350px;">Ảnh sản phẩm</th>
+								<th>Tên sản phẩm</th>
+								<th style="width: 132px;">Số lượng</th>
+								<th>Đơn giá</th>
+								<th>Thành tiền</th>
+								<th>Hành động</th>
+							</tr>
+						</thead>
+						<tbody id="datarow">
+
+							<c:forEach var="detail" items="${listDetail}" varStatus="loop">
+								<tr style="text-align: center;">
+									<td>${loop.index + 1}</td>
+									<td><img
+										src="${pageContext.request.contextPath}/resources/${detail.product.link}"
+										class="hinhdaidien"></td>
+									<td>${detail.product.title}</td>
+									<td>${detail.soLuong}</td>
+									<td>${detail.product.price}</td>
+									<td>${detail.gia}</td>
+									<td>
+										<!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
+										<a id="delete_1" data-sp-ma="2"
+										class="btn btn-danger btn-delete-sanpham"> <i
+											class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
+									</a>
+									</td>
+								</tr>
+							</c:forEach>
+
+
+							<!-- <tr style="text-align: center;">
+								<td>2</td>
+								<td><img src="../IMG/img-truyentranh/VN.jpg"
+									class="hinhdaidien"></td>
+								<td>t2</td>
+								<td>1</td>
+								<td>50.000 <u>đ</u></td>
+								<td>50.000 <u>đ</u></td>
+								<td>
+									Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma`
+									<a id="delete_2" data-sp-ma="6"
+									class="btn btn-danger btn-delete-sanpham"> <i
+										class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
+								</a>
+								</td>
+							</tr>
+							<tr style="text-align: center;">
+								<td>3</td>
+								<td><img src="../IMG/img-sale/MK.png" class="hinhdaidien">
+								</td>
+								<td>t3</td>
+								<td>4</td>
+								<td>150.000 <u>đ</u></td>
+								<td>600.000 <u>đ</u></td>
+								<td>
+									Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma`
+									<a id="delete_3" data-sp-ma="4"
+									class="btn btn-danger btn-delete-sanpham"> <i
+										class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
+								</a>
+								</td>
+							</tr> -->
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+
+								<th></th>
+								<th>Tổng tiền:</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tr style="text-align: center;">
+							<td></td>
+							<td></td>
+							<td></td>
+
+							<td></td>
+							<td>${cart.thanhTien}</td>
+							<td><a id="modal" data-toggle="modal"
+								data-target="#modalChiTiet22" class="btn btn-info "> <b>Thanh
+										Toán</b></a></td>
+							<!-- 	<div id="modalChiTiet22" class="modal fade">
+								<div class="modal-dialog"
+									style="border: 5px double greenyellow; width: 2000px;">
+									<div class="modal-content">
+										<div class="nav-item text-center"
+											style="background-color: black;">
+											<h4
+												style="text-align: center; color: greenyellow; padding-top: 2px;">
+												Cảm ơn bạn đã mua hàng!
+												</h1>
+										</div>
+									</div>
+								</div>
+							</div> -->
+						</tr>
+						</tbody>
+					</table>
+					<!-- <h4 style="text-align: center;">(Mẫu giỏ hàng)</h4>
                     <hr style="border: 10px solid black;">
                     <table class="table table-bordered">
                         <thead>
@@ -195,6 +194,7 @@
 
                         </tbody>
                     </table> -->
+<<<<<<< HEAD
                 </div>
                 <a href="${pageContext.request.contextPath}/home" class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
                     aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
@@ -213,5 +213,48 @@
             <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
         </div>
     </div>
+=======
+				</div>
+				<a href="${pageContext.request.contextPath}/home"
+					class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
+					aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
+			</div>
+		</div>
+
+		<!--nút trở về đầu trang-->
+		<div id="backTop">
+			<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		//nút trở về đầu trang
+		$(window).scroll(function() {
+			if ($(this).scrollTop()) {
+				$('#backTop').fadeIn();
+			} else {
+				$('#backTop').fadeOut();
+			}
+		});
+		$("#backTop").click(function() {
+			$('html, body').animate({
+				scrollTop : 0
+			}, 100); //100 là 0.1s
+		}); 
+	})
+		<!-- auto complete -->
+		$(function() {
+
+			$("#txtTim").autocomplete({
+				source : "${pageContext.request.contextPath}/search"
+			});
+		})
+	</script>
+>>>>>>> eb8c06af827cedede4413c6cd08f066e19a88c81
 </body>
 </html>

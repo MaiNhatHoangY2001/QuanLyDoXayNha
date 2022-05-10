@@ -47,13 +47,81 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/list_products.css" />
 <style type="text/css">
+.qty .count {
+	color: #000;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 25px;
+	font-weight: 700;
+	line-height: 30px;
+	padding: 0 2px;
+	min-width: 35px;
+	text-align: center;
+}
+
+.qty .plus {
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+	color: white;
+	width: 30px;
+	height: 30px;
+	font: 30px/1 Arial, sans-serif;
+	text-align: center;
+	border-radius: 50%;
+}
+
+.qty .minus {
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+	color: white;
+	width: 30px;
+	height: 30px;
+	font: 30px/1 Arial, sans-serif;
+	text-align: center;
+	border-radius: 50%;
+	background-clip: padding-box;
+}
+
+div {
+	text-align: center;
+}
+
+.minus:hover {
+	background-color: #717fe0 !important;
+}
+
+.plus:hover {
+	background-color: #717fe0 !important;
+}
+/*Prevent text selection*/
+span {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+input {
+	border: 0;
+	width: 2%;
+}
+
+nput::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input:disabled {
+	background-color: white;
+}
 </style>
 
 </head>
 <body>
 	<div class="container">
 		<!--header-->
-		<div id="frm-header">
+		<div id="frm-header" style="width: 1130px;">
 			<jsp:include page="header.jsp" />
 		</div>
 
@@ -77,18 +145,27 @@
 				<div class="row text-center">
 					<div class="border col-sm-4 m-2 ms-3 p-3 fs-4 fw-bold text-danger">${theProduct.price}</div>
 				</div>
-
-				<form action="" class="row" style="margin-top: 16px;">
+				
+				<form action="${pageContext.request.contextPath}/saveCartAndCartDetail" 
+					class="row" style="margin-top: 16px;" method="GET"> 
+					
+					<div class="qty mt-5">
+						<span class="minus bg-dark">-</span> 
+						<input type="number" class="count" name="qty" value="1"> 
+						<span class="plus bg-dark">+</span>
+					</div>
+					
+					<input type="hidden" name="productId" value="${theProduct.id}"/>
 					<div class="col-6">
-						<button type="button"
-							class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
+						<button type="submit" class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
 							vào giỏ</button>
 					</div>
+					
 					<div class="col-6">
-						<button type="button" class="btn btn-danger btn-lg fw-bold fs-4">Mua
-							ngay</button>
+						<button class="btn btn-danger btn-lg fw-bold fs-4">Mua ngay</button>
 					</div>
 				</form>
+				
 			</div>
 		</div>
 
@@ -121,11 +198,12 @@
 				<div class="col row row-cols-4">
 					<c:forEach var="product" items="${products}">
 						<figure align="center" class="img-thumbnail border">
-							<a href="${pageContext.request.contextPath}/listProduct/info/${product.id}"
-								style="text-decoration: none;">
-								<img class="rounded w-100" height="250"
-									src="${pageContext.request.contextPath}/resources/${product.link}"
-									alt="picmcs">
+							<a
+								href="${pageContext.request.contextPath}/listProduct/info/${product.id}"
+								style="text-decoration: none;"> <img class="rounded w-100"
+								height="250"
+								src="${pageContext.request.contextPath}/resources/${product.link}"
+								alt="picmcs">
 								<figcaption>
 									<h6 class="text-justify"
 										style="font-weight: bold; margin-top: 20px">
@@ -135,54 +213,21 @@
 									</h6>
 								</figcaption>
 							</a>
-						</figure>	
+						</figure>
 					</c:forEach>
 				</div>
 			</div>
 		</div>
 
 		<!--footer-->
-		<div id="footer">
-			<div id="title" style="margin-top: 4%;">
-				<div id="line-left"></div>
-				<h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
-				<div id="line-right"></div>
-			</div>
-
-			<div id="top_footer" class="row">
-				<a href="./home_before_signup_signin.html" class="col-3"><img
-					style="width: 100%; margin-left: 15px;"
-					src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
-					alt="logo"></a>
-				<p class="col-8">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về
-					các công cụ, vật dụng sữa chữa nhà cửa tiện tích và tuyệt vời. Tất
-					cả đều sẵn sàng cho bạn lựa chọn!</p>
-			</div>
-			<div id="bottom_footer" class="row">
-				<div id="info" class="col-8">
-					<b>Địa chỉ: </b>12 Nguyễn Văn Bảo, P.4, Gò Vấp, TP.Hồ Chí Minh <br>
-					<b>Hotline: </b>0944302210 <br> <b>Email: </b>team13@gmail.com
-					<br>
-				</div>
-				<div id="clock" class="col-4"
-					style="color: darkorange; font-size: 18px;">
-					<script>
-						refreshClock();
-					</script>
-					<!-- ngày giờ -->
-				</div>
-			</div>
-			<div
-				style="background-color: #e3e8f8; color: darkblue; width: 926px;">
-			</div>
+		<div id="frm-footer" style="width: 1130px;">
+			<jsp:include page="footer.jsp" />
 		</div>
 
-
-
 		<!--nút trở về đầu trang-->
-		<!-- <div id="backTop">
-            <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
-        </div> -->
+		<div id="backTop">
+			<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -190,21 +235,22 @@
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
 	<script type="text/javascript">
-	$(document).ready(function() {
-		//nút trở về đầu trang
-		/* $(window).scroll(function() {
-			if ($(this).scrollTop()) {
-				$('#backTop').fadeIn();
-			} else {
-				$('#backTop').fadeOut();
-			}
-		});
-		$("#backTop").click(function() {
-			$('html, body').animate({
-				scrollTop : 0
-			}, 100); //100 là 0.1s
-		}); */
-	})
+		$(document).ready(function() {
+			//nút trở về đầu trang
+			$(window).scroll(function() {
+				if ($(this).scrollTop()) {
+					$('#backTop').fadeIn();
+				} else {
+					$('#backTop').fadeOut();
+				}
+			});
+			$("#backTop").click(function() {
+				$('html, body').animate({
+					scrollTop : 0
+				}, 100); //100 là 0.1s
+			});
+		})
+		
 		<!-- auto complete -->
 		$(function() {
 
@@ -212,6 +258,19 @@
 				source : "${pageContext.request.contextPath}/search"
 			});
 		})
+		
+		$(document).ready(function(){
+		    $('.count').prop('disabled', true);
+   			$(document).on('click','.plus',function(){
+				$('.count').val(parseInt($('.count').val()) + 1 );
+    		});
+        	$(document).on('click','.minus',function(){
+    			$('.count').val(parseInt($('.count').val()) - 1 );
+    				if ($('.count').val() == 0) {
+						$('.count').val(1);
+					}
+    	    	});
+ 		});
 	</script>
 </body>
 </html>

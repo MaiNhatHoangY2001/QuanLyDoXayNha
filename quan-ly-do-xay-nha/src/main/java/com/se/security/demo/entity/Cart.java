@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "cart")
+public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,9 @@ public class Order {
 	@ManyToOne
 	@JoinColumn(name = "id_kh")
 	private Customer customer;
+
+	@Column(name = "thanh_toan")
+	private String thanhToan;
 
 	public int getId() {
 		return id;
@@ -62,21 +65,31 @@ public class Order {
 		this.customer = customer;
 	}
 
-	public Order(int id, LocalDate ngayLap, String thanhTien, Customer customer) {
+	public String getThanhToan() {
+		return thanhToan;
+	}
+
+	public void setThanhToan(String thanhToan) {
+		this.thanhToan = thanhToan;
+	}
+
+	public Cart(int id, LocalDate ngayLap, String thanhTien, Customer customer, String thanhToan) {
 		super();
 		this.id = id;
 		this.ngayLap = ngayLap;
 		this.thanhTien = thanhTien;
 		this.customer = customer;
+		this.thanhToan = thanhToan;
 	}
 
-	public Order(LocalDate ngayLap, String thanhTien, Customer customer) {
+	public Cart(LocalDate ngayLap, String thanhTien, Customer customer, String thanhToan) {
 		super();
 		this.ngayLap = ngayLap;
 		this.thanhTien = thanhTien;
 		this.customer = customer;
+		this.thanhToan = thanhToan;
 	}
 
-	public Order() {
+	public Cart() {
 	}
 }

@@ -65,9 +65,6 @@ public class ProductController {
 		return titles;
 	}
 	
-	@GetMapping("/cart")
-	public String listCart() {
-		return "cart";
-	}
+
 
 }
