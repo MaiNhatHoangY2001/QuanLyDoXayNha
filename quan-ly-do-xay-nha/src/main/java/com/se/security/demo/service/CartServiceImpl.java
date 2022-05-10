@@ -24,7 +24,7 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	@Transactional
-	public List<?> getOrderDetailByOrder(int idOrder) {
+	public List<CartDetail> getOrderDetailByOrder(int idOrder) {
 		return orderDao.getOrderDetailByOrder(idOrder);
 	}
 }

@@ -12,12 +12,12 @@ public class CartDetailPK implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 4916784602683599156L;
-	private int order;
+	private int cart;
 	private int product;
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(order, product);
+		return Objects.hash(cart, product);
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class CartDetailPK implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		CartDetailPK other = (CartDetailPK) obj;
-		return order == other.order && product == other.product;
+		return cart == other.cart && product == other.product;
 	}
 
 }

@@ -2,6 +2,8 @@ package com.se.security.demo.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -17,29 +19,29 @@ public class CartDaoImpl implements CartDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	
-	
-	
 	@Override
 	public Cart getOrderByIdCustomer(int idKH) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		Query<Cart> theQuery = currentSession.createQuery("from Cart", Cart.class);
-		
-	//where id_kh = " + idKH + " AND thanh_toan like :thanhToan
-				//.setParameter("thanhToan", "chưa thanh toán", StringNVarcharType.INSTANCE);
-		
-		List<Cart> cart = theQuery.getResultList();
-		
-		return cart.get(0);
+
+		try {
+			Session currentSession = sessionFactory.getCurrentSession();
+			Query<Cart> theQuery = currentSession
+					.createQuery("from Cart where id_kh = " + idKH + " AND thanh_toan like :thanhToan", Cart.class)
+					.setParameter("thanhToan", "chưa thanh toán", StringNVarcharType.INSTANCE);
+
+			Cart cart = theQuery.getSingleResult();
+			return cart;
+		} catch (NoResultException e) {
+			return null;
+		}
+
 	}
 
 	@Override
-	public List<?> getOrderDetailByOrder(int idOrder) {
+	public List<CartDetail> getOrderDetailByOrder(int idOrder) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Query theQuery = currentSession.createQuery(
-				"select detail.so_luong, detail.gia, product.title, product.price, product.status from OrderDetail detail INNER JOIN detail.products product where detail.id_order = "
-						+ idOrder);
-		List<?> orderDetails = theQuery.list();
+		Query<CartDetail> theQuery = currentSession.createQuery("from CartDetail where id_order = " + idOrder,
+				CartDetail.class);
+		List<CartDetail> orderDetails = theQuery.getResultList();
 		return orderDetails;
 	}
 

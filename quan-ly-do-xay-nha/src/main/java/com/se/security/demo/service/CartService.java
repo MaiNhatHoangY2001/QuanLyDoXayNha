@@ -7,5 +7,5 @@ import com.se.security.demo.entity.CartDetail;
 
 public interface CartService {
 	public Cart getOrderByIdCustomer(int idKH);
-	public List<?> getOrderDetailByOrder(int idOrder);
+	public List<CartDetail> getOrderDetailByOrder(int idOrder);
 }

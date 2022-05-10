@@ -1,5 +1,6 @@
 package com.se.security.demo.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +17,16 @@ public class CartController {
 
 	@Autowired
 	private CartService cartService;
-	
+
 	@GetMapping("/cart")
 	public String listCart(Model model) {
 		Cart cart = cartService.getOrderByIdCustomer(1);
-		//List<?> orderDetails = orderService.getOrderDetailByOrder(1);
-		//model.addAttribute("listDetail", orderDetails);
-		//model.addAttribute("order", order);
-		
+		if (cart != null) {
+			List<CartDetail> cartDetails = cartService.getOrderDetailByOrder(cart.getId());
+			model.addAttribute("listDetail", cartDetails);
+			model.addAttribute("cart", cart);
+		}
+
 		return "cart";
 	}
 }

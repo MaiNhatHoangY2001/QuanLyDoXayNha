@@ -15,7 +15,7 @@ public class CartDetail {
 	@Id
 	@ManyToOne
 	@JoinColumn(name = "id_order")
-	private Cart order;
+	private Cart cart;
 
 	@Id
 	@ManyToOne
@@ -28,9 +28,9 @@ public class CartDetail {
 	@Column(name = "gia")
 	private String gia;
 
-	public CartDetail(Cart order, Product product, int soLuong, String gia) {
+	public CartDetail(Cart cart, Product product, int soLuong, String gia) {
 		super();
-		this.order = order;
+		this.cart = cart;
 		this.product = product;
 		this.soLuong = soLuong;
 		this.gia = gia;
@@ -39,12 +39,12 @@ public class CartDetail {
 	public CartDetail() {
 	}
 
-	public Cart getOrder() {
-		return order;
+	public Cart getCart() {
+		return cart;
 	}
 
-	public void setOrder(Cart order) {
-		this.order = order;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 	public Product getProduct() {

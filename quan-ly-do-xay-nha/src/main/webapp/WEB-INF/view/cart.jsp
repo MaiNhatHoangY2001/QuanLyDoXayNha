@@ -85,15 +85,16 @@
 						</thead>
 						<tbody id="datarow">
 
-							<c:forEach var="detail" items="${listDetail}">
+							<c:forEach var="detail" items="${listDetail}" varStatus="loop">
 								<tr style="text-align: center;">
-									<td>1</td>
-									<td><img src="../IMG/img-khoahoc/vl1.jpg"
+									<td>${loop.index + 1}</td>
+									<td><img
+										src="${pageContext.request.contextPath}/resources/${detail.product.link}"
 										class="hinhdaidien"></td>
-									<td>t1</td>
-									<td>2</td>
-									<td>200.000 <u>đ</u></td>
-									<td>400.000 <u>đ</u></td>
+									<td>${detail.product.title}</td>
+									<td>${detail.soLuong}</td>
+									<td>${detail.product.price}</td>
+									<td>${detail.gia}</td>
 									<td>
 										<!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
 										<a id="delete_1" data-sp-ma="2"
@@ -142,7 +143,7 @@
 								<th></th>
 								<th></th>
 								<th></th>
-								<th>Tổng số lượng:</th>
+
 								<th></th>
 								<th>Tổng tiền:</th>
 								<th></th>
@@ -152,13 +153,13 @@
 							<td></td>
 							<td></td>
 							<td></td>
-							<td>7</td>
+
 							<td></td>
-							<td>2.050.000 vnđ</td>
+							<td>${cart.thanhTien}</td>
 							<td><a id="modal" data-toggle="modal"
 								data-target="#modalChiTiet22" class="btn btn-info "> <b>Thanh
 										Toán</b></a></td>
-						<!-- 	<div id="modalChiTiet22" class="modal fade">
+							<!-- 	<div id="modalChiTiet22" class="modal fade">
 								<div class="modal-dialog"
 									style="border: 5px double greenyellow; width: 2000px;">
 									<div class="modal-content">
