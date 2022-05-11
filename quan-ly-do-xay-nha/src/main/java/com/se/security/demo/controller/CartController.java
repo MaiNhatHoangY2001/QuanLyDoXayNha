@@ -2,22 +2,15 @@ package com.se.security.demo.controller;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.se.security.demo.entity.Cart;
 import com.se.security.demo.entity.CartDetail;
@@ -77,23 +70,56 @@ public class CartController {
 				}
 			}
 			if (cartDetail == null) {
-				cartDetail = new CartDetail(cart, product, soLuong, product.getPrice());
+				cartDetail = new CartDetail(cart, product, soLuong, tinhGia(product.getPrice(), soLuong));
 				cartService.saveCartDetail(cartDetail);
+				updateThanhTien(cart);
+				cartService.updateCart(cart);
 			} else {
 				cartDetail.setSoLuong(cartDetail.getSoLuong() + soLuong);
+				cartDetail.setGia(tinhGia(product.getPrice(), soLuong));
 				cartService.updateCartDetail(cartDetail);
+				updateThanhTien(cart);
+				cartService.updateCart(cart);
 			}
 		// không
 		} else {
 			// tạo hóa đơn và thêm và thêm vào sql
 			// tạo chi tiết hóa đơn và thêm vào sql
 			cart = new Cart(LocalDate.now(), null, customer, null);
-			CartDetail cartDetail = new CartDetail(cart, product, soLuong, product.getPrice());
-			String[] gia = product.getPrice().split(" ");
-			cart.setThanhTien((cartDetail.getSoLuong() * Double.parseDouble(gia[0].replace(".", ""))) + " " + gia[1]);
+			CartDetail cartDetail = new CartDetail(cart, product, soLuong, tinhGia(product.getPrice(), soLuong));
+			
+			int thanhTien = Integer.parseInt(cartDetail.getGia().split(" ")[0].replace(".", ""));
+			List<CartDetail> listCartDetail = cartService.getOrderDetailByOrder(cart.getId());
+			for (CartDetail cd : listCartDetail) {
+				String[] item = cd.getGia().split(" ");
+				thanhTien += Integer.parseInt(item[0].replace(".", ""));
+			}
+			DecimalFormat df = new DecimalFormat("#,###,### ₫");
+			cart.setThanhTien(df.format(thanhTien).replace(",", "."));
+			
 			cart.setThanhToan("chưa thanh toán");
-			cartService.saveCart(cart);
 			cartService.saveCartDetail(cartDetail);
+			cartService.saveCart(cart);
 		}
 	}
+
+	private void updateThanhTien(Cart cart) {
+		int thanhTien = 0;
+		List<CartDetail> listCartDetail = cartService.getOrderDetailByOrder(cart.getId());
+		for (CartDetail cd : listCartDetail) {
+			String[] item = cd.getGia().split(" ");
+			thanhTien += Integer.parseInt(item[0].replace(".", ""));
+		}
+		DecimalFormat df = new DecimalFormat("#,###,### ₫");
+		cart.setThanhTien(df.format(thanhTien).replace(",", "."));
+	}
+
+	private String tinhGia(String gia, int soLuong) {
+		String[] item = gia.split(" ");
+		int total = Integer.parseInt(item[0].replace(".", "")) * soLuong;
+		DecimalFormat df = new DecimalFormat("#,###,### ₫");
+		return df.format(total).replace(",", ".");
+	}
+	
+	
 }

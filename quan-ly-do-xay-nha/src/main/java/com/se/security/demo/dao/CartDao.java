@@ -11,4 +11,5 @@ public interface CartDao {
 	public void saveCart(Cart cart);
 	public void saveCartDetail(CartDetail cartDetail);
 	public void updateCartDetail(CartDetail cartDetail);
+	public void updateCart(Cart cart);
 }
