@@ -84,4 +84,12 @@ public class CartDaoImpl implements CartDao {
 				+ cartDetail.getCart().getId() + " and id_product = " + cartDetail.getProduct().getId();
 		session.createNativeQuery(sql).executeUpdate();
 	}
+
+	@Override
+	public void deleteCartDetail(int idProduct, int idCart) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "delete from cart_detail where idProduct=? and idCart=?";
+		session.createNativeQuery(sql).setParameter(1,idProduct)
+				.setParameter(2, idCart).executeUpdate();
+	}
 }

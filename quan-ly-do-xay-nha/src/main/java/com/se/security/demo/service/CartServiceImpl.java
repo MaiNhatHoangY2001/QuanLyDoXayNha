@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,17 +30,27 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
+	@Transactional
 	public void saveCart(Cart cart) {
 		orderDao.saveCart(cart);
 	}
 
 	@Override
+	@Transactional
 	public void saveCartDetail(CartDetail cartDetail) {
 		orderDao.saveCartDetail(cartDetail);
 	}
 
 	@Override
+	@Transactional
 	public void updateCartDetail(CartDetail cartDetail) {
 		orderDao.updateCartDetail(cartDetail);
+	}
+
+	@Override
+	@Transactional
+	public void deleteCartDetail(int idProduct, int idCart) {
+		orderDao.deleteCartDetail(idProduct, idCart);
+		
 	}
 }
