@@ -4,17 +4,20 @@ import java.util.List;
 
 import javax.persistence.NoResultException;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.hibernate.type.StringNVarcharType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.se.security.demo.entity.Cart;
 import com.se.security.demo.entity.CartDetail;
 
 @Repository
+@Transactional
 public class CartDaoImpl implements CartDao {
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -42,17 +45,43 @@ public class CartDaoImpl implements CartDao {
 		List<CartDetail> orderDetails = theQuery.getResultList();
 		return orderDetails;
 	}
-	
+
 	@Override
 	public void saveCart(Cart cart) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.saveOrUpdate(cart);
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessionFactory.openSession();
+		}
+		session.saveOrUpdate(cart);
 	}
 
 	@Override
 	public void saveCartDetail(CartDetail cartDetail) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.saveOrUpdate(cartDetail);
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessionFactory.openSession();
+		}
+		String sql = "insert into cart_detail values(?, ?, ?, ?)";
+		session.createNativeQuery(sql).setParameter(1, cartDetail.getCart().getId())
+				.setParameter(2, cartDetail.getProduct().getId()).setParameter(3, cartDetail.getSoLuong())
+				.setParameter(4, cartDetail.getGia()).executeUpdate();
 	}
 
+	// update cart_detail set so_luong = 2 where id_order = 1 and id_product = 1
+	@Override
+	public void updateCartDetail(CartDetail cartDetail) {
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessionFactory.openSession();
+		}
+		String sql = "update cart_detail set so_luong = " + cartDetail.getSoLuong() + " where id_order = "
+				+ cartDetail.getCart().getId() + " and id_product = " + cartDetail.getProduct().getId();
+		session.createNativeQuery(sql).executeUpdate();
+	}
 }

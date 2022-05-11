@@ -71,4 +71,9 @@ public class CartDetail {
 		this.gia = gia;
 	}
 
+	@Override
+	public String toString() {
+		return "CartDetail [cart=" + cart.getId() + ", product=" + product.getId() + ", soLuong=" + soLuong + ", gia=" + gia + "]";
+	}
+
 }

@@ -10,4 +10,5 @@ public interface CartDao {
 	public List<CartDetail> getOrderDetailByOrder(int idOrder);
 	public void saveCart(Cart cart);
 	public void saveCartDetail(CartDetail cartDetail);
+	public void updateCartDetail(CartDetail cartDetail);
 }

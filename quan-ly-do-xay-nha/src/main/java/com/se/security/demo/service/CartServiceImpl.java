@@ -27,4 +27,19 @@ public class CartServiceImpl implements CartService {
 	public List<CartDetail> getOrderDetailByOrder(int idOrder) {
 		return orderDao.getOrderDetailByOrder(idOrder);
 	}
+
+	@Override
+	public void saveCart(Cart cart) {
+		orderDao.saveCart(cart);
+	}
+
+	@Override
+	public void saveCartDetail(CartDetail cartDetail) {
+		orderDao.saveCartDetail(cartDetail);
+	}
+
+	@Override
+	public void updateCartDetail(CartDetail cartDetail) {
+		orderDao.updateCartDetail(cartDetail);
+	}
 }

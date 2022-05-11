@@ -1,5 +1,8 @@
 package com.se.security.demo.controller;
 
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.se.security.demo.entity.Cart;
 import com.se.security.demo.entity.CartDetail;
+import com.se.security.demo.entity.Customer;
+import com.se.security.demo.entity.Product;
 import com.se.security.demo.service.CartService;
 import com.se.security.demo.service.CustomerService;
 import com.se.security.demo.service.ProductService;
@@ -56,7 +61,42 @@ public class CartController {
 	}
 
 	public void handleSaveOrder(int soLuong, String productId) {
-		System.out.println(soLuong + " " + productId);
+		Customer customer = customerService.getCustomer(1);
+		Product product = productService.getProductById(Integer.parseInt(productId));
+		Cart cart = cartService.getOrderByIdCustomer(1);
+		
+		// kiểm tra khách hàng đã có hóa đơn chưa thanh toán ko?
+		// có
+		if (cart != null) {
+			// tạo chi tiết hóa đơn và thêm vào sql
+			List<CartDetail> listCartDetail = cartService.getOrderDetailByOrder(cart.getId());
+			CartDetail cartDetail = null;
+			for (CartDetail temp : listCartDetail) {
+				if (temp.getProduct().getId() == product.getId()) {
+					cartDetail = temp;
+				}
+			}
+			if (cartDetail == null) {
+				cartDetail = new CartDetail(cart, product, soLuong, product.getPrice());
+				System.out.println(cartDetail.toString());
+				cartService.saveCartDetail(cartDetail);
+			} else {
+				System.out.println(cartDetail.toString());
+				cartDetail.setSoLuong(cartDetail.getSoLuong() + soLuong);
+				cartService.updateCartDetail(cartDetail);
+				System.out.println(cartDetail.toString());
+			}
+		// không
+		} else {
+			// tạo hóa đơn và thêm và thêm vào sql
+			// tạo chi tiết hóa đơn và thêm vào sql
+			cart = new Cart(LocalDate.now(), null, customer, null);
+			CartDetail cartDetail = new CartDetail(cart, product, soLuong, product.getPrice());
+			String[] gia = product.getPrice().split(" ");
+			cart.setThanhTien((cartDetail.getSoLuong() * Double.parseDouble(gia[0].replace(".", ""))) + " " + gia[1]);
+			cart.setThanhToan("chưa thanh toán");
+			cartService.saveCart(cart);
+			cartService.saveCartDetail(cartDetail);
+		}
 	}
-
 }
