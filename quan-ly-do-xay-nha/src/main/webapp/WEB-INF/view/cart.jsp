@@ -75,13 +75,13 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr style="text-align: center;">
-								<th>STT</th>
-								<th style="width: 350px;">Ảnh sản phẩm</th>
-								<th>Tên sản phẩm</th>
-								<th style="width: 132px;">Số lượng</th>
-								<th>Đơn giá</th>
-								<th>Thành tiền</th>
-								<th>Hành động</th>
+								<th style="width: 78.47px;">STT</th>
+								<th style="width: 300px;">Ảnh sản phẩm</th>
+								<th style="width: 250px;">Tên sản phẩm</th>
+								<th style="width: 100px;">Số lượng</th>
+								<th style="width: 200px;">Đơn giá</th>
+								<th style="width: 200px;">Thành tiền</th>
+								<th >Hành động</th>
 							</tr>
 						</thead>
 						<tbody id="datarow">
@@ -91,7 +91,7 @@
 									<td>${loop.index + 1}</td>
 									<td><img
 										src="${pageContext.request.contextPath}/resources/${detail.product.link}"
-										class="hinhdaidien"></td>
+										class="hinhdaidien" style="width: 75%;"></td>
 									<td>${detail.product.title}</td>
 									<td>${detail.soLuong}</td>
 									<td>${detail.product.price}</td>
@@ -106,39 +106,6 @@
 								</tr>
 							</c:forEach>
 
-
-							<!-- <tr style="text-align: center;">
-								<td>2</td>
-								<td><img src="../IMG/img-truyentranh/VN.jpg"
-									class="hinhdaidien"></td>
-								<td>t2</td>
-								<td>1</td>
-								<td>50.000 <u>đ</u></td>
-								<td>50.000 <u>đ</u></td>
-								<td>
-									Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma`
-									<a id="delete_2" data-sp-ma="6"
-									class="btn btn-danger btn-delete-sanpham"> <i
-										class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
-								</a>
-								</td>
-							</tr>
-							<tr style="text-align: center;">
-								<td>3</td>
-								<td><img src="../IMG/img-sale/MK.png" class="hinhdaidien">
-								</td>
-								<td>t3</td>
-								<td>4</td>
-								<td>150.000 <u>đ</u></td>
-								<td>600.000 <u>đ</u></td>
-								<td>
-									Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma`
-									<a id="delete_3" data-sp-ma="4"
-									class="btn btn-danger btn-delete-sanpham"> <i
-										class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
-								</a>
-								</td>
-							</tr> -->
 						<thead>
 							<tr>
 								<th></th>
