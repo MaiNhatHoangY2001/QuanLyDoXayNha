@@ -200,8 +200,7 @@ input:disabled {
 				<div class="col row row-cols-4">
 					<c:forEach var="product" items="${products}">
 						<figure align="center" class="img-thumbnail border">
-							<a
-								href="${pageContext.request.contextPath}/listProduct/info/${product.id}"
+							<a href="${pageContext.request.contextPath}/listProduct/info/${product.id}"
 								style="text-decoration: none;"> <img class="rounded w-100"
 								height="250"
 								src="${pageContext.request.contextPath}/resources/${product.link}"
@@ -209,9 +208,9 @@ input:disabled {
 								<figcaption>
 									<h6 class="text-justify"
 										style="font-weight: bold; margin-top: 20px">
-										<p>${product.title}</p>
+										<p>${theProduct.title}</p>
 										<br>
-										<p style="color: red">${product.price}</p>
+										<p style="color: red;">${product.price}</p>
 									</h6>
 								</figcaption>
 							</a>

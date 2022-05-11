@@ -2,7 +2,7 @@ package com.se.security.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,18 +27,13 @@ public class ProductController {
 	public String getProduct(@PathVariable int productId, Model theModel) {
 		Product product = productService.getProductById(productId);
 		List<Product> listProduct = new ArrayList<Product>();
-		int tong = 4;
-
-		for (int i = 1; i <= tong; i++) {
-			int rand = ThreadLocalRandom.current().nextInt(1,101);
-			if (i != rand) {
-				Product temp = productService.getProductById(rand);
-				listProduct.add(temp);
-			} else {
-				tong++;
-			}
+		
+		int[] ints = new Random().ints(1, 101).distinct().limit(4).toArray();
+		for(int i : ints) {
+			Product temp = productService.getProductById(i);
+			listProduct.add(temp);
 		}
-
+		
 		theModel.addAttribute("theProduct", product);
 		theModel.addAttribute("products", listProduct);
 
@@ -64,7 +59,4 @@ public class ProductController {
 		List<String> titles = productService.search(term);
 		return titles;
 	}
-	
-
-
 }

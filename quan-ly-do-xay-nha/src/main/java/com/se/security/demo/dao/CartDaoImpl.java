@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.NoResultException;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -48,47 +47,41 @@ public class CartDaoImpl implements CartDao {
 
 	@Override
 	public void saveCart(Cart cart) {
-		Session session;
-		try {
-			session = sessionFactory.getCurrentSession();
-		} catch (HibernateException e) {
-			session = sessionFactory.openSession();
-		}
+		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(cart);
 	}
 
 	@Override
 	public void saveCartDetail(CartDetail cartDetail) {
-		Session session;
-		try {
-			session = sessionFactory.getCurrentSession();
-		} catch (HibernateException e) {
-			session = sessionFactory.openSession();
-		}
+		Session session = sessionFactory.getCurrentSession();
 		String sql = "insert into cart_detail values(?, ?, ?, ?)";
 		session.createNativeQuery(sql).setParameter(1, cartDetail.getCart().getId())
 				.setParameter(2, cartDetail.getProduct().getId()).setParameter(3, cartDetail.getSoLuong())
 				.setParameter(4, cartDetail.getGia()).executeUpdate();
 	}
 
-	// update cart_detail set so_luong = 2 where id_order = 1 and id_product = 1
 	@Override
 	public void updateCartDetail(CartDetail cartDetail) {
-		Session session;
-		try {
-			session = sessionFactory.getCurrentSession();
-		} catch (HibernateException e) {
-			session = sessionFactory.openSession();
-		}
-		String sql = "update cart_detail set so_luong = " + cartDetail.getSoLuong() + " where id_order = "
-				+ cartDetail.getCart().getId() + " and id_product = " + cartDetail.getProduct().getId();
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "update cart_detail set so_luong = " + cartDetail.getSoLuong() + ", gia = N'" + cartDetail.getGia()
+				+ "' where id_order = " + cartDetail.getCart().getId() + " and id_product = "
+				+ cartDetail.getProduct().getId();
+		session.createNativeQuery(sql).executeUpdate();
+	}
+
+	@Override
+	public void updateCart(Cart cart) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "update cart set ngay_lap = '" + cart.getNgayLap() + "', thanh_tien = N'" + cart.getThanhTien()
+				+ "', id_kh = " + cart.getCustomer().getId() + ", thanh_toan = N'" + cart.getThanhToan()
+				+ "' where id = " + cart.getId();
 		session.createNativeQuery(sql).executeUpdate();
 	}
 
 	@Override
 	public void deleteCartDetail(int idProduct, int idCart) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "delete from cart_detail where idProduct=? and idCart=?";
+		String sql = "delete from cart_detail where id_product=? and id_order=?";
 		session.createNativeQuery(sql).setParameter(1,idProduct)
 				.setParameter(2, idCart).executeUpdate();
 	}

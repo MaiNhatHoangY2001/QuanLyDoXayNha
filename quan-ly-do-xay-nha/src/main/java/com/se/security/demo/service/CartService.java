@@ -12,4 +12,5 @@ public interface CartService {
 	public void saveCartDetail(CartDetail cartDetail);
 	public void updateCartDetail(CartDetail cartDetail);
 	public void deleteCartDetail(int idProduct, int idCart);
+	public void updateCart(Cart cart);
 }

@@ -51,6 +51,9 @@ public class CartServiceImpl implements CartService {
 	@Transactional
 	public void deleteCartDetail(int idProduct, int idCart) {
 		orderDao.deleteCartDetail(idProduct, idCart);
-		
+	}
+	public void updateCart(Cart cart) {
+		orderDao.updateCart(cart);
+
 	}
 }
