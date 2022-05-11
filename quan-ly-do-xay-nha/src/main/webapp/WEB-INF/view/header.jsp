@@ -64,7 +64,7 @@
 						<form id="form_search" method="get" class="d-flex">
 							<input type="search" class="form-control" id="txtTim"
 								placeholder="Tìm kiếm">
-							<button type="submit" onclick="handleSearchProduct()">
+							<button id="btnSearch" type="submit" onclick="handleSearchProduct()">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_kinhlup.png"
 									alt="">
 							</button>

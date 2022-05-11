@@ -186,11 +186,6 @@ input:disabled {
 			<p class="p-4 pb-0">
 				${theProduct.description} <br>
 			</p>
-
-			<form action="" class="d-flex justify-content-evenly mb-4">
-				<button type="button" class="btn btn-light">Thu gọn nội
-					dung</button>
-			</form>
 		</div>
 
 		<div class="content row bg-white mt-3">

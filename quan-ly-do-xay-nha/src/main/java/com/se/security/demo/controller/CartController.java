@@ -78,13 +78,10 @@ public class CartController {
 			}
 			if (cartDetail == null) {
 				cartDetail = new CartDetail(cart, product, soLuong, product.getPrice());
-				System.out.println(cartDetail.toString());
 				cartService.saveCartDetail(cartDetail);
 			} else {
-				System.out.println(cartDetail.toString());
 				cartDetail.setSoLuong(cartDetail.getSoLuong() + soLuong);
 				cartService.updateCartDetail(cartDetail);
-				System.out.println(cartDetail.toString());
 			}
 		// không
 		} else {
