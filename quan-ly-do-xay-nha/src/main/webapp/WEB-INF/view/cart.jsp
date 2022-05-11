@@ -99,7 +99,7 @@
 									<td>
 										<!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
 										<a id="delete_1" data-sp-ma="2"
-										class="btn btn-danger btn-delete-sanpham"> <i
+										class="btn btn-danger btn-delete-sanpham" href="${pageContext.request.contextPath}/delete/productId=${detail.product.id}/orderId=${detail.cart.id}"> <i
 											class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
 									</a>
 									</td>
@@ -220,6 +220,20 @@
 
 
 	<script type="text/javascript">
+	
+	$('.btn-delete-sanpham').on('click', function(e){
+	    e.preventDefault();
+	    var url = this.getAttribute('href');
+	    $.ajax({
+	      url: url,
+	      type: 'GET',
+	      dataType: "html",
+	      success: function(response) {
+	    	  console.log(response)
+	      }
+	    });
+	});
+	
 	$(document).ready(function() {
 		//nút trở về đầu trang
 		$(window).scroll(function() {

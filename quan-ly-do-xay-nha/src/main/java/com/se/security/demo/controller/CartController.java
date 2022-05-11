@@ -59,6 +59,15 @@ public class CartController {
 	public void saveOrder(@RequestParam int soLuong, @RequestParam String productId) {
 		handleSaveOrder(soLuong, productId);
 	}
+	
+	
+
+	@RequestMapping("/delete/productId={productId}/orderId={cartId}")
+	@ResponseBody
+	public void deleteDetail(@PathVariable int productId, @PathVariable int cartId) {
+		System.out.println(productId + " " + cartId);
+	}
+	
 
 	public void handleSaveOrder(int soLuong, String productId) {
 		Customer customer = customerService.getCustomer(1);
