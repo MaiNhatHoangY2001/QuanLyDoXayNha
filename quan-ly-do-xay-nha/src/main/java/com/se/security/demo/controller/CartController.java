@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -52,6 +53,15 @@ public class CartController {
 	public void saveOrder(@RequestParam int soLuong, @RequestParam String productId) {
 		handleSaveOrder(soLuong, productId);
 	}
+	
+	
+
+	@RequestMapping("/delete/productId={productId}/orderId={cartId}")
+	public String deleteDetail(@PathVariable int productId, @PathVariable int cartId) {
+		System.out.println(productId + " " + cartId);
+		return "redirect:/cart";
+	}
+	
 
 	public void handleSaveOrder(int soLuong, String productId) {
 		Customer customer = customerService.getCustomer(1);
