@@ -194,7 +194,6 @@
 				shadow : true,
 				items : 6
 			});
-
 			//nút trở về đầu trang
 			$(window).scroll(function() {
 				if ($(this).scrollTop()) {
@@ -244,7 +243,6 @@
 	<!-- auto complete -->
 	<script type="text/javascript">
 		$(function() {
-
 			$("#txtTim").autocomplete({
 				source : "${pageContext.request.contextPath}/search"
 			});

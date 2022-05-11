@@ -31,7 +31,11 @@ public class CustomerController {
 //		// add the customers to the model
 //		theModel.addAttribute("customers", theCustomers);
 		
-		List<Product> listProduct = productService.getProducts();
+		List<Product> listProduct = new ArrayList<Product>();
+		for (int i = 1; i <= 20; i++) {
+			Product temp20 = productService.getProductById(i);
+			listProduct.add(temp20);
+		}
 		theModel.addAttribute("products", listProduct);
 		
 		List<Product> listTwelveProduct = new ArrayList<Product>();
