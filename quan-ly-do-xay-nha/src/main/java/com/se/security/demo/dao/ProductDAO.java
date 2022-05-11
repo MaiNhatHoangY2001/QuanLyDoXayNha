@@ -10,7 +10,7 @@ public interface ProductDAO {
 	public List<Product> getProductsByPage(Integer offset, Integer maxResults, String title);
 	
 	public List<Product> getProducts();
-
+	
 	public Long count(String title);
 
 	public List<String> search(String keyword);

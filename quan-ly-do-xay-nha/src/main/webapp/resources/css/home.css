@@ -100,6 +100,7 @@ body {
 
 #title,
 #slider,
+#frm-twelve-sp,
 #frm-list-sp,
 #footer,
 #top_footer,
@@ -196,14 +197,22 @@ body {
     box-shadow: 0px 0px 25px 5px lightgray;
 }
 
-#frm-list-sp {
-    padding-bottom: 2%;
+#frm-list-sp,
+#frm-twelve-sp {
+    padding-bottom: 3%;
 }
 
-#frm-list-sp a{
+#frm-list-sp figure,
+#frm-twelve-sp figure {
+    padding: 40px 20px 40px 20px;
+}
+
+#frm-list-sp a,
+#frm-twelve-sp a{
     text-decoration: none;
 }
-#frm-list-sp #productTitle{
+#frm-list-sp #productTitle,
+#frm-twelve-sp #productTitle {
     text-align: justify;
 }
 
@@ -233,23 +242,26 @@ body {
     background-color: lightgray;
 }
 
-#morong {
+#morong,
+#thugon {
     margin: 0 auto;
+    margin-top: 2%;
     width: 94%;
     background-color: white;
+    /* border: 1px solid black; */
 }
 
-#btnMoRong {
+#btnMoRong, #btnThuGon {
     width: 50%;
     height: 40px;
     margin: 0 auto;
-    margin-top: 3%;
     padding-top: 8px;
     background-color: #F8F8F8;
     border: none;
 }
 
-#btnMoRong:hover {
+#btnMoRong:hover,
+#btnThuGon:hover {
     background-color: lightgray;
 }
 
@@ -314,7 +326,7 @@ body {
 }
 
 #clock {
-    padding-top: 30px;
+    padding-top: 24px;
     /* border: 1px solid black; */
 }
 

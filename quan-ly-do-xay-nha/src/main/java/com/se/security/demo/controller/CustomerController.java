@@ -1,7 +1,9 @@
 package com.se.security.demo.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,25 +31,15 @@ public class CustomerController {
 //		// add the customers to the model
 //		theModel.addAttribute("customers", theCustomers);
 		
-//		List<Product> listProduct = new ArrayList<Product>();
-//		Product temp = (Product) productService.getProducts();
-//		listProduct.add(temp);
 		List<Product> listProduct = productService.getProducts();
-		
-//		int tong = 4;
-
-//		for (int i = 1; i <= tong; i++) {
-//			int rand = ThreadLocalRandom.current().nextInt(1,101);
-//			if (i != rand) {
-//				Product temp = productService.getProductById(rand);
-//				listProduct.add(temp);
-//			} else {
-//				tong++;
-//			}
-//		}
-
-		//		theModel.addAttribute("theProduct", product);
 		theModel.addAttribute("products", listProduct);
+		
+		List<Product> listTwelveProduct = new ArrayList<Product>();
+		for (int i = 1; i <= 12; i++) {
+			Product temp = productService.getProductById(i);
+			listTwelveProduct.add(temp);
+		}
+		theModel.addAttribute("twelveProducts", listTwelveProduct);
 
 		return "home";
 	}

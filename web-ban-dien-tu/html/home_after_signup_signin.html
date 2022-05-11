@@ -48,7 +48,8 @@
             });
 
             //sp bán chạy
-            listsp.forEach(displaySP);
+            //listsp.forEach(displaySP);
+            list12sp.forEach(displaySP);
 
             //nút trở về đầu trang
             $(window).scroll(function() {
@@ -148,6 +149,7 @@
         };
 
         let listsp = [sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12, sp13, sp14, sp15, sp16];
+        let list12sp = [sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12];
 
         function displaySP(sp) {
             let row = "<figure align='center' class='img-thumbnail'>" +
@@ -161,6 +163,15 @@
                 "</figure>";
             $('#list-sp-ban-chay').append(row);
         }
+
+        //morong - thugon
+        // $('#nd1').hide();
+        // $('#xemthem1').click(function() {
+        //     $('#nd1').show();
+        // });
+        // $('#anbot1').click(function() {
+        //     $('#nd1').hide();
+        // });
     </script>
 </head>
 
@@ -215,7 +226,7 @@
 
                 <!--nút mở rộng-->
                 <div id="morong" class="row">
-                    <button id="btnMoRong"><h4>MỞ RỘNG</h4></button>
+                    <button id="btnMoRong" onclick="fullHeight_FrmListSP()"><h4>MỞ RỘNG</h4></button>
                 </div>
             </div>
 
@@ -231,6 +242,12 @@
         <!--footer-->
         <div id="frm-footer"></div>
     </div>
+
+    <script>
+        fullHeight_FrmListSP = function() {
+            $('#frm-list-sp').toggleClass('full-height');
+        }
+    </script>
 </body>
 
 </html>

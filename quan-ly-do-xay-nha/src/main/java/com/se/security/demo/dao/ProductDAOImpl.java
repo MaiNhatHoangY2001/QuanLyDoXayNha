@@ -74,4 +74,5 @@ public class ProductDAOImpl implements ProductDAO {
 		List<Product> products = theQuery.getResultList();
 		return products;
 	}
+
 }
