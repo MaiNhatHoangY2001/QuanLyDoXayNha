@@ -63,9 +63,9 @@ public class CartController {
 	
 
 	@RequestMapping("/delete/productId={productId}/orderId={cartId}")
-	@ResponseBody
-	public void deleteDetail(@PathVariable int productId, @PathVariable int cartId) {
+	public String deleteDetail(@PathVariable int productId, @PathVariable int cartId) {
 		System.out.println(productId + " " + cartId);
+		return "redirect:/cart";
 	}
 	
 

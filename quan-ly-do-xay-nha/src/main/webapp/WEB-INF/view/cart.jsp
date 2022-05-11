@@ -220,20 +220,7 @@
 
 
 	<script type="text/javascript">
-	
-	$('.btn-delete-sanpham').on('click', function(e){
-	    e.preventDefault();
-	    var url = this.getAttribute('href');
-	    $.ajax({
-	      url: url,
-	      type: 'GET',
-	      dataType: "html",
-	      success: function(response) {
-	    	  console.log(response)
-	      }
-	    });
-	});
-	
+
 	$(document).ready(function() {
 		//nút trở về đầu trang
 		$(window).scroll(function() {
