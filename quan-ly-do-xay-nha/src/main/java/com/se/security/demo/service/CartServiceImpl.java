@@ -56,4 +56,10 @@ public class CartServiceImpl implements CartService {
 		orderDao.updateCart(cart);
 
 	}
+
+	@Override
+	@Transactional
+	public Cart getCardById(int idCart) {
+		return orderDao.getCardById(idCart);
+	}
 }

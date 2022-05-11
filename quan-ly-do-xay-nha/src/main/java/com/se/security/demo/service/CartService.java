@@ -13,4 +13,5 @@ public interface CartService {
 	public void updateCartDetail(CartDetail cartDetail);
 	public void deleteCartDetail(int idProduct, int idCart);
 	public void updateCart(Cart cart);
+	public Cart getCardById(int idCart);
 }
