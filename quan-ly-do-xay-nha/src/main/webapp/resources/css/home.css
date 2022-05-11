@@ -200,6 +200,13 @@ body {
     padding-bottom: 2%;
 }
 
+#frm-list-sp a{
+    text-decoration: none;
+}
+#frm-list-sp #productTitle{
+    text-align: justify;
+}
+
 #backTop {
     width: 42px;
     height: 42px;
@@ -275,6 +282,7 @@ body {
     font-size: 13px;
 }
 
+#btnSearch :hover,
 #btnUser :hover,
 #btnCart :hover {
     background-color: lightgray;

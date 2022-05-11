@@ -208,6 +208,10 @@ body {
     padding-bottom: 2%;
 }
 
+#frm-list-sp a {
+    text-decoration: none;
+}
+
 #backTop {
     width: 42px;
     height: 42px;

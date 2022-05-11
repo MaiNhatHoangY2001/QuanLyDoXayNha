@@ -110,18 +110,24 @@
 				<c:forEach var="product" items="${products}">
 					<!-- <div id="list-sp-ban-chay" class="row">
 					</div> -->
-					
-					<figure align="center" class="img-thumbnail col-4">
-						<img class="rounded w-100" height="250" src="${pageContext.request.contextPath}/resources/${product.link}" alt="picmcs">
-						<figcaption>
-							<h6 class="text-justify" style="font-weight: bold; margin-top: 20px">
-								<p>${product.title}</p>
-								<p style="color: red">${product.price}</p>
-							</h6>
-						</figcaption>
+	
+					<figure align="center" class="img-thumbnail" class="col-4">
+						<a href="${pageContext.request.contextPath}/listProduct/info/${product.id}">
+							<img class="rounded w-100" height="250"
+								src="${pageContext.request.contextPath}/resources/${product.link}"
+								alt="picmcs">
+							<figcaption>
+								<h6 class="text-justify"
+									style="font-weight: bold; margin-top: 20px">
+									<p id="productTitle">${product.title}</p>
+									<p style="color: red;">${product.price}</p>
+								</h6>
+							</figcaption>
+						</a>
 					</figure>
-				</c:forEach> 
-				
+				</c:forEach>
+
+
 				<!--nút mở rộng-->
 				<!-- <div id="morong" class="row">
 					<button id="btnMoRong">
@@ -177,7 +183,26 @@
 					scrollTop : 0
 				}, 100); //100 là 0.1s
 			});
-		})
+			
+			//click mouse figure
+			/* var figures = document.querySelectorAll('figure')
+			for(let figure of figures){
+				figure.addEventListner("click", function() {
+					
+				})
+			} */
+			
+			/* $('figure').click(function(event) {
+				var text_product = $(event.target).text();
+				alert(text_product);
+				
+				//source : "${pageContext.request.contextPath}/listProduct/" +text_product
+			
+				var action = "${pageContext.request.contextPath}/listProduct/" + text_product;
+							
+			}) */
+		});
+		
 	</script>
 
 	<!-- auto complete -->
@@ -187,7 +212,7 @@
 			$("#txtTim").autocomplete({
 				source : "${pageContext.request.contextPath}/search"
 			});
-		})
+		});
 	</script>
 </body>
 
