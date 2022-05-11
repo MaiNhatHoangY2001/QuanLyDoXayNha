@@ -129,6 +129,9 @@ public class CartController {
 	@RequestMapping("/delete/productId={productId}/orderId={cartId}")
 	public String deleteDetail(@PathVariable int productId, @PathVariable int cartId) {
 		cartService.deleteCartDetail(productId, cartId);
+		Cart cart = cartService.getCardById(cartId);
+		updateThanhTien(cart);
+		cartService.updateCart(cart);
 		return "redirect:/cart";
 	}
 	

@@ -85,4 +85,17 @@ public class CartDaoImpl implements CartDao {
 		session.createNativeQuery(sql).setParameter(1,idProduct)
 				.setParameter(2, idCart).executeUpdate();
 	}
+
+	@Override
+	public Cart getCardById(int idCart) {
+		try {
+			Session currentSession = sessionFactory.getCurrentSession();
+			Query<Cart> theQuery = currentSession
+					.createQuery("from Cart where id = " + idCart , Cart.class);
+			Cart cart = theQuery.getSingleResult();
+			return cart;
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 }
