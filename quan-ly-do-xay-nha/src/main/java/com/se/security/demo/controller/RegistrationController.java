@@ -23,6 +23,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.se.security.demo.dao.CustomerDAOImpl;
+import com.se.security.demo.entity.Customer;
+import com.se.security.demo.service.CustomerService;
+import com.se.security.demo.service.CustomerServiceImpl;
 import com.se.security.user.CrmUser;
 
 
@@ -32,7 +36,8 @@ public class RegistrationController {
 	
 	@Autowired
 	private UserDetailsManager userDetailsManager;
-	
+	@Autowired
+	private CustomerService customerService;
 	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
@@ -50,7 +55,7 @@ public class RegistrationController {
 		
 		theModel.addAttribute("crmUser", new CrmUser());
 		
-		return "registration-form";
+		return "customer-form-register";
 		
 	}
 
@@ -59,9 +64,13 @@ public class RegistrationController {
 				@Valid @ModelAttribute("crmUser") CrmUser theCrmUser, 
 				BindingResult theBindingResult, 
 				Model theModel) {
-						
+		System.out.println(theCrmUser.getTen());
+		System.out.println(theCrmUser.getGioiTinh());
 		String userName = theCrmUser.getUserName();
-		
+		String ten = theCrmUser.getTen();
+		String sdt = theCrmUser.getSdt();
+		String gioiTinh = theCrmUser.getGioiTinh();
+		String email = theCrmUser.getEmail();
 		logger.info("Processing registration form for: " + userName);
 		
 		// form validation
@@ -72,7 +81,7 @@ public class RegistrationController {
 
 			logger.warning("User name/password can not be empty.");
 			
-			return "registration-form";	
+			return "customer-form-register";	
 		}
 		
 		// check the database if user already exists
@@ -84,7 +93,7 @@ public class RegistrationController {
 
 			logger.warning("User name already exists.");
 			
-			return "registration-form";			
+			return "customer-form-register";			
 		}
 		
 		//
@@ -103,10 +112,11 @@ public class RegistrationController {
 
         // create user object (from Spring Security framework)
         User tempUser = new User(userName, encodedPassword, authorities);
-
+        Customer tempCustomer = new Customer(ten, sdt, gioiTinh, email);
         // save user in the database
         userDetailsManager.createUser(tempUser);		
-		
+        customerService.addCustomer(tempCustomer);
+       //		userDetailsManager.createUser(tempCustomer);
         logger.info("Successfully created user: " + userName);
         
         return "registration-confirmation";		

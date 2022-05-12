@@ -55,6 +55,16 @@ public class CustomerDAOImpl implements CustomerDAO {
 
             theQuery.executeUpdate();		
     }
+	@Override
+	public void addCustomer(Customer theCustomer) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "insert into customers values (?, ?, ?, ?)";
+		session.createNativeQuery(sql).setParameter(1, theCustomer.getTen())
+		.setParameter(2, theCustomer.getSdt())
+		.setParameter(3, theCustomer.getGioiTinh())
+		.setParameter(4, theCustomer.getEmail()).executeUpdate();
+	}
     
 
 }

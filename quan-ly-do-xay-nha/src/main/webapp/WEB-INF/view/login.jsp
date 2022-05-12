@@ -1,4 +1,5 @@
 <%@ taglib  uri="http://www.springframework.org/tags/form"  prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -62,9 +63,37 @@
                     <img src="/quan-ly-do-xay-nha/resources/image/background1.jpg" class="float-start">
                 </div>
                 <div id="form_dangnhap" class="col-4">
-                    <form:form action="${pageContext.request.contextPath }/users" method="POST">
+                    <form:form action="${pageContext.request.contextPath }/users" method="POST" class="form-horizontal">
+                        
                         <div class="header mt-5 text-center">
                             <h2>Đăng nhập</h2>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-15">
+                                <div>
+
+                                    <!-- Check for login error -->
+
+                                    <c:if test="${param.error != null}">
+
+                                        <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+                                                       Tên đăng nhập/ Mật khẩu không được để trống!
+                                        </div>
+
+                                    </c:if>
+
+                                    <!-- Check for logout -->
+
+                                    <c:if test="${param.logout != null}">
+
+                                        <div class="alert alert-success col-xs-offset-1 col-xs-10">
+                                                 Bạn đã đăng xuất thành công!
+                                        </div>
+
+                                    </c:if>
+
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <div class="row">
@@ -91,14 +120,19 @@
                                     <label for="quenMatKhau" class="float-end"><a class="text-dark" href="RegisterPage" style="text-decoration: none"><strong>Chưa có tài khoản? Đăng kí ngay!</strong></a></label>
                                 </div>
                             </div>
+                            
                             <div class="row m-4">
                                 <button type="submit" value="Login" class="btn btn-info btn-lg text-white"><strong>Đăng nhập</strong></button>
                             </div>
+                            
                         </div>
                     </form:form>
                 </div>
             </div>
             <div class="footer">
+            	<input type="hidden"
+                               name="${_csrf.parameterName}"
+                               value="${_csrf.token}" />
                 <div id="title" style="margin-top: 4%;">
                     <div id="line-left"></div>
                     <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
