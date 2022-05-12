@@ -43,6 +43,9 @@
 
 <link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
 
+<link rel="icon"
+	href="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
+	type="image/x-icon" />
 </head>
 <body>
 	<div class="container">

@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 
     <link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
+    <link rel="icon"
+	href="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
+	type="image/x-icon" />
     </head>
 
     <body>
@@ -140,7 +143,7 @@
                 </div>
     
                 <div id="top_footer" class="row">
-                    <a href="./home_before_signup_signin.html" class="col-3"><img style="width: 100%; margin-left: 15px;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
+                    <a href="${pageContext.request.contextPath}/" class="col-3"><img style="width: 100%; margin-left: 15px;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
                     <p class="col-8">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về các công cụ, vật dụng sữa chữa nhà cửa tiện tích và tuyệt vời. Tất cả đều sẵn sàng cho bạn lựa chọn!</p>
                 </div>
                 <div id="bottom_footer" class="row">

@@ -35,8 +35,8 @@
 <body>
     <div class="container">
         <!--footer-->
-        <div id="footer" style="margin-top: -4%;">
-            <div id="title" style="margin-top: 4%;">
+        <div id="footer" style="width: 102%;">
+            <div id="title">
                 <div id="line-left"></div>
                 <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
                 <div id="line-right"></div>

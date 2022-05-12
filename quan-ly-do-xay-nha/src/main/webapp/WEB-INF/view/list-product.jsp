@@ -9,6 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>danh sách sản phẩm</title>
+
+
 <!--bootstrap5-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -33,8 +35,6 @@
 <!-- css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/list_products.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/home.css">
 
 
 
@@ -42,18 +42,20 @@
 <script src="${pageContext.request.contextPath}/resources/js/home.js"
 	async></script>
 
-
+<link rel="icon"
+	href="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
+	type="image/x-icon" />
 
 </head>
 <body>
 	<div class="container">
 		<!--header-->
-		<div id="frm-header" style="width: 1130px;">
+		<div id="frm-header" style="width: 100%;">
 			<jsp:include page="header.jsp" />
 		</div>
 
 		<!-- content -->
-		<div class="content row">
+		<div class="content row mt-5 mb-5">
 			<!-- left-navbar -->
 			<div class="left-navbar col-md-3 d-flex flex-column gap-2">
 				<div class="left-navbar-item">
@@ -154,7 +156,7 @@
 		</div>
 
 		<!--footer-->
-		<div id="frm-footer" style="width: 1130px;">
+		<div id="frm-footer">
 			<jsp:include page="footer.jsp" />
 		</div>
 

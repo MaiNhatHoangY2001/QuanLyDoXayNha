@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
-<title>Information Product</title>
+<title>Thông tin sản phẩm</title>
 
 <!--bootstrap5-->
 <link
@@ -46,6 +46,11 @@
 	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 <%-- <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/list_products.css" /> --%>
+
+<link rel="icon"
+	href="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
+	type="image/x-icon" />	
+	
 <style type="text/css">
 .qty .count {
 	color: #000;

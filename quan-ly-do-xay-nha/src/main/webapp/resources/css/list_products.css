@@ -9,11 +9,6 @@ body {
 	background-color: #E5E5E5;
 }
 
-.header {
-    background-color: white;
-    width: 100%;
-    padding-bottom: 20px;
-}
 
 .content>.left-navbar>.left-navbar-item {
 	padding: 1rem;
@@ -27,7 +22,9 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-
+.list-product-item{
+	max-width: 290px
+}
 .list-product-item :hover {
 	background-color: #E5E5E5;
 }

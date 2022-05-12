@@ -43,6 +43,11 @@
 
 <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
 
+
+<link rel="icon"
+	href="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
+	type="image/x-icon" />
+
 <style type="text/css">
 .modal {
 	display: none; /* Hidden by default */
