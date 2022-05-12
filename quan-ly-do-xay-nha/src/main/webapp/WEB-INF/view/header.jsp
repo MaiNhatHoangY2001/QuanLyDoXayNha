@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://www.springframework.org/tags/form"  prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +41,15 @@
 <!-- Auto complete  -->
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-
+<style type="text/css">
+	#logout{ display: none; }
+	<security:authorize access="hasAnyRole('EMPLOYEE','MANAGER', 'ADMIN')">
+                                
+                                    #logout{ display: inline-block; }
+                                	#btnUser {display: none;}
+                            </security:authorize>
+                            
+</style>
 
 
 </head>
@@ -79,6 +89,18 @@
 									alt="icon_user">
 							</button>
 						</form>
+						
+						<!-- log out -->
+						<div id="logout">
+							<form:form action="${pageContext.request.contextPath}/logout"
+								method="POST">
+								
+								<button type="submit">
+									<img style="width: 30px; height: 30px; margin-top: 2px" src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/000000/external-exit-essentials-tanah-basah-glyph-tanah-basah-2.png"/>
+								</button>
+								
+							</form:form>
+						</div>
 
 						<!--cart:giỏ hàng-->
 						<form id="cart" method="get" class="d-flex" action="${pageContext.request.contextPath}/cart">
@@ -88,11 +110,7 @@
 							</button>
 						</form>
 						
-						<!-- log out -->
-						<form:form action="${pageContext.request.contextPath}/logout"
-							method="POST">
-							<input type="submit" value="Logout" />
-						</form:form>
+						
 					</div>
 				</div>
 			</div>
