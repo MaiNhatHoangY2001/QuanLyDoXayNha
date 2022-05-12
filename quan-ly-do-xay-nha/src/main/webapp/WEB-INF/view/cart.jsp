@@ -94,7 +94,7 @@
 		</div>
 
 		<!-- giỏ hàng -->
-		<div id="content_cart" class="gh bg-white" style="width: 101%;">
+		<div id="content_cart" class="gh bg-white mt-5" style="width: 101%;">
 			<h1 class="text-center" style="padding-top: 6px;">
 				<b>GIỎ HÀNG</b>
 			</h1>
@@ -134,35 +134,25 @@
 									</td>
 								</tr>
 							</c:forEach>
-						<thead>
-							<tr>
+
+							<tfoot style="text-align: center;"><tr>
 								<th></th>
 								<th></th>
 								<th></th>
 
 								<th></th>
 								<th>Tổng tiền:</th>
-								<th></th>
+								<th>${cart.thanhTien}</th>
+								<th><form
+										action="${pageContext.request.contextPath}/cart/payment"
+										method="get">
+										<button type="submit" id="btnThanhToan" class="btn btn-info ">
+											<b>Thanh Toán</b>
+										</button>
+									</form></th>
 							</tr>
-						</thead>
-						<tr style="text-align: center;">
-							<td></td>
-							<td></td>
-							<td></td>
+						</tfoot>
 
-							<td></td>
-							<td>${cart.thanhTien}</td>
-
-							<td>
-								<form action="${pageContext.request.contextPath}/cart/payment"
-									method="get">
-									<button type="submit" id="btnThanhToan" class="btn btn-info ">
-										<b>Thanh Toán</b>
-									</button>
-								</form>
-							</td>
-
-						</tr>
 						</tbody>
 					</table>
 				</div>
