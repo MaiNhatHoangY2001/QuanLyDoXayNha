@@ -27,7 +27,7 @@ public class Cart {
 	private String thanhTien;
 
 	@ManyToOne
-	@JoinColumn(name = "id_kh")
+	@JoinColumn(name = "ten_kh")
 	private Customer customer;
 
 	@Column(name = "thanh_toan")

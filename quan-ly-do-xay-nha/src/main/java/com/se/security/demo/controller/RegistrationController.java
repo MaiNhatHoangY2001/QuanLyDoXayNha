@@ -27,7 +27,7 @@ import com.se.security.demo.dao.CustomerDAOImpl;
 import com.se.security.demo.entity.Customer;
 import com.se.security.demo.service.CustomerService;
 import com.se.security.demo.service.CustomerServiceImpl;
-import com.se.security.user.CrmUser;
+
 
 
 @Controller
@@ -53,7 +53,7 @@ public class RegistrationController {
 	@GetMapping("/showRegistrationForm")
 	public String showMyLoginPage(Model theModel) {
 		
-		theModel.addAttribute("crmUser", new CrmUser());
+		theModel.addAttribute("crmUser", new Customer());
 		
 		return "customer-form-register";
 		
@@ -61,7 +61,7 @@ public class RegistrationController {
 
 	@PostMapping("/processRegistrationForm")
 	public String processRegistrationForm(
-				@Valid @ModelAttribute("crmUser") CrmUser theCrmUser, 
+				@Valid @ModelAttribute("crmUser") Customer theCrmUser, 
 				BindingResult theBindingResult, 
 				Model theModel) {
 		System.out.println(theCrmUser.getTen());
@@ -76,8 +76,8 @@ public class RegistrationController {
 		// form validation
 		if (theBindingResult.hasErrors()) {
 
-			theModel.addAttribute("crmUser", new CrmUser());
-			theModel.addAttribute("registrationError", "User name/password can not be empty.");
+			theModel.addAttribute("crmUser", new Customer());
+			theModel.addAttribute("registrationError", "Tên đăng nhập/ Mật khẩu không được để trống.");
 
 			logger.warning("User name/password can not be empty.");
 			
@@ -88,7 +88,7 @@ public class RegistrationController {
 		boolean userExists = doesUserExist(userName);
 		
 		if (userExists) {
-			theModel.addAttribute("crmUser", new CrmUser());
+			theModel.addAttribute("crmUser", new Customer());
 			theModel.addAttribute("registrationError", "User name already exists.");
 
 			logger.warning("User name already exists.");

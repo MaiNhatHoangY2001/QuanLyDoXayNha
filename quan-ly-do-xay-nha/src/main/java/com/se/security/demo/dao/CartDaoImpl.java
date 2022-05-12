@@ -73,7 +73,7 @@ public class CartDaoImpl implements CartDao {
 	public void updateCart(Cart cart) {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "update cart set ngay_lap = '" + cart.getNgayLap() + "', thanh_tien = N'" + cart.getThanhTien()
-				+ "', id_kh = " + cart.getCustomer().getId() + ", thanh_toan = N'" + cart.getThanhToan()
+				+ "', ten_kh = " + cart.getCustomer().getUserName() + ", thanh_toan = N'" + cart.getThanhToan()
 				+ "' where id = " + cart.getId();
 		session.createNativeQuery(sql).executeUpdate();
 	}
