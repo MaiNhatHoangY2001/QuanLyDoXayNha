@@ -28,8 +28,8 @@ public class ProductController {
 	public String listProductsHome(Model theModel) {
 		//load sp ở slider
 		List<Product> listProductSlider = new ArrayList<Product>();
-		int tong = 6;
-		for (int i = 1; i <= 6; i++) {
+		int tong = 7;
+		for (int i = 1; i <= tong; i++) {
 			int rand = ThreadLocalRandom.current().nextInt(1,101);
 			if (i != rand) {
 				Product temp = productService.getProductById(rand);
