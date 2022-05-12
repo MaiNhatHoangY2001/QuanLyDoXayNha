@@ -43,6 +43,14 @@
 
 <link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
 
+<script src="/quan-ly-do-xay-nha/resources/js/home.js"></script>
+<script src="/quan-ly-do-xay-nha/resources/js/regex.js"></script>
+
+<style type="text/css">
+	.text-danger{
+		margin-left: 35%;
+	}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -74,7 +82,6 @@
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png"
 									alt="icon_cart">
 							</button>
-							<span id="soluong" class="text-white">0</span>
 						</div>
 					</div>
 				</div>
@@ -95,7 +102,7 @@
 						action="${pageContext.request.contextPath}/register/processRegistrationForm"
 						modelAttribute="crmUser" class="form-horizontal">
 						<div class="header mt-1 text-center">
-							<h2>Đăng kí</h2>
+							<h2>Đăng ký</h2>
 						</div>
 						<div>
 							<!--Tên tài khoản-->
@@ -108,6 +115,7 @@
 									<input type="text" class="form-control" name="userName"
 										id="userName" placeholder="Tên đăng nhập">
 								</div>
+								<span id="tenTkDK" class="text-danger">*</span>
 							</div>
 							<!--Họ và tên-->
 							<div class="row">
@@ -116,9 +124,10 @@
 											và tên</strong></label>
 								</div>
 								<div class="col-8">
-									<input type="text" class="form-control" name="ten"
+									<input id="fullName" type="text" class="form-control" name="ten"
 										placeholder="Tên của bạn">
 								</div>
+								<span id="hoTenDK" class="text-danger">*</span>
 							</div>
 							<!--Email-->
 							<div class="row mt-4">
@@ -126,9 +135,10 @@
 									<label for="email" class="form-label"><strong>Email</strong></label>
 								</div>
 								<div class="col-8">
-									<input type="email" class="form-control" name="email"
+									<input id="email" type="email" class="form-control" name="email"
 										placeholder="Email">
 								</div>
+								<span id="emailDK" class="text-danger">*</span>
 							</div>
 							<!--Điện thoại-->
 							<div class="row mt-4">
@@ -140,6 +150,7 @@
 									<input type="tel" class="form-control" name="sdt" id="dienThoai"
 										placeholder="Số điện thoại">
 								</div>
+								<span id="sdtDK" class="text-danger">*</span>
 							</div>
 							<!--Mật khẩu-->
 							<div class="row mt-4">
@@ -148,21 +159,24 @@
 											khẩu</strong></label>
 								</div>
 								<div class="col-8">
-									<input type="password" path="password" class="form-control"
+									<input id="passWord" type="password" class="form-control"
 										name="password" placeholder="Vui lòng nhập mật khẩu">
 								</div>
+								<span id="mkDK" class="text-danger">*</span>
 							</div>
 							<!--Xác nhận mật khẩu-->
-							<div class="row mt-4">
+							<!-- <div class="row mt-4">
 								<div class="col-4 mt-2">
 									<label for="reMatKhau" style="margin-left: -15% class="form-label"><strong>Nhập
 											lại mật khẩu</strong></label>
 								</div>
 								<div class="col-8">
-									<input type="password" path="password" class="form-control"
-										name="password2" placeholder="Xác nhận mật khẩu">
+									<input id="re-enterPwDK" type="password" path="password" class="form-control"
+										name="password" placeholder="Xác nhận mật khẩu">
 								</div>
-							</div>
+								<span id="checkRePass" class="text-danger">*</span>
+							</div> -->
+							<!-- radio nam/nu -->
 							<div class="row">
 								<div class="col-4">
 									<label for="gioiTinh" class="form-label"><strong>Giới
@@ -170,24 +184,20 @@
 								</div>
 								<div class="col-8 mt-2">
 									<input type="radio" class="form-check-input" id="gioiTinh1"
-										name="gioiTinh" value="Nam"><strong> Nam </strong> <input
-										type="radio" class="form-check-input" id="gioiTinh2"
+										name="gioiTinh" value="Nam" checked="checked"><strong> Nam </strong>
+									<input type="radio" class="form-check-input" id="gioiTinh2"
 										name="gioiTinh" value="Nữ"><strong> Nữ</strong>
-
 								</div>
+								
 							</div>
 							<div class="row mt-4">
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="security">Tôi
-									đồng ý với các điều kiện, điều khoản và chính sách
-									bảo mật.
-
+									<input type="checkbox" class="form-check-input" id="security" checked="checked">Tôi đồng ý với các điều kiện, điều khoản và chính sách bảo mật.
 								</div>
-								<div class="form-check mt-2">
+								<!-- <div class="form-check mt-2">
 									<input type="checkbox" class="form-check-input" id="news">Tôi
 									muốn nhận bản tin/ thông báo mới nhất.
-
-								</div>
+								</div> -->
 							</div>
 							<div class="row mt-2">
 								<div class="col-4 mt-2"></div>
@@ -199,8 +209,8 @@
 								</div>
 							</div>
 							<div class="row m-4">
-								<button type="submit" class="btn btn-info btn-lg text-white">
-									<strong>Đăng kí</strong>
+								<button type="submit" class="btn btn-info btn-lg text-white" onclick="handleRegister()">
+									<strong>Đăng ký</strong>
 								</button>
 							</div>
 						</div>
@@ -244,19 +254,19 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
     function matchpass() {
         var firstpassword = document.form_dangki.password.value;
         var secondpassword = document.form_dangki.password2.value;
  
-        if (firstpassword == secondpassword) {
+        if (secondpassword == firstpassword) {
             return true;
         } else {
             alert("Mật khẩu phải giống nhau!");
             return false;
         }
     }
-</script>
+	</script> -->
 </body>
 
 </html>

@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 
     <link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
+    
+    <script src="/quan-ly-do-xay-nha/resources/js/home.js"></script>
 </head>
 <body>
     <div class="container">
@@ -50,7 +52,6 @@
                         <!--cart:giỏ hàng-->
                         <div id="cart">
                             <button id="btnCart"><img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png" alt="icon_cart"></button>
-                            <span id="soluong" class="text-white">0</span>
                         </div>
                     </div>
                 </div>
@@ -74,7 +75,7 @@
                         </div>
                         <div class="text-center">
                             <h4><a href="/quan-ly-do-xay-nha/LoginPage" style="text-decoration: none">Đăng nhập</a> </h4><br>
-                            <h4><a href="/quan-ly-do-xay-nha/" style="text-decoration: none">Quay lại trang chủ</a></h4>
+                            <!-- <h4><a href="/quan-ly-do-xay-nha/" style="text-decoration: none">Quay lại trang chủ</a></h4> -->
                         </div>
                 
                 </div>
