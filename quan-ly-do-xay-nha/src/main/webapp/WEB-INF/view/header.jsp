@@ -1,7 +1,8 @@
-<%@ taglib  uri="http://www.springframework.org/tags/form"  prefix="form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +10,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Header</title>
 
 
@@ -34,24 +36,22 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 
-<link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
 
 <script src="/quan-ly-do-xay-nha/resources/js/home.js"></script>
 
 <!-- Auto complete  -->
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+	
 <style type="text/css">
-	#logout{ display: none; }
-	<security:authorize access="hasAnyRole('EMPLOYEE','MANAGER', 'ADMIN')">
-                                
-                                    #logout{ display: inline-block; }
-                                	#btnUser {display: none;}
-                            </security:authorize>
-                            
+#logout {
+	display: none;
+}
+<security:authorize access="hasAnyRole('EMPLOYEE','MANAGER', 'ADMIN')">
+			#logout{display: inline-block;}
+			#btnUser{display: none;}
+</security:authorize>
 </style>
-
-
 </head>
 
 <body>
@@ -74,7 +74,8 @@
 						<form id="form_search" method="get" class="d-flex">
 							<input type="search" class="form-control" id="txtTim"
 								placeholder="Tìm kiếm">
-							<button id="btnSearch" type="submit" onclick="handleSearchProduct()">
+							<button id="btnSearch" type="submit"
+								onclick="handleSearchProduct()">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_kinhlup.png"
 									alt="">
 							</button>
@@ -82,35 +83,38 @@
 
 
 						<!--user-->
-						<form id="user" method="get" class="d-flex" action="${pageContext.request.contextPath}/LoginPage">
+						<form id="user" method="get" class="d-flex"
+							action="${pageContext.request.contextPath}/LoginPage">
 							<!-- <i class="fa-solid fa-user fa-xl"></i> -->
 							<button id="btnUser">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_user.png"
 									alt="icon_user">
 							</button>
 						</form>
-						
+
 						<!-- log out -->
 						<div id="logout">
 							<form:form action="${pageContext.request.contextPath}/logout"
 								method="POST">
-								
+
 								<button type="submit">
-									<img style="width: 30px; height: 30px; margin-top: 2px" src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/000000/external-exit-essentials-tanah-basah-glyph-tanah-basah-2.png"/>
+									<img style="width: 30px; height: 30px; margin-top: 2px"
+										src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/000000/external-exit-essentials-tanah-basah-glyph-tanah-basah-2.png" />
 								</button>
-								
+
 							</form:form>
 						</div>
 
 						<!--cart:giỏ hàng-->
-						<form id="cart" method="get" class="d-flex" action="${pageContext.request.contextPath}/cart">
+						<form id="cart" method="get" class="d-flex"
+							action="${pageContext.request.contextPath}/cart">
 							<button id="btnCart">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png"
 									alt="icon_cart">
 							</button>
 						</form>
-						
-						
+
+
 					</div>
 				</div>
 			</div>

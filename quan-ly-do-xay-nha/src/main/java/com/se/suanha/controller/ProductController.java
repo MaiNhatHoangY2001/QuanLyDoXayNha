@@ -23,57 +23,62 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
-	
+
 	@GetMapping("/")
 	public String listProductsHome(Model theModel) {
-		//load sp ở slider
+		// load sp á»Ÿ slider
 		List<Product> listProductSlider = new ArrayList<Product>();
 		int tong = 7;
 		for (int i = 1; i <= tong; i++) {
-			int rand = ThreadLocalRandom.current().nextInt(1,101);
+			int rand = ThreadLocalRandom.current().nextInt(1, 101);
 			if (i != rand) {
 				Product temp = productService.getProductById(rand);
 				listProductSlider.add(temp);
-			} else 
+			} else
 				tong++;
 		}
-		
-		//load 20 sp mở rộng
+
+		// load 20 sp má»Ÿ rá»™ng
 		List<Product> listProduct = new ArrayList<Product>();
 		for (int i = 1; i <= 20; i++) {
 			Product temp20 = productService.getProductById(i);
 			listProduct.add(temp20);
 		}
-		
-		//load 12 sp thu gọn
+
+		// load 12 sp thu gá»�n
 		List<Product> listTwelveProduct = new ArrayList<Product>();
 		for (int i = 1; i <= 12; i++) {
 			Product temp = productService.getProductById(i);
 			listTwelveProduct.add(temp);
 		}
-		
+
 		theModel.addAttribute("productSlider", listProductSlider);
 		theModel.addAttribute("products", listProduct);
 		theModel.addAttribute("twelveProducts", listTwelveProduct);
 
 		return "home";
 	}
-	
+
 	@GetMapping("/listProduct/info/{productId}")
 	public String getProduct(@PathVariable int productId, Model theModel) {
 		Product product = productService.getProductById(productId);
 		List<Product> listProduct = new ArrayList<Product>();
-		
+
 		int[] ints = new Random().ints(1, 101).distinct().limit(4).toArray();
-		for(int i : ints) {
+		for (int i : ints) {
 			Product temp = productService.getProductById(i);
 			listProduct.add(temp);
 		}
-		
+
 		theModel.addAttribute("theProduct", product);
 		theModel.addAttribute("products", listProduct);
 
 		return "info-product";
+	}
+
+	@GetMapping("/listProduct")
+	public String searchNull() {
+		return "redirect:/";
 	}
 
 	@GetMapping("/listProduct/{title}")

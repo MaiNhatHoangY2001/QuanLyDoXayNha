@@ -43,13 +43,16 @@
 
 <link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
 
+<link rel="icon"
+	href="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
+	type="image/x-icon" />
 <script src="/quan-ly-do-xay-nha/resources/js/home.js"></script>
 <script src="/quan-ly-do-xay-nha/resources/js/regex.js"></script>
 
 <style type="text/css">
-	.text-danger{
-		margin-left: 35%;
-	}
+.text-danger {
+	margin-left: 35%;
+}
 </style>
 </head>
 <body>
@@ -124,8 +127,8 @@
 											và tên</strong></label>
 								</div>
 								<div class="col-8">
-									<input id="fullName" type="text" class="form-control" name="ten"
-										placeholder="Tên của bạn">
+									<input id="fullName" type="text" class="form-control"
+										name="ten" placeholder="Tên của bạn">
 								</div>
 								<span id="hoTenDK" class="text-danger">*</span>
 							</div>
@@ -135,8 +138,8 @@
 									<label for="email" class="form-label"><strong>Email</strong></label>
 								</div>
 								<div class="col-8">
-									<input id="email" type="email" class="form-control" name="email"
-										placeholder="Email">
+									<input id="email" type="email" class="form-control"
+										name="email" placeholder="Email">
 								</div>
 								<span id="emailDK" class="text-danger">*</span>
 							</div>
@@ -147,8 +150,8 @@
 											điện thoại</strong></label>
 								</div>
 								<div class="col-8">
-									<input type="tel" class="form-control" name="sdt" id="dienThoai"
-										placeholder="Số điện thoại">
+									<input type="tel" class="form-control" name="sdt"
+										id="dienThoai" placeholder="Số điện thoại">
 								</div>
 								<span id="sdtDK" class="text-danger">*</span>
 							</div>
@@ -184,15 +187,18 @@
 								</div>
 								<div class="col-8 mt-2">
 									<input type="radio" class="form-check-input" id="gioiTinh1"
-										name="gioiTinh" value="Nam" checked="checked"><strong> Nam </strong>
-									<input type="radio" class="form-check-input" id="gioiTinh2"
-										name="gioiTinh" value="Nữ"><strong> Nữ</strong>
+										name="gioiTinh" value="Nam" checked="checked"><strong>
+										Nam </strong> <input type="radio" class="form-check-input"
+										id="gioiTinh2" name="gioiTinh" value="Nữ"><strong>
+										Nữ</strong>
 								</div>
-								
+
 							</div>
 							<div class="row mt-4">
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="security" checked="checked">Tôi đồng ý với các điều kiện, điều khoản và chính sách bảo mật.
+									<input type="checkbox" class="form-check-input" id="security"
+										checked="checked">Tôi đồng ý với các điều kiện,
+									điều khoản và chính sách bảo mật.
 								</div>
 								<!-- <div class="form-check mt-2">
 									<input type="checkbox" class="form-check-input" id="news">Tôi
@@ -209,7 +215,8 @@
 								</div>
 							</div>
 							<div class="row m-4">
-								<button type="submit" class="btn btn-info btn-lg text-white" onclick="handleRegister()">
+								<button type="submit" class="btn btn-info btn-lg text-white"
+									onclick="handleRegister()">
 									<strong>Đăng ký</strong>
 								</button>
 							</div>
@@ -242,8 +249,8 @@
 					<div id="clock" class="col-4"
 						style="color: darkorange; font-size: 18px;">
 						<script>
-                            refreshClock();
-                        </script>
+							refreshClock();
+						</script>
 						<!-- ngày giờ -->
 					</div>
 				</div>
