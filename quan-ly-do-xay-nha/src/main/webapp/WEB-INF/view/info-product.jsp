@@ -164,15 +164,6 @@ input:disabled {
 			<jsp:include page="header.jsp" />
 		</div>
 
-		<!-- breadcum -->
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-				<li id="breadcrumb-item-active" class="breadcrumb-item active"
-					aria-current="page">Chi tiết sản phẩm</li>
-			</ol>
-		</nav>
-
 		<div class="content row bg-white">
 			<div class="col-sm-6 text-center p-4">
 				<img

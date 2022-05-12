@@ -51,15 +51,6 @@
 		<div id="frm-header" style="width: 1130px;">
 			<jsp:include page="header.jsp" />
 		</div>
-		<!-- breadcum -->
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a
-					href="${pageContext.request.contextPath}/">Home</a></li>
-				<li id="breadcrumb-item-active" class="breadcrumb-item active"
-					aria-current="page">Data</li>
-			</ol>
-		</nav>
 
 		<!-- content -->
 		<div class="content row">

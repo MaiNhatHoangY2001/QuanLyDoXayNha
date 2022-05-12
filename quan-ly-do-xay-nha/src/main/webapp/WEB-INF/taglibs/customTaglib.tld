@@ -7,7 +7,7 @@
 
     <tag>
         <name>paginate</name>
-        <tag-class>com.se.security.demo.taglib.PaginationTaglib</tag-class>
+        <tag-class>com.se.suanha.taglib.PaginationTaglib</tag-class>
         <body-content>empty</body-content>
 
         <attribute>
