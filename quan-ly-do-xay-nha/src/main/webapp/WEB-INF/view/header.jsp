@@ -85,6 +85,7 @@
 							<button id="btnCart">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png"
 									alt="icon_cart">
+								<span id="soluong" class="text-white">${count}</span>
 							</button>
 						</form>
 					</div>

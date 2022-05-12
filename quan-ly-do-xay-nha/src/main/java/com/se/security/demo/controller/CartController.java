@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.w3c.dom.html.HTMLModElement;
 
 import com.se.security.demo.entity.Cart;
 import com.se.security.demo.entity.CartDetail;
@@ -49,14 +50,9 @@ public class CartController {
 	}
 
 	@RequestMapping("/saveOrder")
-	@ResponseBody
 	public void saveOrder(@RequestParam int soLuong, @RequestParam String productId) {
 		handleSaveOrder(soLuong, productId);
 	}
-	
-	
-
-	
 
 	public void handleSaveOrder(int soLuong, String productId) {
 		Customer customer = customerService.getCustomer(1);

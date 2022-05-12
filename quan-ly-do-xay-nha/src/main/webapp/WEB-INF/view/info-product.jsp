@@ -87,7 +87,7 @@
 	background-clip: padding-box;
 }
 
-div {
+.count {
 	text-align: center;
 }
 
@@ -154,20 +154,20 @@ input:disabled {
 					name="formInput" id="formCart" class="row"
 					style="margin-top: 16px;" method="post">
 
-					<div class="qty mt-5">
+					<div class="count qty">
 						<span class="minus bg-dark">-</span> <input type="text"
 							class="count" name="soLuong" value="1" /> <span
 							class="plus bg-dark">+</span>
 					</div>
 
 					<input type="hidden" name="productId" value="${theProduct.id}" />
-					<div class="col-6">
+					<div class="count col-6">
 						<button type="button"
 							class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
 							vào giỏ</button>
 					</div>
 
-					<div class="col-6">
+					<div class="count col-6">
 						<button type="submit" class="btn btn-danger btn-lg fw-bold fs-4">Mua
 							ngay</button>
 					</div>
@@ -273,7 +273,6 @@ input:disabled {
     	    	});
         	
         	 var form = $('#formCart');
-
         	  form.find('button:first').click( function() {
         	    $.ajax( {
         	      type: "GET",
