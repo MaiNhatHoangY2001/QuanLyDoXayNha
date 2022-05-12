@@ -50,8 +50,10 @@ public class CartController {
 	}
 
 	@RequestMapping("/saveOrder")
-	public void saveOrder(@RequestParam int soLuong, @RequestParam String productId) {
+	public String saveOrder(@RequestParam int soLuong, @RequestParam String productId) {
 		handleSaveOrder(soLuong, productId);
+		System.out.println("hello");
+		return "redirect:/listProduct/info/" + productId;
 	}
 
 	public void handleSaveOrder(int soLuong, String productId) {
@@ -77,7 +79,7 @@ public class CartController {
 				cartService.updateCart(cart);
 			} else {
 				cartDetail.setSoLuong(cartDetail.getSoLuong() + soLuong);
-				cartDetail.setGia(tinhGia(product.getPrice(), soLuong));
+				cartDetail.setGia(tinhGia(product.getPrice(), cartDetail.getSoLuong()));
 				cartService.updateCartDetail(cartDetail);
 				updateThanhTien(cart);
 				cartService.updateCart(cart);

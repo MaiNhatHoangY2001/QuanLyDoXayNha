@@ -41,6 +41,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/person/save*").hasAnyRole("MANAGER", "ADMIN")
         .antMatchers("/person/delete").hasRole("ADMIN")
         //** matches zero or more 'directories' in a path
+        .antMatchers("/saveOrder**").hasAnyRole("EMPLOYEE", "ADMIN")
+        .antMatchers("/person/**").hasRole("EMPLOYEE")
         .antMatchers("/person/**").hasRole("EMPLOYEE")
         .antMatchers("/creditcard/**").hasRole("EMPLOYEE")
         .antMatchers("/creditcard/delete").hasRole("ADMIN")
@@ -57,7 +59,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().permitAll()
                 .and()
-                .exceptionHandling().accessDeniedPage("/access-denied");
+                .exceptionHandling().accessDeniedPage("/access-denied")
+                .and()
+                .csrf().disable().cors();
 
     }
 

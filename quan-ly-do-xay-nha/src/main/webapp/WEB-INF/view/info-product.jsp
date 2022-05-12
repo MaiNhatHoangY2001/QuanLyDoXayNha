@@ -84,7 +84,7 @@
 	background-clip: padding-box;
 }
 
-.count {
+.countcss {
 	text-align: center;
 }
 
@@ -190,22 +190,28 @@ input:disabled {
 					name="formInput" id="formCart" class="row"
 					style="margin-top: 16px;" method="post">
 
-					<div class="count qty">
+					<div class="countcss qty">
 						<span class="minus bg-dark">-</span> <input type="text"
-							class="count" name="soLuong" value="1" /> <span
+							class="count" name="soLuong" value="1" readonly /> <span
 							class="plus bg-dark">+</span>
 					</div>
 
 					<input type="hidden" name="productId" value="${theProduct.id}" />
-					<div class="count col-6">
-						<button type="button" id="myBtn"
-							class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
-							vào giỏ</button>
-					</div>
-
-					<div class="count col-6">
+					
+					<div class="countcss col-6">
 						<button type="submit" class="btn btn-danger btn-lg fw-bold fs-4">Mua
 							ngay</button>
+					</div>
+					
+					<div class="countcss col-6">
+						<!-- <button type="button" id="myBtn"
+							class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
+							vào giỏ</button> -->
+							<security:authorize access="hasAnyRole('EMPLOYEE', 'ADMIN')">    
+								<button type="button" id="myBtn"
+									class="btn btn-outline-danger btn-lg fw-bold fs-4">Thêm
+									vào giỏ</button>
+							</security:authorize>
 					</div>
 				</form:form>
 
@@ -322,12 +328,13 @@ input:disabled {
    			$(document).on('click','.plus',function(){
 				$('.count').val(parseInt($('.count').val()) + 1 );
     		});
+   			
         	$(document).on('click','.minus',function(){
-    			$('.count').val(parseInt($('.count').val()) - 1 );
-    				if ($('.count').val() == 0) {
-						$('.count').val(1);
-					}
-    	    	});
+   			$('.count').val(parseInt($('.count').val()) - 1 );
+   				if ($('.count').val() == 0) {
+					$('.count').val(1);
+				}
+   	    	});
         	
         	 var form = $('#formCart');
         	  form.find('button:first').click( function() {
@@ -343,7 +350,7 @@ input:disabled {
  		});
 		
 		// Get the modal
-		var modal = document.getElementById("myModal");
+		 var modal = document.getElementById("myModal");
 
 		// Get the button that opens the modal
 		var btn = document.getElementById("myBtn");
@@ -366,7 +373,7 @@ input:disabled {
 		  if (event.target == modal) {
 		    modal.style.display = "none";
 		  }
-		}
+		} 
 	</script>
 </body>
 </html>

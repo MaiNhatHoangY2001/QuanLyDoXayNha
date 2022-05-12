@@ -93,7 +93,6 @@
 							method="POST">
 							<input type="submit" value="Logout" />
 						</form:form>
-						</form>
 					</div>
 				</div>
 			</div>
