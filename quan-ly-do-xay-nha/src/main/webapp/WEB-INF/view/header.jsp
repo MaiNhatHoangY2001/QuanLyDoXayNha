@@ -72,7 +72,7 @@
 
 
 						<!--user-->
-						<form id="user" method="get" class="d-flex" action="${pageContext.request.contextPath}/login">
+						<form id="user" method="get" class="d-flex" action="${pageContext.request.contextPath}/LoginPage">
 							<!-- <i class="fa-solid fa-user fa-xl"></i> -->
 							<button id="btnUser">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_user.png"
@@ -85,8 +85,14 @@
 							<button id="btnCart">
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png"
 									alt="icon_cart">
-								<span id="soluong" class="text-white">${count}</span>
 							</button>
+						</form>
+						
+						<!-- log out -->
+						<form:form action="${pageContext.request.contextPath}/logout"
+							method="POST">
+							<input type="submit" value="Logout" />
+						</form:form>
 						</form>
 					</div>
 				</div>

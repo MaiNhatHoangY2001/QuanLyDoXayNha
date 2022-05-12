@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib  uri="http://www.springframework.org/tags/form"  prefix="form"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html >
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    
+    <title>Đăng ký</title>
+    <link type="text/css"
+              rel="stylesheet"
+              href="${pageContext.request.contextPath}/resources/css/style.css">
+              <link type="text/css"
+              rel="stylesheet"
+              href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
     <!--bootstrap5-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -24,7 +28,7 @@
     <!--icon font awesome-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="/quan-ly-do-xay-nha/resources/css/home.css">
 </head>
 <body>
     <div class="container">
@@ -33,7 +37,7 @@
             <div id="navbar" class="row">
                 <div>
                     <div class="img_logo">
-                        <a href="./home_after_signup_signin.html"><img style="width: 20%;" src="../img/logo_size_1-removebg-preview.png" alt="logo"></a>
+                        <a href="./home_after_signup_signin.html"><img style="width: 20%;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
                     </div>
 
                     <p>Sản phẩm</p>
@@ -41,57 +45,38 @@
                     <div id="form_chucnang">
                         <!--thanh tìm kiếm-->
                         <input type="search" class="form-control" id="txtTim" placeholder="Tìm kiếm">
-                        <button type="submit"><img src="../img/icon_kinhlup.png" alt=""></button>
+                        <button type="submit"><img src="/quan-ly-do-xay-nha/resources/image/icon_kinhlup.png" alt=""></button>
 
                         <!--cart:giỏ hàng-->
                         <div id="cart">
-                            <button id="btnCart"><img src="../img/icon_giohang.png" alt="icon_cart"></button>
+                            <button id="btnCart"><img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png" alt="icon_cart"></button>
                             <span id="soluong" class="text-white">0</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <div class="container-fluid bg-white">
+        <div class="container-fluid bg-white">
             <div class="row">
-                <div class="col-7">
-                    <img src="../img/background1.jpg" class="float-start">
+                <div class="col-8">
+                    <div class="row">
+                        <img src="/quan-ly-do-xay-nha/resources/image/image 2.png" >
+                    </div>
+                    <div class="row">
+                        <img src="/quan-ly-do-xay-nha/resources/image/image 7.png" >
+                    </div>
                 </div>
-                <div id="form_dangnhap" class="col-4">
-                    <form>
-                        <div class="header mt-5 text-center">
-                            <h2>Đăng nhập</h2>
+                <div id="form_dangki" class="col-4">
+                    <div id="form_dangnhap" class=" mt-5">
+                    
+                        <div class="header mt-3 text-center mt-5">
+                            <h2>Bạn đã đăng ký thành công!</h2>
                         </div>
-                        <div>
-                            <div class="row">
-                                <div class="col-4 mt-2">
-                                    <label for="tenTaiKhoan" class="form-label"><strong>Tên đăng nhập</strong></label>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-control" id="tenDangNhap" placeholder="Tên đăng nhập">
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-4 mt-2">
-                                    <label for="matKhau" class="form-label"><strong>Mật khẩu</strong></label>
-                                </div>
-                                <div class="col-8">
-                                    <input type="password" class="form-control" id="matKhau" placeholder="Vui lòng nhập mật khẩu">
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-4 mt-2">
-                                </div>
-                                <div class="col-8">
-                                    <label for="quenMatKhau" class="" style="margin-left:15px ;"><a class="text-muted" href="http:// " style="text-decoration: none">Quên mật khẩu?</a></label>
-                                    <label for="quenMatKhau" class="float-end"><a class="text-dark" href="register.html" style="text-decoration: none"><strong>Chưa có tài khoản?</strong></a></label>
-                                </div>
-                            </div>
-                            <div class="row m-4">
-                                <button type="button" class="btn btn-info btn-lg text-white"><strong>Đăng nhập</strong></button>
-                            </div>
+                        <div class="text-center">
+                            <h4><a href="/quan-ly-do-xay-nha/LoginPage" style="text-decoration: none">Đăng nhập</a> </h4><br>
+                            <h4><a href="/quan-ly-do-xay-nha/" style="text-decoration: none">Quay lại trang chủ</a></h4>
                         </div>
-                    </form>
+                
                 </div>
             </div>
             <div class="footer">
@@ -102,7 +87,7 @@
                 </div>
     
                 <div id="top_footer" class="row">
-                    <a href="./home_before_signup_signin.html" class="col-3"><img style="width: 100%; margin-left: 15px;" src="../img/logo_size_1-removebg-preview.png" alt="logo"></a>
+                    <a href="./home_before_signup_signin.html" class="col-3"><img style="width: 100%; margin-left: 15px;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
                     <p class="col-8">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về các công cụ, vật dụng sữa chữa nhà cửa tiện tích và tuyệt vời. Tất cả đều sẵn sàng cho bạn lựa chọn!</p>
                 </div>
                 <div id="bottom_footer" class="row">
@@ -122,7 +107,8 @@
                 </div>
             </div>
         </div>
-    </div>
-       
+    </div>  
 </body>
+
 </html>
+

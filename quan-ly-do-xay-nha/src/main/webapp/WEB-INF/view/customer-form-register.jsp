@@ -67,7 +67,9 @@
                     </div>
                 </div>
                 <div id="form_dangki" class="col-4">
-                    <form>
+                    <form:form action="${pageContext.request.contextPath}/register/processRegistrationForm" 
+                               modelAttribute="crmUser"
+                               class="form-horizontal">
                         <div class="header mt-1 text-center">
                             <h2>Đăng kí</h2>
                         </div>
@@ -78,7 +80,7 @@
                                     <label for="tenTaiKhoan" class="form-label"><strong>Tên tài khoản</strong></label>
                                 </div>
                                 <div class="col-8 mb-2">
-                                    <input type="text" class="form-control" id="tenTaiKhoan" placeholder="Tên đăng nhập">
+                                    <input type="text" class="form-control" name="userName" id="userName" placeholder="Tên đăng nhập">
                                 </div>
                             </div>
                             <!--Họ và tên-->
@@ -114,7 +116,7 @@
                                     <label for="matKhau" class="form-label"><strong>Mật khẩu</strong></label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="password" class="form-control" id="matKhau" placeholder="Vui lòng nhập mật khẩu">
+                                    <input type="password" path="password" class="form-control" id="password" placeholder="Vui lòng nhập mật khẩu">
                                 </div>
                             </div>
                             <!--Xác nhận mật khẩu-->
@@ -123,7 +125,7 @@
                                     <label for="reMatKhau" style="margin-left: -15% class="form-label"><strong>Nhập lại mật khẩu</strong></label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="password" class="form-control" id="reMatKhau" placeholder="Xác nhận mật khẩu">
+                                    <input type="password" name="password" class="form-control" id="repass" placeholder="Xác nhận mật khẩu">
                                 </div>
                             </div>
                             <div class="row">
@@ -151,14 +153,14 @@
                                 <div class="col-4 mt-2">
                                 </div>
                                 <div class="col-8">                      
-                                    <label for="quenMatKhau" class="float-end"><a class="text-dark" style="text-decoration: none" href="/quan-ly-do-xay-nha/WEB-INF/view/login.jsp"><strong>Đã có tài khoản? Đăng nhập ngay!</strong></a></label>
+                                    <label for="quenMatKhau" class="float-end"><a class="text-dark" style="text-decoration: none" href="LoginPage"><strong>Đã có tài khoản? Đăng nhập ngay!</strong></a></label>
                                 </div>
                             </div>
                             <div class="row m-4">
-                                <button type="button" class="btn btn-info btn-lg text-white"><strong>Đăng kí</strong></button>
+                                <button type="submit" class="btn btn-info btn-lg text-white"><strong>Đăng kí</strong></button>
                             </div>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
             <div class="footer">

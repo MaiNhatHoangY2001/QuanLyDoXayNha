@@ -44,7 +44,7 @@
 
             <div id="top_footer" class="row">
                 <a href="${pageContext.request.contextPath}/" class="col-3"><img style="width: 100%; margin-left: 15px;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
-                <p class="col-4" style="width: 68%;">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về các công cụ, vật dụng sữa chữa nhà cửa tiện tích và tuyệt vời. Tất cả đều sẵn sàng cho bạn lựa chọn!</p>
+                <p class="col-4" style="width: 68%;">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về các công cụ, vật dụng sửa chữa nhà cửa tiện tích và tuyệt vời. Tất cả đều sẵn sàng cho bạn lựa chọn!</p>
             </div>
             <div id="bottom_footer" class="row">
                 <div id="info" class="col-8">

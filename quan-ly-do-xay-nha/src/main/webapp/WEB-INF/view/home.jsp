@@ -72,31 +72,14 @@
 				<div id="line-right"></div>
 			</div>
 			<div id="slider" class="owl-carousel owl-theme">
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/bodungcu.jpg" alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/mk.jpg" alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/van-khoa-ong-nuoc.png"
-						alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/keo-apollo.png" alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/son-xit-atm.png" alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/bang-keo-dien.png" alt=""></a>
-				</div>
+				<c:forEach var="product" items="${productSlider}">
+					<div>
+						<a	href="${pageContext.request.contextPath}/listProduct/info/${product.id}">
+							<img src="${pageContext.request.contextPath}/resources/${product.link}" alt="${product.title}">
+						</a>
+					</div>
+				</c:forEach>
+				
 				<a href="#slider" style="width: 75px;"></a>
 			</div>
 
