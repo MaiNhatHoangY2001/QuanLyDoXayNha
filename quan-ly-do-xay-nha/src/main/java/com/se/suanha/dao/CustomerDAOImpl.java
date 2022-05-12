@@ -2,12 +2,16 @@ package com.se.suanha.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.hibernate.type.StringNVarcharType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.se.suanha.entity.Cart;
 import com.se.suanha.entity.Customer;
 @Repository
 public class CustomerDAOImpl implements CustomerDAO {
@@ -65,6 +69,22 @@ public class CustomerDAOImpl implements CustomerDAO {
 		.setParameter(3, theCustomer.getGioiTinh())
 		.setParameter(4, theCustomer.getEmail())
 		.setParameter(5, theCustomer.getUserName()).executeUpdate();
+	}
+	@Override
+	public Customer getCustomer(String username) {
+		
+		   // get the current hibernate session
+		try {
+			Session currentSession = sessionFactory.getCurrentSession();
+			Query<Customer> theQuery = currentSession
+					.createQuery("from Customer as u where u.userName like :username", Customer.class)
+					.setParameter( "username", "%" + username + "%");
+
+			Customer customer = theQuery.getSingleResult();
+			return customer;
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
     
 

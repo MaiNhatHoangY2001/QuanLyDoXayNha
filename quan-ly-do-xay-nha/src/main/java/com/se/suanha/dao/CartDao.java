@@ -14,4 +14,5 @@ public interface CartDao {
 	public void deleteCartDetail(int idProduct, int idCart);
 	public void updateCart(Cart cart);
 	public Cart getCardById(int idCart);
+	public void updatePayment(int idCustomer);
 }

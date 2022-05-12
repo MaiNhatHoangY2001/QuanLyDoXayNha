@@ -98,4 +98,14 @@ public class CartDaoImpl implements CartDao {
 			return null;
 		}
 	}
+
+	@Override
+	public void updatePayment(int idCustomer) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "update cart set thanh_toan = ? where id_kh=?";
+		session.createNativeQuery(sql).setParameter(1,"Đã thanh toán")
+				.setParameter(2, idCustomer).executeUpdate();
+	}
+
+	
 }

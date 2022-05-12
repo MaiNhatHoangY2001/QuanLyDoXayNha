@@ -37,12 +37,13 @@ public class CartController {
 
 	@GetMapping("/cart")
 	public String listCart(Model model) {
-		Cart cart = cartService.getOrderByIdCustomer(1);
+		Cart cart = cartService.getOrderByIdCustomer(getCustomerId());
 		if (cart != null) {
 			List<CartDetail> cartDetails = cartService.getOrderDetailByOrder(cart.getId());
 			model.addAttribute("listDetail", cartDetails);
 			model.addAttribute("cart", cart);
 		}
+
 		return "cart";
 	}
 
@@ -53,17 +54,17 @@ public class CartController {
 	}
 
 	@RequestMapping("/saveOrder")
-	public String saveOrder(@RequestParam int soLuong, @RequestParam String productId) {
+	@ResponseBody
+	public void saveOrder(@RequestParam int soLuong, @RequestParam String productId) {
 		handleSaveOrder(soLuong, productId);
-		System.out.println("hello");
-		return "redirect:/listProduct/info/" + productId;
 	}
 
 	public void handleSaveOrder(int soLuong, String productId) {
-		Customer customer = customerService.getCustomer(1);
+		int customerId = getCustomerId();
+		Customer customer = customerService.getCustomer(customerId);
 		Product product = productService.getProductById(Integer.parseInt(productId));
-		Cart cart = cartService.getOrderByIdCustomer(1);
-		
+		Cart cart = cartService.getOrderByIdCustomer(customerId);
+
 		// kiểm tra khách hàng đã có hóa đơn chưa thanh toán ko?
 		// có
 		if (cart != null) {
@@ -87,13 +88,13 @@ public class CartController {
 				updateThanhTien(cart);
 				cartService.updateCart(cart);
 			}
-		// không
+			// không
 		} else {
 			// tạo hóa đơn và thêm và thêm vào sql
 			// tạo chi tiết hóa đơn và thêm vào sql
 			cart = new Cart(LocalDate.now(), null, customer, null);
 			CartDetail cartDetail = new CartDetail(cart, product, soLuong, tinhGia(product.getPrice(), soLuong));
-			
+
 			int thanhTien = Integer.parseInt(cartDetail.getGia().split(" ")[0].replace(".", ""));
 			List<CartDetail> listCartDetail = cartService.getOrderDetailByOrder(cart.getId());
 			for (CartDetail cd : listCartDetail) {
@@ -102,10 +103,10 @@ public class CartController {
 			}
 			DecimalFormat df = new DecimalFormat("#,###,### ₫");
 			cart.setThanhTien(df.format(thanhTien).replace(",", "."));
-			
+
 			cart.setThanhToan("chưa thanh toán");
-			cartService.saveCartDetail(cartDetail);
 			cartService.saveCart(cart);
+			cartService.saveCartDetail(cartDetail);
 		}
 	}
 
@@ -135,12 +136,24 @@ public class CartController {
 		cartService.updateCart(cart);
 		return "redirect:/cart";
 	}
-	
-	
-	
-	public void getCustomerId() {
-		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		 UserDetails userDetail = (UserDetails) auth.getPrincipal();
-		 
+
+	@GetMapping("/cart/payment")
+	public String payment() {
+		int customerId = getCustomerId();
+		Cart cart = cartService.getOrderByIdCustomer(getCustomerId());
+		if (cart != null) {
+			List<CartDetail> cartDetails = cartService.getOrderDetailByOrder(cart.getId());
+			if (!cartDetails.isEmpty())
+				cartService.updatePayment(customerId);
+		}
+
+		return "redirect:/cart";
+	}
+
+	public int getCustomerId() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserDetails userDetail = (UserDetails) auth.getPrincipal();
+		Customer customer = customerService.getCustomer(userDetail.getUsername());
+		return customer.getId();
 	}
 }

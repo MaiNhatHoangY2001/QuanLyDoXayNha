@@ -41,12 +41,45 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/home.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/list_products.css">
-
 <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
+
+<style type="text/css">
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -54,16 +87,6 @@
 		<div id="frm-header">
 			<jsp:include page="header.jsp" />
 		</div>
-
-		<!-- breadcum -->
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a
-					href="./home_before_signup_signin.html">Trang chủ</a></li>
-				<li id="breadcrumb-item-active" class="breadcrumb-item active"
-					aria-current="page">Giỏ hàng</li>
-			</ol>
-		</nav>
 
 		<!-- giỏ hàng -->
 		<div id="content_cart" class="gh bg-white" style="width: 101%;">
@@ -81,7 +104,7 @@
 								<th style="width: 100px;">Số lượng</th>
 								<th style="width: 200px;">Đơn giá</th>
 								<th style="width: 200px;">Thành tiền</th>
-								<th >Hành động</th>
+								<th>Hành động</th>
 							</tr>
 						</thead>
 						<tbody id="datarow">
@@ -99,13 +122,13 @@
 									<td>
 										<!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
 										<a id="delete_1" data-sp-ma="2"
-										class="btn btn-danger btn-delete-sanpham" href="${pageContext.request.contextPath}/delete/productId=${detail.product.id}/orderId=${detail.cart.id}"> <i
-											class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
+										class="btn btn-danger btn-delete-sanpham"
+										href="${pageContext.request.contextPath}/delete/productId=${detail.product.id}/orderId=${detail.cart.id}">
+											<i class="fa fa-trash" aria-hidden="true"></i> <b>Xóa</b>
 									</a>
 									</td>
 								</tr>
 							</c:forEach>
-
 						<thead>
 							<tr>
 								<th></th>
@@ -124,9 +147,16 @@
 
 							<td></td>
 							<td>${cart.thanhTien}</td>
-							<td><a id="modal" data-toggle="modal"
-								data-target="#modalChiTiet22" class="btn btn-info "> <b>Thanh
-										Toán</b></a></td>
+
+							<td>
+								<form action="${pageContext.request.contextPath}/cart/payment"
+									method="get">
+									<button type="submit" id="btnThanhToan" class="btn btn-info ">
+										<b>Thanh Toán</b>
+									</button>
+								</form>
+							</td>
+
 						</tr>
 						</tbody>
 					</table>
@@ -146,7 +176,6 @@
 			</div>
 		</div>
 	</div>
-
 
 
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -178,6 +207,18 @@
 				source : "${pageContext.request.contextPath}/search"
 			});
 		})
+		
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("btnThanhToan");
+
+
+		// When the user clicks on the button, open the modal
+		btn.onclick = function() {
+			alert("Bạn đã thanh toán thành công");
+		}
+
+
 	</script>
 </body>
 </html>

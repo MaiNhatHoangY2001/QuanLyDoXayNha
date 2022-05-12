@@ -328,7 +328,7 @@ input:disabled {
    	    	});
         	
         	 var form = $('#formCart');
-        	  form.find('button:first').click( function() {
+        	  form.find('#myBtn').click( function() {
         	    $.ajax( {
         	      type: "GET",
         	      url: "${pageContext.request.contextPath}/saveOrder",

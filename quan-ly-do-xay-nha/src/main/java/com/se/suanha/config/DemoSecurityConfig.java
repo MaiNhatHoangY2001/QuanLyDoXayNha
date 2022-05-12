@@ -42,6 +42,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/person/delete").hasRole("ADMIN")
         //** matches zero or more 'directories' in a path
         .antMatchers("/saveOrder**").hasAnyRole("EMPLOYEE", "ADMIN")
+        .antMatchers("/cart**").hasAnyRole("EMPLOYEE", "ADMIN")
         .antMatchers("/person/**").hasRole("EMPLOYEE")
         .antMatchers("/person/**").hasRole("EMPLOYEE")
         .antMatchers("/creditcard/**").hasRole("EMPLOYEE")
