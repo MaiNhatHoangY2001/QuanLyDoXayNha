@@ -79,17 +79,22 @@
 	text-decoration: none;
 	cursor: pointer;
 }
+
+.row {
+	--bs-gutter-x: 0 !important;
+}
+
 </style>
 </head>
 <body>
 	<div class="container">
 		<!--header-->
-		<div id="frm-header">
+		<div class="content bg-white mb-3">
 			<jsp:include page="header.jsp" />
 		</div>
 
 		<!-- giỏ hàng -->
-		<div id="content_cart" class="gh bg-white" style="width: 101%;">
+		<div id="content_cart" class="gh bg-white">
 			<h1 class="text-center" style="padding-top: 6px;">
 				<b>GIỎ HÀNG</b>
 			</h1>
@@ -165,15 +170,16 @@
 					class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
 					aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
 			</div>
-
-			<!--footer-->
-			<div id="frm-footer">
-				<jsp:include page="footer.jsp" />
-			</div>
-			<!--nút trở về đầu trang-->
-			<div id="backTop">
-				<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
-			</div>
+		</div>
+		
+		<!--footer-->
+		<div class="content bg-white mt-3">
+			<jsp:include page="footer.jsp" />
+		</div>
+		
+		<!--nút trở về đầu trang-->
+		<div id="backTop">
+			<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
 		</div>
 	</div>
 

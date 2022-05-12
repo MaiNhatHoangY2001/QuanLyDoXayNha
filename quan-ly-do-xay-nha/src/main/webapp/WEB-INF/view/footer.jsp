@@ -33,36 +33,31 @@
 </head>
 
 <body>
-    <div class="container">
-        <!--footer-->
-        <div id="footer" style="margin-top: -4%;">
-            <div id="title" style="margin-top: 4%;">
-                <div id="line-left"></div>
-                <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
-                <div id="line-right"></div>
-            </div>
-
-            <div id="top_footer" class="row">
-                <a href="${pageContext.request.contextPath}/" class="col-3"><img style="width: 100%; margin-left: 15px;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
-                <p class="col-4" style="width: 68%;">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về các công cụ, vật dụng sửa chữa nhà cửa tiện tích và tuyệt vời. Tất cả đều sẵn sàng cho bạn lựa chọn!</p>
-            </div>
-            <div id="bottom_footer" class="row">
-                <div id="info" class="col-8">
-                    <b>Địa chỉ: </b>12 Nguyễn Văn Bảo, P.4, Q.Gò Vấp, TP.Hồ Chí Minh <br>
-                    <b>Hotline: </b>0944302210 <br>
-                    <b>Email: </b>team13@gmail.com <br>
-                </div>
-                <div id="clock" class="col-4" style="color: darkorange; font-size: 18px;">
-                    <script>
-                        refreshClock();
-                    </script>
-                    <!-- ngày giờ -->
-                </div>
-            </div>
-            <div style="background-color: #e3e8f8; color: darkblue; width: 926px;">
-            </div>
-        </div>
-    </div>
+	<!--footer-->
+	<div id="title">
+	    <div id="line-left"></div>
+	    <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+	    <div id="line-right"></div>
+	</div>
+	
+	<div id="top_footer" class="row">
+	    <a href="${pageContext.request.contextPath}/" class="col-3"><img style="width: 100%; margin-left: 15px;" src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png" alt="logo"></a>
+	    <p class="col-4" style="width: 68%;">Tại đây, chúng tôi cung cấp cho bạn đầy đủ về các công cụ, vật dụng sửa chữa nhà cửa tiện tích và tuyệt vời. Tất cả đều sẵn sàng cho bạn lựa chọn!</p>
+	</div>
+	
+	<div id="bottom_footer" class="row">
+	    <div id="info" class="col-8">
+	        <b>Địa chỉ: </b>12 Nguyễn Văn Bảo, P.4, Q.Gò Vấp, TP.Hồ Chí Minh <br>
+	        <b>Hotline: </b>0944302210 <br>
+	        <b>Email: </b>team13@gmail.com <br>
+	    </div>
+	    <div id="clock" class="col-4" style="color: darkorange; font-size: 18px;">
+	        <script>
+	            refreshClock();
+	        </script>
+	        <!-- ngày giờ -->
+	    </div>
+	</div>
 </body>
 
 </html>

@@ -53,7 +53,7 @@
 <body>
 	<div class="container">
 		<!--header-->
-		<div id="frm-header">
+		<div class="content bg-white mb-3">
 			<jsp:include page="header.jsp" />
 		</div>
 
@@ -157,7 +157,7 @@
 		</div>
 
 		<!--footer-->
-		<div id="frm-footer">
+		<div class="content bg-white mt-3">
 			<jsp:include page="footer.jsp" />
 		</div>
 	</div>

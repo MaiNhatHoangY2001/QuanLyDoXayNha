@@ -36,8 +36,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/home.css">
 
-
-
 <!-- script -->
 <script src="${pageContext.request.contextPath}/resources/js/home.js"
 	async></script>
@@ -48,7 +46,7 @@
 <body>
 	<div class="container">
 		<!--header-->
-		<div id="frm-header" style="width: 1130px;">
+		<div class="content bg-white mb-3">
 			<jsp:include page="header.jsp" />
 		</div>
 
@@ -154,7 +152,7 @@
 		</div>
 
 		<!--footer-->
-		<div id="frm-footer" style="width: 1130px;">
+		<div class="content bg-white mt-3">
 			<jsp:include page="footer.jsp" />
 		</div>
 
