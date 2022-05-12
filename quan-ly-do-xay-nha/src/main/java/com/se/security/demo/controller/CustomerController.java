@@ -1,6 +1,10 @@
 package com.se.security.demo.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,24 +14,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.se.security.demo.entity.Customer;
+import com.se.security.demo.entity.Product;
 import com.se.security.demo.service.CustomerService;
+import com.se.security.demo.service.ProductService;
 
 @Controller
-
 public class CustomerController {
 	
 	@Autowired
 	// need to inject our customer service
 	private CustomerService customerService;
 	
-	@GetMapping("/")
-	public String listCustomers(Model theModel) {
-		// get customers from the service
+//	@GetMapping("/")
+//	public String listCustomers(Model theModel) {
+//		 get customers from the service
 //		List<Customer> theCustomers = customerService.getCustomers();
-//		// add the customers to the model
+//		add the customers to the model
 //		theModel.addAttribute("customers", theCustomers);
-		return "home";
-	}
+//
+//		return "home";
+//	}
+	
+	
 
 	@PostMapping("/saveCustomer")
 	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {

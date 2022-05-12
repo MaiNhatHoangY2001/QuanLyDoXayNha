@@ -37,4 +37,10 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.search(keyword);
 	}
 
+	@Override
+	@Transactional
+	public List<Product> getProducts() {
+		return productDAO.getProducts();
+	}
+
 }

@@ -27,6 +27,9 @@ public class Product {
 	@Column(name = "description")
 	private String description;
 
+	@Column(name = "status")
+	private String status;
+
 	public int getId() {
 		return id;
 	}
@@ -67,21 +70,31 @@ public class Product {
 		this.description = description;
 	}
 
-	public Product(int id, String title, String price, String link, String description) {
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Product(int id, String title, String price, String link, String description, String status) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.price = price;
 		this.link = link;
 		this.description = description;
+		this.status = status;
 	}
 
-	public Product(String title, String price, String link, String description) {
+	public Product(String title, String price, String link, String description, String status) {
 		super();
 		this.title = title;
 		this.price = price;
 		this.link = link;
 		this.description = description;
+		this.status = status;
 	}
 
 	public Product() {

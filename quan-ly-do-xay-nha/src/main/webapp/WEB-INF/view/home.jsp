@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,31 +72,14 @@
 				<div id="line-right"></div>
 			</div>
 			<div id="slider" class="owl-carousel owl-theme">
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/bodungcu.jpg" alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/mk.jpg" alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/van-khoa-ong-nuoc.png"
-						alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/keo-apollo.png" alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/son-xit-atm.png" alt=""></a>
-				</div>
-				<div>
-					<a href="#"><img
-						src="/quan-ly-do-xay-nha/resources/image/bang-keo-dien.png" alt=""></a>
-				</div>
+				<c:forEach var="product" items="${productSlider}">
+					<div>
+						<a	href="${pageContext.request.contextPath}/listProduct/info/${product.id}">
+							<img src="${pageContext.request.contextPath}/resources/${product.link}" alt="${product.title}">
+						</a>
+					</div>
+				</c:forEach>
+				
 				<a href="#slider" style="width: 75px;"></a>
 			</div>
 
@@ -105,13 +89,57 @@
 				<h4>SẢN PHẨM BÁN CHẠY</h4>
 				<div id="line-right"></div>
 			</div>
-			<div id="frm-list-sp">
-				<div id="list-sp-ban-chay" class="row"></div>
+			
+			<!-- list 12 sp -->
+			<div id="frm-twelve-sp" class="row">
+				<c:forEach var="product" items="${twelveProducts}">
+					<figure align="center" class="img-thumbnail border" class="col-4">
+						<a href="${pageContext.request.contextPath}/listProduct/info/${product.id}">
+							<img class="rounded w-100" height="250"
+								src="${pageContext.request.contextPath}/resources/${product.link}"
+								alt="picmcs">
+							<figcaption>
+								<h6 class="text-justify"
+									style="font-weight: bold; margin-top: 20px">
+									<p id="productTitle">${product.title}</p>
+									<p style="color: red;">${product.price}</p>
+								</h6>
+							</figcaption>
+						</a>
+					</figure>
+				</c:forEach>
 
 				<!--nút mở rộng-->
 				<div id="morong" class="row">
 					<button id="btnMoRong">
 						<h4>MỞ RỘNG</h4>
+					</button>
+				</div>
+			</div>
+			
+			<!-- list all sp -->
+			<div id="frm-list-sp" class="row">
+				<c:forEach var="product" items="${products}">
+					<figure align="center" class="img-thumbnail border" class="col-4">
+						<a href="${pageContext.request.contextPath}/listProduct/info/${product.id}">
+							<img class="rounded w-100" height="250"
+								src="${pageContext.request.contextPath}/resources/${product.link}"
+								alt="picmcs">
+							<figcaption>
+								<h6 class="text-justify"
+									style="font-weight: bold; margin-top: 20px">
+									<p id="productTitle">${product.title}</p>
+									<p style="color: red;">${product.price}</p>
+								</h6>
+							</figcaption>
+						</a>
+					</figure>
+				</c:forEach>
+
+				<!--nút thu gon-->
+				<div id="thugon" class="row">
+					<button id="btnThuGon">
+						<h4>THU GỌN</h4>
 					</button>
 				</div>
 			</div>
@@ -140,12 +168,6 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			//load header
-			//$("#frm-header").load("/quan-ly-do-xay-nha/WEB-INF/view/header.jsp");
-
-			//load footer
-			//$("#frm-footer").load("/quan-ly-do-xay-nha/WEB-INF/view/footer.jsp");
-
 			//slider
 			$('.owl-carousel').owlCarousel({
 				loop : true,
@@ -155,10 +177,6 @@
 				shadow : true,
 				items : 6
 			});
-
-			//sp bán chạy
-			listsp.forEach(displaySP);
-
 			//nút trở về đầu trang
 			$(window).scroll(function() {
 				if ($(this).scrollTop()) {
@@ -172,112 +190,46 @@
 					scrollTop : 0
 				}, 100); //100 là 0.1s
 			});
-		})
-
-		//list sp bán chạy
-		let sp1 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp2 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp3 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp4 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp5 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp6 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp7 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp8 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp9 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp10 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp11 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp12 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp13 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp14 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp15 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-		let sp16 = {
-			hinh : "/quan-ly-do-xay-nha/resources/image/demo-sp.png",
-			tesp : "Viborg VB 401",
-			gia : "190.000đ"
-		};
-
-		let listsp = [ sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11,
-				sp12, sp13, sp14, sp15, sp16 ];
-
-		function displaySP(sp) {
-			let row = "<figure align='center' class='img-thumbnail'>"
-					+ "<img class='rounded w-100' height='250' src='" + sp.hinh + "' alt='picmcs'>"
-					+ "<figcaption>"
-					+ "<h6 class='text-justify' style='font-weight: bold; margin-top: 20px'"
-					+ "<p>" + sp.tesp + "</p>" + "<p style='color: red'>"
-					+ sp.gia + "</p>" + "</h6>" + "</figcaption>" + "</figure>";
-			$('#list-sp-ban-chay').append(row);
-		}
+			
+			//mở rộng - thu gọn
+			$('#frm-list-sp').hide();
+        	$('#btnMoRong').click(function() {
+        		$('#frm-twelve-sp').hide();
+         	   	$('#frm-list-sp').show();
+       		});
+       		$('#btnThuGon').click(function() {
+        	    $('#frm-list-sp').hide();
+        	    $('#frm-twelve-sp').show();
+       		});
+			
+			//click mouse figure
+			/* var figures = document.querySelectorAll('figure')
+			for(let figure of figures){
+				figure.addEventListner("click", function() {
+					
+				})
+			} */
+			
+			/* $('figure').click(function(event) {
+				var text_product = $(event.target).text();
+				alert(text_product);
+				
+				//source : "${pageContext.request.contextPath}/listProduct/" +text_product
+			
+				var action = "${pageContext.request.contextPath}/listProduct/" + text_product;
+							
+			}) */
+		});
+		
 	</script>
 
 	<!-- auto complete -->
 	<script type="text/javascript">
 		$(function() {
-
 			$("#txtTim").autocomplete({
 				source : "${pageContext.request.contextPath}/search"
 			});
-		})
+		});
 	</script>
 </body>
 

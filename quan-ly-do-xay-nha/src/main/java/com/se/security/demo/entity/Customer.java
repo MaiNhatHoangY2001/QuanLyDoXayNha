@@ -27,12 +27,6 @@ public class Customer {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "mat_khau")
-	private String matKhau;
-
-	@Column(name = "ten_tk")
-	private String tenTK;
-
 	public int getId() {
 		return id;
 	}
@@ -73,33 +67,16 @@ public class Customer {
 		this.email = email;
 	}
 
-	public String getMatKhau() {
-		return matKhau;
-	}
-
-	public void setMatKhau(String matKhau) {
-		this.matKhau = matKhau;
-	}
-
-	public String getTenTK() {
-		return tenTK;
-	}
-
-	public void setTenTK(String tenTK) {
-		this.tenTK = tenTK;
-	}
 
 	public Customer() {
 	}
 
-	public Customer(String ten, String sdt, String gioiTinh, String email, String matKhau, String tenTK) {
+	public Customer(String ten, String sdt, String gioiTinh, String email) {
 		super();
 		this.ten = ten;
 		this.sdt = sdt;
 		this.gioiTinh = gioiTinh;
 		this.email = email;
-		this.matKhau = matKhau;
-		this.tenTK = tenTK;
 	}
 
 }
