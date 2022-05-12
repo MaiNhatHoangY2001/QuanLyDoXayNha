@@ -62,7 +62,7 @@
                     <img src="/quan-ly-do-xay-nha/resources/image/background1.jpg" class="float-start">
                 </div>
                 <div id="form_dangnhap" class="col-4">
-                    <form>
+                    <form:form action="${pageContext.request.contextPath }/users" method="POST">
                         <div class="header mt-5 text-center">
                             <h2>Đăng nhập</h2>
                         </div>
@@ -72,7 +72,7 @@
                                     <label for="tenTaiKhoan" class="form-label"><strong>Tên đăng nhập</strong></label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="tenDangNhap" placeholder="Tên đăng nhập">
+                                    <input type="text" class="form-control" id="tenDangNhap" name="username" placeholder="Tên đăng nhập">
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -80,22 +80,22 @@
                                     <label for="matKhau" class="form-label"><strong>Mật khẩu</strong></label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="password" class="form-control" id="matKhau" placeholder="Vui lòng nhập mật khẩu">
+                                    <input type="password" class="form-control" id="matKhau" name="password" placeholder="Vui lòng nhập mật khẩu">
                                 </div>
                             </div>
+                            
                             <div class="row mt-2">
-                                <div class="col-4 mt-2">
-                                </div>
-                                <div class="col-8">
-                                    <label for="quenMatKhau" class=""><a class="text-muted" href="http:// " style="text-decoration: none">Quên mật khẩu?</a></label>
-                                    <label for="quenMatKhau" class="float-end"><a class="text-dark" href="register.html" style="text-decoration: none"><strong>Chưa có tài khoản?</strong></a></label>
+                 
+                                <div class="col-12">
+                                    <label for="quenMatKhau" class="" style="margin-left:30px ;"><a class="text-muted" href="http:// " style="text-decoration: none">Quên mật khẩu?</a></label>
+                                    <label for="quenMatKhau" class="float-end"><a class="text-dark" href="RegisterPage" style="text-decoration: none"><strong>Chưa có tài khoản? Đăng kí ngay!</strong></a></label>
                                 </div>
                             </div>
                             <div class="row m-4">
-                                <button type="button" class="btn btn-info btn-lg text-white"><strong>Đăng nhập</strong></button>
+                                <button type="submit" value="Login" class="btn btn-info btn-lg text-white"><strong>Đăng nhập</strong></button>
                             </div>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
             <div class="footer">

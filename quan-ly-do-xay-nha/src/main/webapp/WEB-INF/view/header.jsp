@@ -88,6 +88,10 @@
 							</button>
 							<span id="soluong" class="text-white">0</span>
 						</div>
+						<form:form action="${pageContext.request.contextPath}/logout"
+				method="POST">
+				<input type="submit" value="Logout" />
+			</form:form>
 					</div>
 				</div>
 			</div>

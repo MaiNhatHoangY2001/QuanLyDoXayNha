@@ -25,7 +25,6 @@
 		</plugins>
 	</build>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>5.2.16.RELEASE</springframework.version>
 		<springsecurity.version>5.3.11.RELEASE</springsecurity.version>
 		<maven.compiler.source>11</maven.compiler.source>
@@ -53,7 +52,7 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -97,7 +96,7 @@
 			<version>1.2</version>
 		</dependency>
 
-
+	
 		<!-- Add MySQL and C3P0 support -->
 		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
 		<dependency>
@@ -111,7 +110,7 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.5.2</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
