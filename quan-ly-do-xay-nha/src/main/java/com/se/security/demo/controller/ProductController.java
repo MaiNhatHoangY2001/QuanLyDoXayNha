@@ -3,6 +3,7 @@ package com.se.security.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,41 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@GetMapping("/")
+	public String listProductsHome(Model theModel) {
+		//load sp ở slider
+		List<Product> listProductSlider = new ArrayList<Product>();
+		int tong = 6;
+		for (int i = 1; i <= 6; i++) {
+			int rand = ThreadLocalRandom.current().nextInt(1,101);
+			if (i != rand) {
+				Product temp = productService.getProductById(rand);
+				listProductSlider.add(temp);
+			} else 
+				tong++;
+		}
+		
+		//load 20 sp mở rộng
+		List<Product> listProduct = new ArrayList<Product>();
+		for (int i = 1; i <= 20; i++) {
+			Product temp20 = productService.getProductById(i);
+			listProduct.add(temp20);
+		}
+		
+		//load 12 sp thu gọn
+		List<Product> listTwelveProduct = new ArrayList<Product>();
+		for (int i = 1; i <= 12; i++) {
+			Product temp = productService.getProductById(i);
+			listTwelveProduct.add(temp);
+		}
+		
+		theModel.addAttribute("productSlider", listProductSlider);
+		theModel.addAttribute("products", listProduct);
+		theModel.addAttribute("twelveProducts", listTwelveProduct);
+
+		return "home";
+	}
 	
 	@GetMapping("/listProduct/info/{productId}")
 	public String getProduct(@PathVariable int productId, Model theModel) {

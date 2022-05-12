@@ -21,32 +21,15 @@ public class CustomerController {
 	// need to inject our customer service
 	private CustomerService customerService;
 	
-	@Autowired
-	private ProductService productService;
-	
-	@GetMapping("/")
-	public String listCustomers(Model theModel) {
-		// get customers from the service
+//	@GetMapping("/")
+//	public String listCustomers(Model theModel) {
+//		 get customers from the service
 //		List<Customer> theCustomers = customerService.getCustomers();
-//		// add the customers to the model
+//		add the customers to the model
 //		theModel.addAttribute("customers", theCustomers);
-		
-		List<Product> listProduct = new ArrayList<Product>();
-		for (int i = 1; i <= 20; i++) {
-			Product temp20 = productService.getProductById(i);
-			listProduct.add(temp20);
-		}
-		theModel.addAttribute("products", listProduct);
-		
-		List<Product> listTwelveProduct = new ArrayList<Product>();
-		for (int i = 1; i <= 12; i++) {
-			Product temp = productService.getProductById(i);
-			listTwelveProduct.add(temp);
-		}
-		theModel.addAttribute("twelveProducts", listTwelveProduct);
-
-		return "home";
-	}
+//
+//		return "home";
+//	}
 	
 	
 
