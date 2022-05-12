@@ -67,8 +67,16 @@ public class Customer {
 		this.email = email;
 	}
 
-
 	public Customer() {
+	}
+
+	public Customer(int id, String ten, String sdt, String gioiTinh, String email) {
+		super();
+		this.id = id;
+		this.ten = ten;
+		this.sdt = sdt;
+		this.gioiTinh = gioiTinh;
+		this.email = email;
 	}
 
 	public Customer(String ten, String sdt, String gioiTinh, String email) {
