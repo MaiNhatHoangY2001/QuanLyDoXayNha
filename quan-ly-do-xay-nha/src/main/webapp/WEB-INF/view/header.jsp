@@ -1,7 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -43,36 +42,19 @@
 <!-- Auto complete  -->
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+	
 <style type="text/css">
 #logout {
 	display: none;
 }
+<security:authorize access="hasAnyRole('EMPLOYEE','MANAGER', 'ADMIN')">
+			#logout{display: inline-block;}
+			#btnUser{display: none;}
+</security:authorize>
 </style>
-
-
-
-
-
 </head>
 
 <body>
-
-
-	<security:authorize
-		access="hasAnyRole( 'EMPLOYEE ', 'MANAGER ', 'ADMIN') ">
-		<style>
-#logout {
-	display: inline-block;
-}
-
-#btnUser {
-	display: none;
-}
-</style>
-	</security:authorize>
-
-
-
 	<div class="container">
 		<!--header-->
 		<div class="header">
