@@ -127,43 +127,11 @@
 							<td><a id="modal" data-toggle="modal"
 								data-target="#modalChiTiet22" class="btn btn-info "> <b>Thanh
 										Toán</b></a></td>
-							<!-- 	<div id="modalChiTiet22" class="modal fade">
-								<div class="modal-dialog"
-									style="border: 5px double greenyellow; width: 2000px;">
-									<div class="modal-content">
-										<div class="nav-item text-center"
-											style="background-color: black;">
-											<h4
-												style="text-align: center; color: greenyellow; padding-top: 2px;">
-												Cảm ơn bạn đã mua hàng!
-												</h1>
-										</div>
-									</div>
-								</div>
-							</div> -->
 						</tr>
 						</tbody>
 					</table>
-					<!-- <h4 style="text-align: center;">(Mẫu giỏ hàng)</h4>
-                    <hr style="border: 10px solid black;">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr style="text-align: center;">
-                                <th>STT</th>
-                                <th style="width: 350px;">Ảnh bìa sách</th>
-                                <th>Tên sản phẩm</th>
-                                <th style="width: 132px;">Số lượng</th>
-                                <th>Đơn giá</th>
-                                <th>Thành tiền</th>
-                                <th>Hành động</th>
-                            </tr>
-                        </thead>
-                        <tbody id="addDataRow">
-
-                        </tbody>
-                    </table> -->
 				</div>
-				<a href="${pageContext.request.contextPath}/home"
+				<a href="${pageContext.request.contextPath}/"
 					class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
 					aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
 			</div>
