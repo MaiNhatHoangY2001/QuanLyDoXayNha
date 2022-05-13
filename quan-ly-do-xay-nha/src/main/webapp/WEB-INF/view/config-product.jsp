@@ -164,29 +164,40 @@
 		</div>
 
 		<!-- navigation -->
-            <div id="main-nav">
-                <ul class="nav row">
-                    <li class="nav-item col-6 text-center">
-                        <div class="sub-bar"></div>
-                        <a href="./index.html" class="nav-link text-white "><img src="${pageContext.request.contextPath}/resources/image/bar-chart-5-24.png"/> Thống kê</a>
-                    </li>
-                    <li class="nav-item dropdown col-6 text-center">
-                        <a href="./the-loai.html" class="nav-link text-white"><img src="https://img.icons8.com/glyph-neue/32/ffffff/manager.png"/> Quản lý sản phẩm</a>
-                        <!-- <div class="dropdown-menu">
+		<div id="main-nav">
+			<ul class="nav row">
+				<li class="nav-item col-6 text-center">
+					<div class="sub-bar"></div> <a href="./index.html"
+					class="nav-link text-white "><img
+						src="${pageContext.request.contextPath}/resources/image/bar-chart-5-24.png" />
+						Thống kê</a>
+				</li>
+				<li class="nav-item dropdown col-6 text-center"><a
+					href="./the-loai.html" class="nav-link text-white"><img
+						src="https://img.icons8.com/glyph-neue/32/ffffff/manager.png" />
+						Quản lý sản phẩm</a> <!-- <div class="dropdown-menu">
                             <a href="#" class="dropdown-item">1</a>
                             <a href="#" class="dropdown-item">2</a>
                             <a href="#" class="dropdown-item">3</a>
-                        </div> -->
-                    </li>
-                </ul>
+                        </div> --></li>
+			</ul>
 
-            </div>
+		</div>
 
 		<!-- giỏ hàng -->
 		<div id="content_cart" class="gh bg-white">
 			<h1 class="text-center" style="padding-top: 6px;">
 				<b>QUẢN LÝ SẢN PHẨM</b>
 			</h1>
+			<div class="text-center m-3">
+			<a id="delete_1" data-sp-ma="2"
+				class="btn btn-warning btn-delete-sanpham text-white "
+				href="${pageContext.request.contextPath}/config/createProduct">
+				<i class="fa-solid fa-circle-plus"></i> <b>Thêm sản phẩm</b>
+
+			</a>
+			</div>
+			
 			<div class="row">
 				<div class="col col-md-12">
 					<table class="table table-bordered">
@@ -232,8 +243,7 @@
 												<a id="delete_1" data-sp-ma="2"
 													class="btn btn-success btn-delete-sanpham"
 													href="${pageContext.request.contextPath}/config/updateStatusConBan/${product.id}">
-													<i class="fa-solid fa-circle-check"></i> <b>
-														Bán</b>
+													<i class="fa-solid fa-circle-check"></i> <b> Bán</b>
 
 												</a>
 											</c:otherwise>

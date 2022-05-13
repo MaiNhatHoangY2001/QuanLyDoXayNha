@@ -124,5 +124,11 @@ public class ProductController {
 		String referer = request.getHeader("Referer");
 		return "redirect:" + referer;
 	}
+	
+	@GetMapping("/config/createProduct")
+	public String createProduct(Model theModel) {
+
+		return "create-product";
+	}
 
 }
