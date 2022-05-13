@@ -168,10 +168,6 @@ public class CartController {
 		String tongThanhTien;
 		for (Cart cart : listCart) {
 			theModel.addAttribute("customer", customerService.getCustomer(cart.getCustomer().getId()));
-			List<CartDetail> listCartDetails = cartService.getOrderDetailByOrder(cart.getId());
-			for (CartDetail cartDetail : listCartDetails) {
-				count += cartDetail.getSoLuong();
-			}
 			int thanhTien = Integer.parseInt(cart.getThanhTien().split(" ")[0].replace(".", ""));
 			tam += thanhTien;
 			
@@ -179,7 +175,6 @@ public class CartController {
 		DecimalFormat df = new DecimalFormat("#,###,### ₫");
 		tongThanhTien = df.format(tam).replace(",", ".");
 		theModel.addAttribute("carts", listCart);
-		theModel.addAttribute("count", count);
 		theModel.addAttribute("total", tongThanhTien);
 		System.out.println(listCart);
 		return "statistical";

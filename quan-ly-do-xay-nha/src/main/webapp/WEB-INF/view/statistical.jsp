@@ -120,7 +120,6 @@
 								<th>STT</th>
 								<th>Tên khách hàng</th>
 								<th>Ngày mua</th>
-								<th>Tổng số lượng đã mua</th>
 								<th>Thành tiền</th>
 							</tr>
 						</thead>
@@ -128,9 +127,8 @@
 							<tbody id="datarow">
 								<tr style="text-align: center;">
 									<td>${loop.index + 1}</td>
-									<td>${customer.ten}</td>
+									<td>${cart.customer.ten}</td>
 									<td>${cart.ngayLap}</td>
-									<td>${count}</td>
 									<td>${cart.thanhTien}</td>
 									</td>
 								</tr>
@@ -138,7 +136,6 @@
 						</c:forEach>
 						<tbody id="datarow">
 							<tr style="text-align: center;">
-								<td></td>
 								<td></td>
 								<td></td>
 								<td><b>Tổng doanh thu</b></td>
