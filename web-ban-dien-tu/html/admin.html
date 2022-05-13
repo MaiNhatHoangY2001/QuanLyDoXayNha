@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <!--bootstrap5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&display=swap" rel="stylesheet">
+
+    <!--slideshow-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery.min.js@3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+
+    <!--icon font awesome-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/home.css">
+
+    <script src="../js/home.js"></script>
+    <script>
+        $(document).ready(function() {
+            //load header
+            $("#frm-header").load("header.html");
+            //load footer
+            $("#frm-footer").load("footer.html");
+        })
+    </script>
+
+    <style>
+        #main-nav {
+            margin-top: 15px;
+            background-color: black;
+            box-shadow: 0px 0px 1px black;
+            position: sticky;
+            height: 45px;
+            z-index: 1;
+            top: 0;
+        }
+        
+        #main-nav .nav {
+            width: 100%;
+            float: left;
+        }
+        
+        #main-nav li a {
+            font-size: 20px;
+            border-left: 1px solid white;
+        }
+        
+        #main-nav>ul>li:hover>a {
+            color: cyan !important;
+        }
+        
+        #main-nav li:hover .dropdown-menu {
+            display: block;
+            top: 43px;
+            padding: 0px 1px 1px 1px;
+            border: 1px double gray;
+        }
+        
+        #main-nav .dropdown-item:hover {
+            color: cyan;
+            background-color: black;
+        }
+        
+        .sub-menu {
+            width: 10%;
+            float: left;
+            display: none;
+        }
+        
+        .sub-menu img {
+            width: 30px;
+            height: 30px;
+            margin: 8px 0 5px 10px;
+            background-color: black;
+            border: none;
+            float: left;
+        }
+        
+        .sub-menu label {
+            margin-bottom: 0 !important;
+        }
+        
+        @media (max-width:800px) {
+            #main-nav>.nav {
+                display: none;
+            }
+            .sub-menu {
+                display: block;
+            }
+        }
+        
+        #content_admin {
+            margin: 0 auto;
+            background-color: white;
+            border: 2px solid #e5e5e57e;
+            height: 200px;
+        }
+        
+        #frm-footer {
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!--header-->
+        <div id="frm-header"></div>
+
+        <!--content-->
+        <div class="content">
+            <!-- navigation -->
+            <div id="main-nav">
+                <ul class="nav row">
+                    <li class="nav-item col-6 text-center">
+                        <div class="sub-bar"></div>
+                        <a href="./index.html" class="nav-link text-white "><img src="../img/bar-chart-5-24.png" /> Thống kê</a>
+                    </li>
+                    <li class="nav-item dropdown col-6 text-center">
+                        <a href="./the-loai.html" class="nav-link text-white dropdown-toggle"><img src="https://img.icons8.com/glyph-neue/32/ffffff/manager.png" /> Quản lý sản phẩm</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">1</a>
+                            <a href="#" class="dropdown-item">2</a>
+                            <a href="#" class="dropdown-item">3</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div id="content_admin">
+
+            </div>
+        </div>
+
+        <!--footer-->
+        <div id="frm-footer"></div>
+    </div>
+</body>
+
+</html>
