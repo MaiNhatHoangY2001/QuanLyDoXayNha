@@ -71,6 +71,13 @@
 							src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
 							alt="logo"></a>
 					</div>
+					
+					<!-- ten dang nhap -->
+					<div id="tenLogin">
+						<security:authorize access="hasAnyRole('EMPLOYEE','MANAGER', 'ADMIN')">
+							<h6><label>Xin chào,&nbsp;</label><security:authentication property="principal.username" />!</h6>
+						</security:authorize>
+					</div>
 
 					<p>Sản phẩm</p>
 
@@ -96,7 +103,7 @@
 									alt="icon_user">
 							</button>
 						</form>
-
+						
 						<!-- log out -->
 						<div id="logout">
 							<form:form action="${pageContext.request.contextPath}/logout"
