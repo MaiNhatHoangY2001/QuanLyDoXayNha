@@ -89,6 +89,71 @@
 .row { -
 	-bs-gutter-x: 0 !important;
 }
+
+/* nav */
+#main-nav {
+	margin-top: 15px;
+	background-color: black;
+	box-shadow: 0px 0px 1px black;
+	position: sticky;
+	height: 45px;
+	z-index: 1;
+	top: 0;
+}
+
+#main-nav .nav {
+	width: 100%;
+	float: left;
+}
+
+#main-nav li a {
+	font-size: 20px;
+	border-left: 1px solid white;
+}
+
+#main-nav>ul>li:hover>a {
+	color: cyan !important;
+}
+
+#main-nav li:hover .dropdown-menu {
+	display: block;
+	top: 43px;
+	padding: 0px 1px 1px 1px;
+	border: 1px double gray;
+}
+
+#main-nav .dropdown-item:hover {
+	color: cyan;
+	background-color: black;
+}
+
+.sub-menu {
+	width: 10%;
+	float: left;
+	display: none;
+}
+
+.sub-menu img {
+	width: 30px;
+	height: 30px;
+	margin: 8px 0 5px 10px;
+	background-color: black;
+	border: none;
+	float: left;
+}
+
+.sub-menu label {
+	margin-bottom: 0 !important;
+}
+
+@media ( max-width :800px) {
+	#main-nav>.nav {
+		display: none;
+	}
+	.sub-menu {
+		display: block;
+	}
+}
 </style>
 </head>
 <body>
@@ -97,6 +162,25 @@
 		<div class="content bg-white mb-3">
 			<jsp:include page="header.jsp" />
 		</div>
+
+		<!-- navigation -->
+            <div id="main-nav">
+                <ul class="nav row">
+                    <li class="nav-item col-6 text-center">
+                        <div class="sub-bar"></div>
+                        <a href="./index.html" class="nav-link text-white "><img src="${pageContext.request.contextPath}/resources/image/bar-chart-5-24.png"/> Thống kê</a>
+                    </li>
+                    <li class="nav-item dropdown col-6 text-center">
+                        <a href="./the-loai.html" class="nav-link text-white"><img src="https://img.icons8.com/glyph-neue/32/ffffff/manager.png"/> Quản lý sản phẩm</a>
+                        <!-- <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">1</a>
+                            <a href="#" class="dropdown-item">2</a>
+                            <a href="#" class="dropdown-item">3</a>
+                        </div> -->
+                    </li>
+                </ul>
+
+            </div>
 
 		<!-- giỏ hàng -->
 		<div id="content_cart" class="gh bg-white">
