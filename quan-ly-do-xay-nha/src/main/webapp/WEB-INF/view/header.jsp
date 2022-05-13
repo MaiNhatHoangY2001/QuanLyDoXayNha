@@ -44,12 +44,17 @@
 	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 	
 <style type="text/css">
-#logout {
+#logout,#config {
 	display: none;
 }
 <security:authorize access="hasAnyRole('EMPLOYEE','MANAGER', 'ADMIN')">
 			#logout{display: inline-block;}
 			#btnUser{display: none;}
+</security:authorize>
+
+
+<security:authorize access="hasAnyRole('ADMIN')">
+			#config{display: inline-block;}
 </security:authorize>
 </style>
 </head>
@@ -113,6 +118,18 @@
 									alt="icon_cart">
 							</button>
 						</form>
+						
+						<div id="config">
+							<form:form action="${pageContext.request.contextPath}/config"
+								method="get">
+
+								<button type="submit">
+									<img style="width: 30px; height: 30px; margin-top: 2px"
+										src="https://img.icons8.com/material-rounded/24/000000/automatic.png" />
+								</button>
+
+							</form:form>
+						</div>
 
 
 					</div>

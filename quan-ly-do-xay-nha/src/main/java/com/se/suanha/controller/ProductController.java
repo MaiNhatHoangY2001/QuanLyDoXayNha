@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +28,7 @@ public class ProductController {
 
 	@GetMapping("/")
 	public String listProductsHome(Model theModel) {
-		// load sp á»Ÿ slider
+		// load sp slider
 		List<Product> listProductSlider = new ArrayList<Product>();
 		int tong = 7;
 		for (int i = 1; i <= tong; i++) {
@@ -38,14 +40,14 @@ public class ProductController {
 				tong++;
 		}
 
-		// load 20 sp má»Ÿ rá»™ng
+		// load 20 sp mo rong
 		List<Product> listProduct = new ArrayList<Product>();
 		for (int i = 1; i <= 20; i++) {
 			Product temp20 = productService.getProductById(i);
 			listProduct.add(temp20);
 		}
 
-		// load 12 sp thu gá»�n
+		// load 12 sp thu gon
 		List<Product> listTwelveProduct = new ArrayList<Product>();
 		for (int i = 1; i <= 12; i++) {
 			Product temp = productService.getProductById(i);
@@ -85,11 +87,9 @@ public class ProductController {
 	public String listProducts(@PathVariable(value = "title") String title, Model theModel, Integer offset,
 			Integer maxResults) {
 		List<Product> list = productService.getProductsByPage(offset, maxResults, title);
-		List<String> titles = new ArrayList<String>();
 		theModel.addAttribute("count", productService.count(title));
 		theModel.addAttribute("offset", offset);
 		theModel.addAttribute("products", list);
-		theModel.addAttribute("titles", titles);
 		theModel.addAttribute("title", title);
 		return "list-product";
 	}
@@ -100,4 +100,29 @@ public class ProductController {
 		List<String> titles = productService.search(term);
 		return titles;
 	}
+
+	@GetMapping("/config")
+	public String config(Model theModel, Integer offset, Integer maxResults) {
+		List<Product> list = productService.getProductsByPage(offset, maxResults);
+		theModel.addAttribute("count", productService.count());
+		theModel.addAttribute("offset", offset);
+		theModel.addAttribute("products", list);
+
+		return "config-product";
+	}
+
+	@GetMapping("/config/updateStatusNgungBan/{idProduct}")
+	public String updateStatusNgungBan(@PathVariable int idProduct, HttpServletRequest request) {
+		productService.updateStatus(idProduct, "false");
+		String referer = request.getHeader("Referer");
+		return "redirect:" + referer;
+	}
+
+	@GetMapping("/config/updateStatusConBan/{idProduct}")
+	public String updateStatusConBan(@PathVariable int idProduct, HttpServletRequest request) {
+		productService.updateStatus(idProduct, "true");
+		String referer = request.getHeader("Referer");
+		return "redirect:" + referer;
+	}
+
 }

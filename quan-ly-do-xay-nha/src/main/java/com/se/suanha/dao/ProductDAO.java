@@ -8,10 +8,16 @@ public interface ProductDAO {
 	public Product getProductById(int id);
 
 	public List<Product> getProductsByPage(Integer offset, Integer maxResults, String title);
+
+	public List<Product> getProductsByPage(Integer offset, Integer maxResults);
 	
 	public List<Product> getProducts();
-	
+
+	public Long count();
+
 	public Long count(String title);
 
 	public List<String> search(String keyword);
+	
+	public void updateStatus(int idProduct, String value);
 }
