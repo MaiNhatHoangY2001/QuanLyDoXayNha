@@ -86,10 +86,9 @@
 	cursor: pointer;
 }
 
-.row {
-	--bs-gutter-x: 0 !important;
+.row { -
+	-bs-gutter-x: 0 !important;
 }
-
 </style>
 </head>
 <body>
@@ -127,39 +126,43 @@
 										class="hinhdaidien" style="width: 75%;"></td>
 									<td>${product.title}</td>
 									<td>${product.price}</td>
-									<td>
-									<c:choose>
-    									<c:when test="${product.status}">
+									<td><c:choose>
+											<c:when test="${product.status}">
         									Còn bán
-    									</c:when>    
-    									<c:otherwise>
+    									</c:when>
+											<c:otherwise>
         									Ngừng bán 
 								    	</c:otherwise>
-									</c:choose>
-									
-									
-									</td>
-									<td>
-										<!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
-										<a id="delete_1" data-sp-ma="2"
-										class="btn btn-danger btn-delete-sanpham"
-										href="${pageContext.request.contextPath}/delete/productId=${detail.product.id}/orderId=${detail.cart.id}">
-											<i class="fa fa-trash" aria-hidden="true"></i> <b>Ngừng bán</b>
-										
-									</a>
-									
-									<a id="delete_1" data-sp-ma="2"
+										</c:choose></td>
+									<td><c:choose>
+											<c:when test="${product.status}">
+												<a id="delete_1" data-sp-ma="2"
+													class="btn btn-danger btn-delete-sanpham"
+													href="${pageContext.request.contextPath}/config/updateStatusNgungBan/${product.id}">
+													<i class="fa fa-trash" aria-hidden="true"></i> <b>Ngừng
+														bán</b>
+
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a id="delete_1" data-sp-ma="2"
+													class="btn btn-success btn-delete-sanpham"
+													href="${pageContext.request.contextPath}/config/updateStatusConBan/${product.id}">
+													<i class="fa-solid fa-circle-check"></i> <b>
+														Bán</b>
+
+												</a>
+											</c:otherwise>
+										</c:choose> <a id="delete_1" data-sp-ma="2"
 										class="btn btn-primary btn-delete-sanpham"
 										href="${pageContext.request.contextPath}/delete/productId=${detail.product.id}/orderId=${detail.cart.id}">
 											<i class="fa-solid fa-rotate"></i> <b>Cập nhật</b>
-										
-									</a>
-									
-									</td>
+
+									</a></td>
 								</tr>
 							</c:forEach>
 
-					
+
 
 						</tbody>
 					</table>
@@ -169,12 +172,12 @@
 					next="&raquo;" previous="&laquo;" />
 			</div>
 		</div>
-		
+
 		<!--footer-->
 		<div class="content bg-white mt-3">
 			<jsp:include page="footer.jsp" />
 		</div>
-		
+
 		<!--nút trở về đầu trang-->
 		<div id="backTop">
 			<i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>

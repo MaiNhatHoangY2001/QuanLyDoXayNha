@@ -45,7 +45,7 @@ public class ProductDAOImpl implements ProductDAO {
 	public List<Product> getProductsByPage(Integer offset, Integer maxResults, String title) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		Query<Product> theQuery = currentSession
-				.createQuery("from Product as prd where prd.title like :title", Product.class)
+				.createQuery("from Product as prd where prd.title like :title AND prd.status like 'true'", Product.class)
 				.setParameter("title", "%" + title + "%", StringNVarcharType.INSTANCE)
 				.setFirstResult(offset != null ? offset : 0).setMaxResults(maxResults != null ? maxResults : 15);
 		List<Product> products = theQuery.getResultList();
@@ -93,10 +93,10 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public void updateProduct(int idProduct) {
+	public void updateStatus(int idProduct, String value) {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "update products set status = ? where id=?";
-		session.createNativeQuery(sql).setParameter(1,"false")
+		session.createNativeQuery(sql).setParameter(1, value)
 				.setParameter(2, idProduct).executeUpdate();
 	}
 

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -107,6 +109,20 @@ public class ProductController {
 		theModel.addAttribute("products", list);
 
 		return "config-product";
+	}
+
+	@GetMapping("/config/updateStatusNgungBan/{idProduct}")
+	public String updateStatusNgungBan(@PathVariable int idProduct, HttpServletRequest request) {
+		productService.updateStatus(idProduct, "false");
+		String referer = request.getHeader("Referer");
+		return "redirect:" + referer;
+	}
+
+	@GetMapping("/config/updateStatusConBan/{idProduct}")
+	public String updateStatusConBan(@PathVariable int idProduct, HttpServletRequest request) {
+		productService.updateStatus(idProduct, "true");
+		String referer = request.getHeader("Referer");
+		return "redirect:" + referer;
 	}
 
 }

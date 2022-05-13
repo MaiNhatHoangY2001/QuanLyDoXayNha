@@ -19,5 +19,5 @@ public interface ProductDAO {
 
 	public List<String> search(String keyword);
 	
-	public void updateProduct(int idProduct);
+	public void updateStatus(int idProduct, String value);
 }

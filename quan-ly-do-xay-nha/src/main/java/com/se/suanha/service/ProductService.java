@@ -18,4 +18,6 @@ public interface ProductService {
 	public Long count(String title);
 
 	public List<String> search(String keyword);
+	
+	public void updateStatus(int idProduct, String value);
 }
