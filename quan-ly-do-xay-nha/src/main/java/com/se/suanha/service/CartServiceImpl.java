@@ -68,4 +68,9 @@ public class CartServiceImpl implements CartService {
 	public void updatePayment(int idCustomer) {
 		orderDao.updatePayment(idCustomer); 
 	}
+
+	@Override
+	public List<Cart> getListCartByDate(int day, int month, int year) {
+		return orderDao.getListCartByDate(day, month, year);
+	}
 }

@@ -124,5 +124,4 @@ public class ProductController {
 		String referer = request.getHeader("Referer");
 		return "redirect:" + referer;
 	}
-
 }

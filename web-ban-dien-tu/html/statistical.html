@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê</title>
+
+    <!--bootstrap5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&display=swap" rel="stylesheet">
+
+    <!--slideshow-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery.min.js@3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+
+    <!--icon font awesome-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/home.css">
+
+    <style>
+        .row {
+	        --bs-gutter-x: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Thống kê doanh thu</h3>
+        <div class="content row mt-3">
+            <select class="form-select me-4" aria-label="Default select example" style="width: 200px;">
+                <option selected>Thống kê theo ngày</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <select class="form-select me-4" aria-label="Default select example" style="width: 200px;">
+                <option selected>Thống kê theo tháng</option>
+                <option value="Tháng 1">Tháng 1</option>
+                <option value="Tháng 2">Tháng 2</option>
+                <option value="Tháng 3">Tháng 3</option>
+                <option value="Tháng 4">Tháng 4</option>
+                <option value="Tháng 5">Tháng 5</option>
+                <option value="Tháng 6">Tháng 6</option>
+                <option value="Tháng 7">Tháng 7</option>
+                <option value="Tháng 8">Tháng 8</option>
+                <option value="Tháng 9">Tháng 9</option>
+                <option value="Tháng 10">Tháng 10</option>
+                <option value="Tháng 11">Tháng 11</option>
+                <option value="Tháng 12">Tháng 12</option>
+            </select>
+            <select class="form-select" aria-label="Default select example" style="width: 200px;">
+                <option selected>Thống kê theo năm</option>
+                <option value="năm 2019">2019</option>
+                <option value="năm 2020">2020</option>
+                <option value="năm 2021">2021</option>
+                <option value="năm 2022">2022</option>
+            </select>
+        </div>
+        
+        <div id="content_cart" class="gh bg-white mt-3" style="width: 101%;">
+            <h1 class="text-center" style="padding-top: 6px;"><b>GIỎ HÀNG</b></h1>
+            <div class="row">
+                <div class="col col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr style="text-align: center;">
+                                <th>STT</th>
+                                <th>Tên khách hàng</th>
+                                <th>Ngày mua</th>
+                                <th>Tổng số lượng đã mua</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody id="datarow">
+                            <tr style="text-align: center;">
+                                <td>1</td>
+                                <td>Nguyễn Công Phượng</td>
+                                <td>12/02/2002</td>
+                                <td>10</td>
+                                <td>200.000 <u>đ</u></td>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="datarow">
+                            <tr style="text-align: center;">
+                                <td></td>
+                                <td></td>
+                                <td><b>Tổng doanh thu</b></td>
+                                <td>200.000 <u>đ</u></td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="../HTML/index.html" class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
+                    aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
+            </div>
+        </div>
+
+        <!--nút trở về đầu trang-->
+        <div id="backTop">
+            <i class="fa-solid fa-arrow-up-long fa-xl" title="Trở về đầu trang"></i>
+        </div>
+    </div>
+</body>
+</html>

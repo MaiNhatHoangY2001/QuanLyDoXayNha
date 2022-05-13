@@ -92,4 +92,11 @@ public class Cart {
 
 	public Cart() {
 	}
+
+	@Override
+	public String toString() {
+		return "Cart [id=" + id + ", ngayLap=" + ngayLap + ", thanhTien=" + thanhTien + ", customer=" + customer
+				+ ", thanhToan=" + thanhToan + "]";
+	}
+
 }

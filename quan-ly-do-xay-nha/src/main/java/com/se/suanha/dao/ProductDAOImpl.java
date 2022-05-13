@@ -100,4 +100,6 @@ public class ProductDAOImpl implements ProductDAO {
 				.setParameter(2, idProduct).executeUpdate();
 	}
 
+	
+	
 }

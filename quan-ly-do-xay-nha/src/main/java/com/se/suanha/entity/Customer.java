@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "customers")
@@ -17,7 +15,7 @@ public class Customer {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "ten")
+	@Column(name = "ten", columnDefinition = "Nvarchar(50)")
 	private String ten;
 
 	@Column(name = "sdt")
@@ -99,5 +97,13 @@ public class Customer {
 		this.gioiTinh = gioiTinh;
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", ten=" + ten + ", sdt=" + sdt + ", gioiTinh=" + gioiTinh + ", email=" + email
+				+ ", userName=" + userName + "]";
+	}
+	
+	
 
 }

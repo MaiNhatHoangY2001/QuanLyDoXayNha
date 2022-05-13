@@ -2,7 +2,10 @@ package com.se.suanha.controller;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.List;
+
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -155,5 +158,35 @@ public class CartController {
 		UserDetails userDetail = (UserDetails) auth.getPrincipal();
 		Customer customer = customerService.getCustomer(userDetail.getUsername());
 		return customer.getId();
+	}
+	
+	@GetMapping("/config/thongke/statistical")
+	public String statistical(@RequestParam int day, @RequestParam int month, @RequestParam int year, Model theModel) {
+		List<Cart> listCart = cartService.getListCartByDate(day, month, year);
+		long count = 0;
+		long tam = 0;
+		String tongThanhTien;
+		for (Cart cart : listCart) {
+			theModel.addAttribute("customer", customerService.getCustomer(cart.getCustomer().getId()));
+			List<CartDetail> listCartDetails = cartService.getOrderDetailByOrder(cart.getId());
+			for (CartDetail cartDetail : listCartDetails) {
+				count += cartDetail.getSoLuong();
+			}
+			int thanhTien = Integer.parseInt(cart.getThanhTien().split(" ")[0].replace(".", ""));
+			tam += thanhTien;
+			
+		}
+		DecimalFormat df = new DecimalFormat("#,###,### ₫");
+		tongThanhTien = df.format(tam).replace(",", ".");
+		theModel.addAttribute("carts", listCart);
+		theModel.addAttribute("count", count);
+		theModel.addAttribute("total", tongThanhTien);
+		System.out.println(listCart);
+		return "statistical";
+	}
+	
+	@GetMapping("/config/thongke")
+	public String thongke() {
+		return "statistical";
 	}
 }

@@ -23,4 +23,6 @@ public interface CartService {
 	public Cart getCardById(int idCart);
 
 	public void updatePayment(int idCustomer);
+	
+	public List<Cart> getListCartByDate(int day, int month, int year);
 }

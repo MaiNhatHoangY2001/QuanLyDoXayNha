@@ -1,5 +1,6 @@
 package com.se.suanha.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -82,16 +83,14 @@ public class CartDaoImpl implements CartDao {
 	public void deleteCartDetail(int idProduct, int idCart) {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "delete from cart_detail where id_product=? and id_order=?";
-		session.createNativeQuery(sql).setParameter(1,idProduct)
-				.setParameter(2, idCart).executeUpdate();
+		session.createNativeQuery(sql).setParameter(1, idProduct).setParameter(2, idCart).executeUpdate();
 	}
 
 	@Override
 	public Cart getCardById(int idCart) {
 		try {
 			Session currentSession = sessionFactory.getCurrentSession();
-			Query<Cart> theQuery = currentSession
-					.createQuery("from Cart where id = " + idCart , Cart.class);
+			Query<Cart> theQuery = currentSession.createQuery("from Cart where id = " + idCart, Cart.class);
 			Cart cart = theQuery.getSingleResult();
 			return cart;
 		} catch (NoResultException e) {
@@ -103,9 +102,20 @@ public class CartDaoImpl implements CartDao {
 	public void updatePayment(int idCustomer) {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "update cart set thanh_toan = ? where id_kh=?";
-		session.createNativeQuery(sql).setParameter(1,"Đã thanh toán")
-				.setParameter(2, idCustomer).executeUpdate();
+		session.createNativeQuery(sql).setParameter(1, "Đã thanh toán").setParameter(2, idCustomer).executeUpdate();
 	}
 
-	
+	@Override
+	public List<Cart> getListCartByDate(int day, int month, int year) {
+		String ngay = day < 1 ? "" : day + "";
+		String thang = month < 1 ? "" : month + "";
+		String nam = year < 1 ? "" : year + "";
+		List<Cart> listCart = new ArrayList<Cart>();
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "select * from cart where MONTH(ngay_lap) like '%" + thang + "%' and YEAR(ngay_lap) like '%" + nam
+				+ "%' and DAY(ngay_lap) like '%" + ngay + "%' and thanh_toan like N'Đã thanh toán'";
+		Query<Cart> query = session.createNativeQuery(sql, Cart.class);
+		listCart = query.getResultList();
+		return listCart;
+	}
 }

@@ -168,7 +168,7 @@
                 <ul class="nav row">
                     <li class="nav-item col-6 text-center">
                         <div class="sub-bar"></div>
-                        <a href="./index.html" class="nav-link text-white "><img src="${pageContext.request.contextPath}/resources/image/bar-chart-5-24.png"/> Thống kê</a>
+                        <a href="${pageContext.request.contextPath}/config/thongke" class="nav-link text-white "><img src="${pageContext.request.contextPath}/resources/image/bar-chart-5-24.png"/> Thống kê</a>
                     </li>
                     <li class="nav-item dropdown col-6 text-center">
                         <a href="./the-loai.html" class="nav-link text-white"><img src="https://img.icons8.com/glyph-neue/32/ffffff/manager.png"/> Quản lý sản phẩm</a>
@@ -179,7 +179,6 @@
                         </div> -->
                     </li>
                 </ul>
-
             </div>
 
 		<!-- giỏ hàng -->
