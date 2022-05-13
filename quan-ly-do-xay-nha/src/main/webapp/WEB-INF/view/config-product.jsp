@@ -44,6 +44,10 @@
 
 <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
 
+<!-- modal js -->
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/poper-2.9.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 
 <link rel="icon"
 	href="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
@@ -190,12 +194,10 @@
 				<b>QUẢN LÝ SẢN PHẨM</b>
 			</h1>
 			<div class="text-center m-3">
-			<a id="delete_1" data-sp-ma="2"
-				class="btn btn-warning btn-delete-sanpham text-white "
-				href="${pageContext.request.contextPath}/config/createProduct">
-				<i class="fa-solid fa-circle-plus"></i> <b>Thêm sản phẩm</b>
-
-			</a>
+				<a id="btnAddPrd" data-sp-ma="2"
+					class="btn btn-warning btn-delete-sanpham text-white" href="#"
+					data-toggle="modal" data-target="#modalAdd"><i class="fa-solid fa-circle-plus"></i>Thêm sản phẩm
+				</a>
 			</div>
 			
 			<div class="row">
@@ -278,11 +280,36 @@
 		</div>
 	</div>
 
+	<!-- modal add -->
+	<div id="modalAdd" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="tab-content">
+					<div class="nav nav-tabs bg-dark" role="tablist">
+						<p class="nav-item text-white" style="margin: 0 auto">Form thêm sản phẩm</p>
+					</div>
+					<div class="form-input">
+						<input type="text" id="tensp" class="form-control mt-5" placeholder="Nhập tên sản phẩm"> 
+						<input type="text" id="gia" class="form-control mt-5" placeholder="Nhập giá"><br><br>
+						<input type="file" id="anh" name="myfile">
+						<textarea type="text" id="mota" class="form-control mt-5" placeholder="Nhập mô tả"></textarea>
+					</div>
+					<div class="btndangnhap text-center">
+						<button id="btnAdd" class="btn btn-dark mt-5 mb-5">
+							Thêm <span data-dismiss="modal"&times;></span>
+						</button>
+						<input id="btnHuy" type="button" class="btn btn-dark ml-3"
+							value="Huỷ" data-dismiss="modal"&times;>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-
 
 	<script type="text/javascript">
 
