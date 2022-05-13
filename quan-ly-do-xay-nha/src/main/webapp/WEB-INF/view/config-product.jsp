@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giỏ hàng</title>
+<title>Quản lý sản phẩm</title>
 
 <!--bootstrap5-->
 <link
@@ -177,7 +177,7 @@
 						Thống kê</a>
 				</li>
 				<li class="nav-item dropdown col-6 text-center"><a
-					href="./the-loai.html" class="nav-link text-white"><img
+					href="${pageContext.request.contextPath}/config" class="nav-link text-white"><img
 						src="https://img.icons8.com/glyph-neue/32/ffffff/manager.png" />
 						Quản lý sản phẩm</a> <!-- <div class="dropdown-menu">
                             <a href="#" class="dropdown-item">1</a>
