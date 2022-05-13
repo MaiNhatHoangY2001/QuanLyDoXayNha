@@ -26,7 +26,7 @@ public class ProductController {
 
 	@GetMapping("/")
 	public String listProductsHome(Model theModel) {
-		// load sp á»Ÿ slider
+		// load sp slider
 		List<Product> listProductSlider = new ArrayList<Product>();
 		int tong = 7;
 		for (int i = 1; i <= tong; i++) {
@@ -38,14 +38,14 @@ public class ProductController {
 				tong++;
 		}
 
-		// load 20 sp má»Ÿ rá»™ng
+		// load 20 sp mo rong
 		List<Product> listProduct = new ArrayList<Product>();
 		for (int i = 1; i <= 20; i++) {
 			Product temp20 = productService.getProductById(i);
 			listProduct.add(temp20);
 		}
 
-		// load 12 sp thu gá»�n
+		// load 12 sp thu gon
 		List<Product> listTwelveProduct = new ArrayList<Product>();
 		for (int i = 1; i <= 12; i++) {
 			Product temp = productService.getProductById(i);

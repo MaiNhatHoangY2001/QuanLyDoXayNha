@@ -79,7 +79,7 @@
 								<img src="/quan-ly-do-xay-nha/resources/image/icon_giohang.png"
 									alt="icon_cart">
 							</button>
-							<span id="soluong" class="text-white">0</span>
+							<!-- <span id="soluong" class="text-white">0</span> -->
 						</div>
 					</div>
 				</div>
@@ -107,10 +107,10 @@
 									style="text-decoration: none">Đăng nhập</a>
 							</h4>
 							<br>
-							<h4>
+							<!-- <h4>
 								<a href="/quan-ly-do-xay-nha/" style="text-decoration: none">Quay
 									lại trang chủ</a>
-							</h4>
+							</h4> -->
 						</div>
 
 					</div>
