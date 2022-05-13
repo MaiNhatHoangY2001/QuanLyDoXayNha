@@ -195,8 +195,7 @@
 			</h1>
 			<div class="text-center m-3">
 				<a id="btnAddPrd" data-sp-ma="2"
-					class="btn btn-warning btn-delete-sanpham text-white" href="#"
-					data-toggle="modal" data-target="#modalAdd"><i class="fa-solid fa-circle-plus"></i>Thêm sản phẩm
+					class="btn btn-warning btn-delete-sanpham text-white" href="${pageContext.request.contextPath}/config/createProduct"><i class="fa-solid fa-circle-plus"></i>Thêm sản phẩm
 				</a>
 			</div>
 			
@@ -251,7 +250,7 @@
 											</c:otherwise>
 										</c:choose> <a id="delete_1" data-sp-ma="2"
 										class="btn btn-primary btn-delete-sanpham"
-										href="${pageContext.request.contextPath}/delete/productId=${detail.product.id}/orderId=${detail.cart.id}">
+										href="${pageContext.request.contextPath}/config/updateProduct/${product.id}">
 											<i class="fa-solid fa-rotate"></i> <b>Cập nhật</b>
 
 									</a></td>
@@ -280,32 +279,6 @@
 		</div>
 	</div>
 
-	<!-- modal add -->
-	<div id="modalAdd" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="tab-content">
-					<div class="nav nav-tabs bg-dark" role="tablist">
-						<p class="nav-item text-white" style="margin: 0 auto">Form thêm sản phẩm</p>
-					</div>
-					<div class="form-input">
-						<input type="text" id="tensp" class="form-control mt-5" placeholder="Nhập tên sản phẩm"> 
-						<input type="text" id="gia" class="form-control mt-5" placeholder="Nhập giá"><br><br>
-						<input type="file" id="anh" name="myfile">
-						<textarea type="text" id="mota" class="form-control mt-5" placeholder="Nhập mô tả"></textarea>
-					</div>
-					<div class="btndangnhap text-center">
-						<button id="btnAdd" class="btn btn-dark mt-5 mb-5">
-							Thêm <span data-dismiss="modal"&times;></span>
-						</button>
-						<input id="btnHuy" type="button" class="btn btn-dark ml-3"
-							value="Huỷ" data-dismiss="modal"&times;>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 

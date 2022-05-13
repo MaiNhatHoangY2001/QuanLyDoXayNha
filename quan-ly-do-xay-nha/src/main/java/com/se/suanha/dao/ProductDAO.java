@@ -2,6 +2,7 @@ package com.se.suanha.dao;
 
 import java.util.List;
 
+import com.se.suanha.entity.Cart;
 import com.se.suanha.entity.Product;
 
 public interface ProductDAO {
@@ -20,4 +21,6 @@ public interface ProductDAO {
 	public List<String> search(String keyword);
 	
 	public void updateStatus(int idProduct, String value);
+	
+	public void saveProduct(Product product);
 }

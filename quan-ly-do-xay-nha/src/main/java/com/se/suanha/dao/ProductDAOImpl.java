@@ -100,4 +100,10 @@ public class ProductDAOImpl implements ProductDAO {
 				.setParameter(2, idProduct).executeUpdate();
 	}
 
+	@Override
+	public void saveProduct(Product product) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(product);
+	}
+
 }
