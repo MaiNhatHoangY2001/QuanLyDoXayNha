@@ -1,6 +1,5 @@
 package com.se.suanha.dao;
 
-
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -17,19 +16,28 @@ import com.se.suanha.entity.Product;
 public class ProductDAOImpl implements ProductDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public Product getProductById(int id) {
 		Session session;
 
 		try {
-		    session = sessionFactory.getCurrentSession();
+			session = sessionFactory.getCurrentSession();
 		} catch (HibernateException e) {
-		    session = sessionFactory.openSession();
+			session = sessionFactory.openSession();
 		}
 		Product product = session.get(Product.class, id);
 		session.close();
 		return product;
+	}
+
+	@Override
+	public List<Product> getProductsByPage(Integer offset, Integer maxResults) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<Product> theQuery = currentSession.createQuery("from Product as prd", Product.class)
+				.setFirstResult(offset != null ? offset : 0).setMaxResults(maxResults != null ? maxResults : 15);
+		List<Product> products = theQuery.getResultList();
+		return products;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -38,22 +46,29 @@ public class ProductDAOImpl implements ProductDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		Query<Product> theQuery = currentSession
 				.createQuery("from Product as prd where prd.title like :title", Product.class)
-				.setParameter( "title", "%" + title + "%", StringNVarcharType.INSTANCE )
-				.setFirstResult(offset!=null?offset:0)
-				.setMaxResults(maxResults!=null?maxResults:15);
+				.setParameter("title", "%" + title + "%", StringNVarcharType.INSTANCE)
+				.setFirstResult(offset != null ? offset : 0).setMaxResults(maxResults != null ? maxResults : 15);
 		List<Product> products = theQuery.getResultList();
 		return products;
 	}
-
 
 	@Override
 	public Long count(String title) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		Query<Long> query = currentSession.createQuery(
-		        "select count(*) from Product as prd where prd.title  like :title")
-				.setParameter( "title", "%" + title + "%", StringNVarcharType.INSTANCE );
-		Long count = (Long)query.uniqueResult();
+		Query<Long> query = currentSession
+				.createQuery("select count(*) from Product as prd where prd.title  like :title")
+				.setParameter("title", "%" + title + "%", StringNVarcharType.INSTANCE);
+		Long count = (Long) query.uniqueResult();
+		return count;
+	}
+
+	@Override
+	public Long count() {
+		Session currentSession = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		Query<Long> query = currentSession.createQuery("select count(*) from Product as prd");
+		Long count = (Long) query.uniqueResult();
 		return count;
 	}
 
@@ -61,19 +76,28 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public List<String> search(String keyword) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Query<String> theQuery = currentSession.createQuery("SELECT prd.title from Product as prd where prd.title like '%"+keyword+"%'");
-		List<String> titles =(List<String>) theQuery.list();
+		Query<String> theQuery = currentSession
+				.createQuery("SELECT prd.title from Product as prd where prd.title like '%" + keyword + "%'");
+		List<String> titles = (List<String>) theQuery.list();
 		return titles;
 	}
 
 	@Override
 	public List<Product> getProducts() {
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		Query<Product> theQuery = session.createQuery("from Product", Product.class);
-		
+
 		List<Product> products = theQuery.getResultList();
 		return products;
+	}
+
+	@Override
+	public void updateProduct(int idProduct) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "update products set status = ? where id=?";
+		session.createNativeQuery(sql).setParameter(1,"false")
+				.setParameter(2, idProduct).executeUpdate();
 	}
 
 }

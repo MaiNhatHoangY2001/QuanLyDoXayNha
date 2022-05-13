@@ -85,11 +85,9 @@ public class ProductController {
 	public String listProducts(@PathVariable(value = "title") String title, Model theModel, Integer offset,
 			Integer maxResults) {
 		List<Product> list = productService.getProductsByPage(offset, maxResults, title);
-		List<String> titles = new ArrayList<String>();
 		theModel.addAttribute("count", productService.count(title));
 		theModel.addAttribute("offset", offset);
 		theModel.addAttribute("products", list);
-		theModel.addAttribute("titles", titles);
 		theModel.addAttribute("title", title);
 		return "list-product";
 	}
@@ -100,4 +98,15 @@ public class ProductController {
 		List<String> titles = productService.search(term);
 		return titles;
 	}
+
+	@GetMapping("/config")
+	public String config(Model theModel, Integer offset, Integer maxResults) {
+		List<Product> list = productService.getProductsByPage(offset, maxResults);
+		theModel.addAttribute("count", productService.count());
+		theModel.addAttribute("offset", offset);
+		theModel.addAttribute("products", list);
+
+		return "config-product";
+	}
+
 }

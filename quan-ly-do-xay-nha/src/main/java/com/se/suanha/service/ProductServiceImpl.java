@@ -43,4 +43,16 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getProducts();
 	}
 
+	@Override
+	@Transactional
+	public Long count() {
+		return productDAO.count();
+	}
+
+	@Override
+	@Transactional
+	public List<Product> getProductsByPage(Integer offset, Integer maxResults) {
+		return productDAO.getProductsByPage(offset, maxResults);
+	}
+
 }
