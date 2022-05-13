@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giỏ hàng</title>
+<title>Quản lý sản phẩm</title>
 
 <!--bootstrap5-->
 <link
@@ -44,6 +44,13 @@
 
 <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
 
+<!-- modal js -->
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/poper-2.9.2.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 
 <link rel="icon"
 	href="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
@@ -164,28 +171,40 @@
 		</div>
 
 		<!-- navigation -->
-            <div id="main-nav">
-                <ul class="nav row">
-                    <li class="nav-item col-6 text-center">
-                        <div class="sub-bar"></div>
-                        <a href="${pageContext.request.contextPath}/config/thongke" class="nav-link text-white "><img src="${pageContext.request.contextPath}/resources/image/bar-chart-5-24.png"/> Thống kê</a>
-                    </li>
-                    <li class="nav-item dropdown col-6 text-center">
-                        <a href="./the-loai.html" class="nav-link text-white"><img src="https://img.icons8.com/glyph-neue/32/ffffff/manager.png"/> Quản lý sản phẩm</a>
-                        <!-- <div class="dropdown-menu">
+
+		<div id="main-nav">
+			<ul class="nav row">
+				<li class="nav-item col-6 text-center">
+					<div class="sub-bar"></div> <a
+					href="${pageContext.request.contextPath}/config/thongke"
+					class="nav-link text-white "><img
+						src="${pageContext.request.contextPath}/resources/image/bar-chart-5-24.png" />
+						Thống kê</a>
+				</li>
+				<li class="nav-item dropdown col-6 text-center"><a
+					href="${pageContext.request.contextPath}/config"
+					class="nav-link text-white"><img
+						src="https://img.icons8.com/glyph-neue/32/ffffff/manager.png" />
+						Quản lý sản phẩm</a> <!-- <div class="dropdown-menu">
                             <a href="#" class="dropdown-item">1</a>
                             <a href="#" class="dropdown-item">2</a>
                             <a href="#" class="dropdown-item">3</a>
-                        </div> -->
-                    </li>
-                </ul>
-            </div>
+                        </div> --></li>
+			</ul>
+		</div>
 
 		<!-- giỏ hàng -->
 		<div id="content_cart" class="gh bg-white">
 			<h1 class="text-center" style="padding-top: 6px;">
 				<b>QUẢN LÝ SẢN PHẨM</b>
 			</h1>
+			<div class="text-center m-3">
+				<a id="btnAddPrd" data-sp-ma="2"
+					class="btn btn-warning btn-delete-sanpham text-white"
+					href="${pageContext.request.contextPath}/config/createProduct"><i
+					class="fa-solid fa-circle-plus"></i>Thêm sản phẩm </a>
+			</div>
+
 			<div class="row">
 				<div class="col col-md-12">
 					<table class="table table-bordered">
@@ -231,14 +250,13 @@
 												<a id="delete_1" data-sp-ma="2"
 													class="btn btn-success btn-delete-sanpham"
 													href="${pageContext.request.contextPath}/config/updateStatusConBan/${product.id}">
-													<i class="fa-solid fa-circle-check"></i> <b>
-														Bán</b>
+													<i class="fa-solid fa-circle-check"></i> <b> Bán</b>
 
 												</a>
 											</c:otherwise>
 										</c:choose> <a id="delete_1" data-sp-ma="2"
 										class="btn btn-primary btn-delete-sanpham"
-										href="${pageContext.request.contextPath}/delete/productId=${detail.product.id}/orderId=${detail.cart.id}">
+										href="${pageContext.request.contextPath}/config/updateProduct/${product.id}">
 											<i class="fa-solid fa-rotate"></i> <b>Cập nhật</b>
 
 									</a></td>
@@ -271,7 +289,6 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-
 
 	<script type="text/javascript">
 

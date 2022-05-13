@@ -97,6 +97,23 @@ public class Product {
 		this.status = status;
 	}
 
+	public Product(int id, String title, String price, String link, String description) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.price = price;
+		this.link = link;
+		this.description = description;
+	}
+
+	public Product(String title, String price, String link, String description) {
+		super();
+		this.title = title;
+		this.price = price;
+		this.link = link;
+		this.description = description;
+	}
+
 	public Product() {
 	}
 

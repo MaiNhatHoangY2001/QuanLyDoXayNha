@@ -61,4 +61,10 @@ public class ProductServiceImpl implements ProductService {
 		productDAO.updateStatus(idProduct, value);
 	}
 
+	@Override
+	@Transactional
+	public void saveProduct(Product product) {
+		productDAO.saveProduct(product);
+	}
+
 }

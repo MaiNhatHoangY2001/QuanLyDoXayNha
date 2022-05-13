@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Thêm sản phẩm</title>
+<title>Sửa sản phẩm</title>
 
 <!--bootstrap5-->
 <link
@@ -56,17 +56,21 @@
 						sản phẩm</p>
 				</div>
 				<div class="form-input">
+				<input type="text" id="id" class="form-control mt-5"
+						placeholder="Nhập tên sản phẩm" name="id"
+						value="${product.id}">
 					<input type="text" id="tensp" class="form-control mt-5"
-						placeholder="Nhập tên sản phẩm" name="title"> <input
-						type="text" id="gia" class="form-control mt-5"
-						placeholder="Nhập giá" name="price"><br> <br> <input
-						type="file" id="anh" name="link" accept="image/*">
-					<textarea type="text" id="mota" class="form-control mt-5"
-						placeholder="Nhập mô tả" name="description"></textarea>
+						placeholder="Nhập tên sản phẩm" name="title"
+						value="${product.title}"> <input type="text" id="gia"
+						class="form-control mt-5" placeholder="Nhập giá" name="price"
+						value="${product.price}"><br> <br> <input
+						type="file" id="anh" name="link" value="${product.link}" accept="image/*">
+					<textarea id="mota" class="form-control mt-5"
+						placeholder="Nhập mô tả" name="description">${product.description}</textarea>
 				</div>
 				<div class="btndangnhap text-center">
 					<button id="btnAdd" class="btn btn-dark mt-5 mb-5" type="submit">
-						Thêm <span data-dismiss="modal"&times;></span>
+						Sửa <span data-dismiss="modal"&times;></span>
 					</button>
 
 				</div>

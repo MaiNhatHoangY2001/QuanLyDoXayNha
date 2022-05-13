@@ -6,11 +6,13 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -123,5 +125,34 @@ public class ProductController {
 		productService.updateStatus(idProduct, "true");
 		String referer = request.getHeader("Referer");
 		return "redirect:" + referer;
+	}
+
+	@GetMapping("/config/createProduct")
+	public String createProduct() {
+		return "create-product";
+	}
+	
+	@GetMapping("/config/updateProduct/{idProduct}")
+	public String updateProduct(Model theModel,@PathVariable int idProduct) {
+		
+		Product product = productService.getProductById(idProduct);
+		
+		String link = product.getLink().replace("image/", "");
+		product.setLink(link);
+		theModel.addAttribute("product", product);
+		
+		return "update-product";
+	}
+
+	@GetMapping("/config/handleProduct")
+	public String handleCreateProduct(@Valid @ModelAttribute("product") Product product) {
+
+		String link = "image/" + product.getLink();
+		product.setLink(link);
+		product.setStatus("true");
+
+		productService.saveProduct(product);
+
+		return "redirect:/config";
 	}
 }

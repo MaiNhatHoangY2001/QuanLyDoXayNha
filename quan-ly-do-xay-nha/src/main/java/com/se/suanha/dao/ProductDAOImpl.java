@@ -99,7 +99,10 @@ public class ProductDAOImpl implements ProductDAO {
 		session.createNativeQuery(sql).setParameter(1, value)
 				.setParameter(2, idProduct).executeUpdate();
 	}
-
 	
-	
+	@Override
+	public void saveProduct(Product product) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(product);
+	}
 }

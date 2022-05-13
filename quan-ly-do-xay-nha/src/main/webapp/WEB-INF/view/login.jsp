@@ -58,7 +58,7 @@
 			<div id="navbar" class="row">
 				<div>
 					<div class="img_logo">
-						<a href="${pageContext.request.contextPath}/"><img
+						<a href="/quan-ly-do-xay-nha/"><img
 							style="width: 20%;"
 							src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
 							alt="logo"></a>

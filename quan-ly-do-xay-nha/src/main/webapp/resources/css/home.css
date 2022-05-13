@@ -32,6 +32,7 @@ body {
     display: flex;
     float: left;
     cursor: pointer;
+    margin-top: 3%;
 }
 
 .img_logo img:hover {
@@ -39,7 +40,12 @@ body {
     border-bottom: 2px dashed #6C6C6C;
     border-left: 2px dashed #6C6C6C;
 }
-
+#tenLogin{
+	display: flex;
+	margin-left: 25%;
+	margin-top: -4%;
+	padding-bottom: 2%;
+}
 #navbar p {
     font-size: 20px;
     margin: 0 auto;
@@ -51,7 +57,7 @@ body {
 #navbar #form_chucnang {
     display: flex;
     float: right;
-    width: 40%;
+    width: 45%;
     /* border: 1px solid black; */
     margin-top: -30px;
     padding-left: 10px;

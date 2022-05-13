@@ -62,7 +62,7 @@
 			<div id="navbar" class="row">
 				<div>
 					<div class="img_logo">
-						<a href="./home_after_signup_signin.html"><img
+						<a href="/quan-ly-do-xay-nha/"><img
 							style="width: 20%;"
 							src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
 							alt="logo"></a>
@@ -232,7 +232,7 @@
 				</div>
 
 				<div id="top_footer" class="row">
-					<a href="./home_before_signup_signin.html" class="col-3"><img
+					<a href="/quan-ly-do-xay-nha/" class="col-3"><img
 						style="width: 100%; margin-left: 15px;"
 						src="/quan-ly-do-xay-nha/resources/image/logo_size_1-removebg-preview.png"
 						alt="logo"></a>
